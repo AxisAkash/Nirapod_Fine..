@@ -1,1 +1,0 @@
-"""Mamla Verification backend application."""
