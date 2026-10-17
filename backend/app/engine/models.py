@@ -126,6 +126,7 @@ class Justification:
     title: str
     text: str
     meta: str = ""
+    kind: str = "check"  # "check" for section and amount findings, "exception" for exception findings
 
 
 @dataclass

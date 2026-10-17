@@ -36,7 +36,7 @@ def _exception(e: ExceptionCheck) -> dict[str, Any]:
 
 
 def _justification(j: Justification) -> dict[str, Any]:
-    return {"tone": j.tone, "title": j.title, "text": j.text, "meta": j.meta}
+    return {"tone": j.tone, "title": j.title, "text": j.text, "meta": j.meta, "kind": j.kind}
 
 
 def result_to_dict(r: ValidationResult) -> dict[str, Any]:

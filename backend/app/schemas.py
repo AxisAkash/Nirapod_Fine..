@@ -39,6 +39,9 @@ class CaseListItem(BaseModel):
     amount: int | None
     section: str | None
     confidence: float | None
+    receipt_number: str | None = None
+    location: str | None = None
+    dummy_url: str | None = None
 
 
 class CaseList(BaseModel):
@@ -55,7 +58,10 @@ class UploadOut(BaseModel):
 
 
 class DummyIn(BaseModel):
-    url: str = Field(min_length=3, max_length=2000)
+    """A notice URL the user entered (not fetched) and/or a sample scenario key to use as the notice."""
+
+    url: str | None = Field(default=None, min_length=3, max_length=2000)
+    scenario: str | None = Field(default=None, max_length=40)
 
 
 class AliasIn(BaseModel):

@@ -205,3 +205,97 @@ def test_offence_rules_list_and_search(client, user_h):
     found = client.get("/api/offence-rules", params={"q": "parking"}, headers=user_h).json()["items"]
     assert [r["section_number"] for r in found] == ["90"]
     assert client.get("/api/offence-rules").status_code == 401
+
+
+# ---------- sample notices (the dashboard's URL card) --------------------------------------------------
+def test_sample_scenarios_are_listed_for_the_picker(client, user_h):
+    items = client.get("/api/dummy-url/scenarios", headers=user_h).json()
+    assert {i["key"] for i in items} >= {"speed", "permit", "park", "signal", "tax"}
+    assert all(i["reason"] and i["amount"] for i in items)
+    assert client.get("/api/dummy-url/scenarios").status_code == 401
+
+
+def test_entered_url_is_kept_but_the_chosen_scenario_decides_the_notice(client, user_h):
+    url = "https://example.com/traffic-fine-notice/0410"
+    body = client.post("/api/dummy-url/analyze", json={"url": url, "scenario": "park"}, headers=user_h).json()
+    assert body["dummy_url"] == url and body["extracted"]["reason"] == "parking violation"
+    assert body["validation_status"] == "INVALID_FINE_TOO_HIGH"  # Tk 9,000 against the Tk 5,000 parking limit
+
+
+def test_sample_notice_without_a_url(client, user_h):
+    r = client.post("/api/dummy-url/analyze", json={"scenario": "speed"}, headers=user_h)
+    assert r.status_code == 201 and r.json()["dummy_url"] is None and r.json()["case_source"] == "dummy_url"
+
+
+def test_sample_notice_needs_a_url_or_a_scenario_and_rejects_unknown_scenarios(client, user_h):
+    assert client.post("/api/dummy-url/analyze", json={}, headers=user_h).status_code == 422
+    assert client.post("/api/dummy-url/analyze", json={"scenario": "nope"}, headers=user_h).status_code == 422
+    assert client.get("/api/dummy-url/preview", headers=user_h).status_code == 422
+
+
+def test_case_list_includes_what_the_dashboard_table_shows(client, user_h):
+    manual(client, user_h, reason="speeding", amount=3000, receipt_number="DMP-1", location="Dhaka")
+    client.post("/api/dummy-url/analyze", json={"url": "https://example.com/n", "scenario": "speed"}, headers=user_h)
+    items = {i["case_source"]: i for i in client.get("/api/cases", headers=user_h).json()["items"]}
+    assert items["manual_entry"]["receipt_number"] == "DMP-1" and items["manual_entry"]["location"] == "Dhaka"
+    assert items["dummy_url"]["dummy_url"] == "https://example.com/n"
+
+
+def test_justifications_say_which_ones_are_exception_findings(client, user_h):
+    body = manual(client, user_h, reason="no route permit", amount=5000, vehicle="ambulance")
+    kinds = {j["kind"] for j in body["analysis"]["justifications"]}
+    assert kinds == {"check", "exception"}
+    leads = ("Exception possible:", "Checked, not applicable:", "Exception claim rejected:", "No exception applies")
+    assert all(j["title"].startswith(leads) for j in body["analysis"]["justifications"] if j["kind"] == "exception")
+    assert not any(j["title"].startswith(leads) for j in body["analysis"]["justifications"] if j["kind"] == "check")
+
+
+# ---------- first sign-in: several requests at once must not fight over creating the user ---------------
+def test_simultaneous_first_requests_create_the_user_exactly_once(db):
+    from concurrent.futures import ThreadPoolExecutor
+
+    from fastapi.testclient import TestClient
+
+    from app.main import app
+
+    def hit(path):
+        with TestClient(app, raise_server_exceptions=False) as c:
+            return c.get(path, headers=auth("dev:newcomer")).status_code
+
+    paths = ["/api/me", "/api/cases", "/api/me", "/api/offence-rules", "/api/me", "/api/cases", "/api/me", "/api/cases"]
+    with ThreadPoolExecutor(max_workers=len(paths)) as pool:
+        codes = list(pool.map(hit, paths))
+    assert codes == [200] * len(paths), codes
+    assert db.scalar(select(func.count()).select_from(models.User).where(models.User.clerk_user_id == "dev:newcomer")) == 1
+
+
+def test_losing_the_race_to_create_the_user_returns_the_existing_row(db):
+    """Another request created the user between our lookup and our insert: we must use theirs, not crash."""
+    from fastapi.security import HTTPAuthorizationCredentials
+
+    from app.core.config import get_settings
+    from app.core.security import get_current_user
+
+    existing = models.User(clerk_user_id="dev:racer", email="racer@example.test", full_name="Racer", role="user")
+    db.add(existing)
+    db.commit()
+
+    class StaleLookup:
+        """A session whose first lookup misses, as if the row did not exist yet when we looked."""
+
+        def __init__(self, real):
+            self._real, self._missed = real, False
+
+        def scalar(self, *a, **k):
+            if not self._missed:
+                self._missed = True
+                return None
+            return self._real.scalar(*a, **k)
+
+        def __getattr__(self, name):
+            return getattr(self._real, name)
+
+    creds = HTTPAuthorizationCredentials(scheme="Bearer", credentials="dev:racer")
+    user = get_current_user(creds, StaleLookup(db), get_settings())
+    assert user.id == existing.id
+    assert db.scalar(select(func.count()).select_from(models.User).where(models.User.clerk_user_id == "dev:racer")) == 1

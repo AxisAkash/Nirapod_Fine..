@@ -32,7 +32,7 @@ def token(private=KEY, kid="test-key-1", **claims):
 
 @pytest.fixture
 def clerk(client, monkeypatch):
-    settings = Settings(auth_mode="clerk", clerk_issuer=ISSUER, admin_emails=["boss@example.test"])
+    settings = Settings(auth_mode="clerk", clerk_issuer=ISSUER, admin_emails=["boss@example.test"], _env_file=None)
     app.dependency_overrides[get_settings] = lambda: settings
     calls = []
     monkeypatch.setattr(security, "fetch_jwks", lambda url: calls.append(url) or [JWK])
@@ -98,7 +98,7 @@ def test_dev_tokens_do_not_work_in_clerk_mode(client, clerk):
 
 
 def test_audience_is_enforced_when_configured(client, monkeypatch):
-    settings = Settings(auth_mode="clerk", clerk_issuer=ISSUER, clerk_audience="nirapod-api")
+    settings = Settings(auth_mode="clerk", clerk_issuer=ISSUER, clerk_audience="nirapod-api", _env_file=None)
     app.dependency_overrides[get_settings] = lambda: settings
     monkeypatch.setattr(security, "fetch_jwks", lambda url: [JWK])
     security._jwks_cache.update(at=0.0, url=None, keys=[])
@@ -112,9 +112,9 @@ def test_audience_is_enforced_when_configured(client, monkeypatch):
 
 def test_dev_mode_is_refused_in_production():
     with pytest.raises(ValueError, match="not allowed"):
-        Settings(environment="production", auth_mode="dev")
+        Settings(environment="production", auth_mode="dev", _env_file=None)
 
 
 def test_clerk_mode_needs_an_issuer_or_jwks_url():
     with pytest.raises(ValueError, match="CLERK_ISSUER"):
-        Settings(auth_mode="clerk")
+        Settings(auth_mode="clerk", _env_file=None)

@@ -14,6 +14,7 @@ def case_list_item(c: models.MamlaCase) -> CaseListItem:
         reason=c.extracted_reason, amount=c.extracted_amount,
         section=c.matched_rule.section_number if c.matched_rule else None,
         confidence=float(c.confidence_score) if c.confidence_score is not None else None,
+        receipt_number=c.extracted_receipt_number, location=c.extracted_location, dummy_url=c.dummy_url,
     )
 
 

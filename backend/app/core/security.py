@@ -14,6 +14,7 @@ import jwt
 from fastapi import Depends, HTTPException, status
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from sqlalchemy import select
+from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
 from app import models
@@ -125,7 +126,15 @@ def get_current_user(
         user.email = email or user.email
         user.full_name = ident.get("name") or user.full_name
         user.role = role
-    db.commit()
+    try:
+        db.commit()
+    except IntegrityError:
+        # A page makes several requests at once, so on a first sign-in another request may have created this user
+        # between our lookup and our insert. That is fine: use the row that won.
+        db.rollback()
+        user = db.scalar(select(models.User).where(models.User.clerk_user_id == ident["id"]))
+        if user is None:
+            raise
     return user
 
 

@@ -1,27 +1,43 @@
-"""Stand-in for an external AI mamla service. The words in the URL choose a repeatable scenario."""
+"""Stand-in for an external AI mamla service. A scenario key or words in the URL choose a repeatable sample."""
 
 from __future__ import annotations
 
 from typing import Any
 
 SCENARIOS: list[dict[str, Any]] = [
-    {"match": "speed", "reason": "exceeding speed limit", "amount": 3000, "vehicle": "motorcycle", "section": "87",
+    {"key": "speed", "reason": "exceeding speed limit", "amount": 3000, "vehicle": "motorcycle", "section": "87",
      "location": "Dhaka", "date": "2026-10-12", "notes": ""},
-    {"match": "permit", "reason": "no route permit", "amount": 5000, "vehicle": "ambulance", "section": "77",
+    {"key": "permit", "reason": "no route permit", "amount": 5000, "vehicle": "ambulance", "section": "77",
      "location": "Dhaka", "date": "2026-10-10", "notes": ""},
-    {"match": "park", "reason": "parking violation", "amount": 9000, "vehicle": "car", "section": "90",
+    {"key": "park", "reason": "parking violation", "amount": 9000, "vehicle": "car", "section": "90",
      "location": "Sylhet", "date": "2026-10-11", "notes": ""},
-    {"match": "signal", "reason": "red light violation", "amount": 3000, "vehicle": "car", "section": "88",
+    {"key": "signal", "reason": "red light violation", "amount": 3000, "vehicle": "car", "section": "88",
      "location": "Khulna", "date": "2026-10-09", "notes": ""},
-    {"match": "tax", "reason": "tax token expired", "amount": 4000, "vehicle": "truck", "section": "",
+    {"key": "tax", "reason": "tax token expired", "amount": 4000, "vehicle": "truck", "section": "",
      "location": "Rajshahi", "date": "2026-10-08", "notes": ""},
-    {"match": "emergency", "reason": "speeding", "amount": 4000, "vehicle": "ambulance", "section": "",
+    {"key": "emergency", "reason": "speeding", "amount": 4000, "vehicle": "ambulance", "section": "",
      "location": "Dhaka", "date": "2026-10-07", "notes": "rushing patient to hospital"},
 ]
 
 
-def mock_mamla(url: str) -> dict[str, Any]:
-    low = url.lower()
-    pick = next((s for s in SCENARIOS if s["match"] in low), None) or SCENARIOS[sum(map(ord, url)) % len(SCENARIOS)]
-    number = f"AIM-{sum(map(ord, url)) % 9000 + 1000}"
-    return {**{k: v for k, v in pick.items() if k != "match"}, "receipt_number": number}
+def _number(seed: str) -> str:
+    return f"AIM-{sum(map(ord, seed)) % 9000 + 1000}"
+
+
+def scenario_by_key(key: str) -> dict[str, Any] | None:
+    return next((s for s in SCENARIOS if s["key"] == key), None)
+
+
+def mock_mamla(url: str | None = None, scenario: str | None = None) -> dict[str, Any]:
+    """Sample notice data. An explicit scenario wins, then a scenario word in the URL, then a stable pick."""
+    pick = scenario_by_key(scenario) if scenario else None
+    low = (url or "").lower()
+    if pick is None:
+        pick = next((s for s in SCENARIOS if s["key"] in low), None)
+    if pick is None:
+        pick = SCENARIOS[sum(map(ord, url or "")) % len(SCENARIOS)]
+    return {**{k: v for k, v in pick.items() if k != "key"}, "receipt_number": _number(pick["key"] if scenario else (url or pick["key"]))}
+
+
+def list_scenarios() -> list[dict[str, Any]]:
+    return [{"key": s["key"], **mock_mamla(scenario=s["key"])} for s in SCENARIOS]

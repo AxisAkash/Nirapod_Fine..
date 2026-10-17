@@ -279,6 +279,7 @@ def _justify(
                     "No emergency, permit or special-vehicle claim was found, and the vehicle type triggers none of "
                     f"the {len(dataset.exceptions)} exception rules.",
                     f"{len(dataset.exceptions)} exception rules evaluated",
+                    kind="exception",
                 )
             )
         for e in r.exceptions:
@@ -288,7 +289,7 @@ def _justify(
                 tone, lead = "info", "Checked, not applicable: "
             else:
                 tone, lead = "bad", "Exception claim rejected: "
-            out.append(Justification(tone, lead + e.title, e.reason, e.source_reference))
+            out.append(Justification(tone, lead + e.title, e.reason, e.source_reference, kind="exception"))
         if rule.imprisonment_text:
             out.append(Justification("info", "Imprisonment may also apply", rule.imprisonment_text, rule.source_reference))
     return out
