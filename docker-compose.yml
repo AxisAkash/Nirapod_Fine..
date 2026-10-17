@@ -1,0 +1,21 @@
+services:
+  db:
+    image: postgres:17
+    container_name: nirapod-db
+    environment:
+      POSTGRES_USER: nirapod
+      POSTGRES_PASSWORD: nirapod
+      POSTGRES_DB: nirapod
+    ports:
+      - "5432:5432"
+    volumes:
+      - nirapod-pgdata:/var/lib/postgresql/data
+      - ./docker/init-test-db.sql:/docker-entrypoint-initdb.d/init-test-db.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U nirapod -d nirapod"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+volumes:
+  nirapod-pgdata:
