@@ -7,38 +7,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-manrope);
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
-    "Courier New", monospace;
-  --font-heading: var(--font-manrope);
-
-  /* Brand palette */
-  --color-brand: #075b45;
-  --color-brand-dark: #043c30;
-  --color-brand-soft: #e8f3ef;
-  --color-brand-wash: #f1f8f5;
-  --color-gold: #d9a441;
-  --color-gold-soft: #f4e4b5;
-  --color-canvas: #f8faf9;
-  --color-ink: #17211e;
-  --color-ink-secondary: #4d5a55;
-  --color-ink-muted: #6b7772;
-  --color-line: #dfe7e3;
-
-  /* Semantic verification statuses */
-  --color-status-conforms: #0f7a56;
-  --color-status-conforms-bg: #e6f2ec;
-  --color-status-conforms-border: #c3dfd3;
-  --color-status-alert: #a2452f;
-  --color-status-alert-bg: #f8edea;
-  --color-status-alert-border: #eacfc8;
-  --color-status-neutral: #315c7d;
-  --color-status-neutral-bg: #edf5fa;
-  --color-status-neutral-border: #c8dcea;
-  --color-status-review: #8a6521;
-  --color-status-review-bg: #f7f0e1;
-  --color-status-review-border: #e6d9bc;
-
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-sans);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -78,38 +49,38 @@
 }
 
 :root {
-  --background: #f8faf9;
-  --foreground: #17211e;
-  --card: #ffffff;
-  --card-foreground: #17211e;
-  --popover: #ffffff;
-  --popover-foreground: #17211e;
-  --primary: #075b45;
-  --primary-foreground: #ffffff;
-  --secondary: #eef3f1;
-  --secondary-foreground: #043c30;
-  --muted: #eff3f1;
-  --muted-foreground: #66736e;
-  --accent: #edf2ef;
-  --accent-foreground: #043c30;
-  --destructive: #b42318;
-  --border: #dfe7e3;
-  --input: #cfdcd6;
-  --ring: #075b45;
-  --chart-1: #075b45;
-  --chart-2: #d9a441;
-  --chart-3: #66736e;
-  --chart-4: #0f7a56;
-  --chart-5: #8a6521;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
   --radius: 0.625rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: #075b45;
+  --sidebar-primary: oklch(0.205 0 0);
   --sidebar-primary-foreground: oklch(0.985 0 0);
   --sidebar-accent: oklch(0.97 0 0);
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: #075b45;
+  --sidebar-ring: oklch(0.708 0 0);
 }
 
 .dark {
@@ -119,8 +90,8 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: #0f8a68;
-  --primary-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
@@ -130,12 +101,12 @@
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: #0f8a68;
-  --chart-1: #0f8a68;
-  --chart-2: #d9a441;
-  --chart-3: oklch(0.556 0 0);
-  --chart-4: #0f8a68;
-  --chart-5: #d9a441;
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
   --sidebar-primary: oklch(0.488 0.243 264.376);
@@ -154,99 +125,6 @@
     @apply bg-background text-foreground;
   }
   html {
-    @apply scroll-smooth font-sans;
-  }
-  html.font-bangla body {
-    font-family: var(--font-bengali), var(--font-manrope), sans-serif;
-  }
-  ::selection {
-    background-color: var(--color-gold-soft);
-    color: var(--color-ink);
-  }
-}
-
-@layer components {
-  .type-display {
-    font-size: clamp(2.5rem, 1.6rem + 3.6vw, 4rem);
-    line-height: 1.04;
-    letter-spacing: -0.03em;
-    font-weight: 600;
-  }
-
-  .type-h1 {
-    font-size: clamp(2rem, 1.4rem + 2.4vw, 3rem);
-    line-height: 1.1;
-    letter-spacing: -0.025em;
-    font-weight: 600;
-  }
-
-  .type-h2 {
-    font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2.125rem);
-    line-height: 1.18;
-    letter-spacing: -0.02em;
-    font-weight: 600;
-  }
-
-  .type-h3 {
-    font-size: 1.125rem;
-    line-height: 1.35;
-    letter-spacing: -0.01em;
-    font-weight: 600;
-  }
-
-  .type-body {
-    font-size: 1rem;
-    line-height: 1.65;
-  }
-
-  .type-small {
-    font-size: 0.9375rem;
-    line-height: 1.55;
-  }
-
-  .type-caption {
-    font-size: 0.75rem;
-    line-height: 1.4;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-weight: 600;
-  }
-
-  .surface-raised {
-    background-color: var(--color-card);
-    box-shadow:
-      0 1px 2px rgb(23 33 30 / 0.04),
-      0 12px 32px -12px rgb(7 91 69 / 0.12);
-  }
-
-  .hairline-grid {
-    background-image:
-      linear-gradient(to right, rgb(23 33 30 / 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgb(23 33 30 / 0.05) 1px, transparent 1px);
-    background-size: 48px 48px;
-  }
-
-  .section-rule {
-    border-top: 1px solid var(--color-line);
-  }
-
-  .focus-ring:focus-visible {
-    outline: 3px solid color-mix(in srgb, var(--color-brand) 35%, transparent);
-    outline-offset: 3px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
-    transition-duration: 0.01ms !important;
+    @apply font-sans;
   }
 }

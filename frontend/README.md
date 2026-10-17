@@ -1,25 +1,36 @@
-# Mamla Verification Frontend
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-The frontend is a Next.js App Router application. It communicates with the FastAPI backend over HTTP and does not import backend code or serve uploaded files.
+## Getting Started
 
-## Setup
+First, run the development server:
 
 ```bash
-cd frontend
-npm install
-copy .env.example .env.local  # Windows
-# cp .env.example .env.local  # macOS/Linux
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-`NEXT_PUBLIC_API_BASE_URL` must point to the backend API, normally `http://localhost:8000/api`. Start the backend before uploading a notice. The URL input remains display-only because the backend intentionally does not fetch arbitrary external URLs.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Validation
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-```bash
-cd frontend
-npm run lint
-npm run build
-```
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-The verification workspace creates a case, uploads the selected file or pasted text, starts extraction, displays candidate values with source references, and sends user-confirmed values to the backend. The active case ID is kept in browser storage so a refresh can restore the persisted workflow. OCR success is not a legal conclusion; result states remain deterministic workflow classifications with limitations.
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
