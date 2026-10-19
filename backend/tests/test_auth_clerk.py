@@ -118,3 +118,18 @@ def test_dev_mode_is_refused_in_production():
 def test_clerk_mode_needs_an_issuer_or_jwks_url():
     with pytest.raises(ValueError, match="CLERK_ISSUER"):
         Settings(auth_mode="clerk", _env_file=None)
+
+
+def test_admin_email_applies_to_existing_user_when_token_has_no_email(db, monkeypatch):
+    """Session tokens carry no email, so the stored email must decide the admin role on later requests."""
+    from app import models
+    from app.core import security
+    from app.core.config import Settings
+
+    settings = Settings(_env_file=None, auth_mode="clerk", clerk_issuer="https://x.clerk.test", admin_emails=["boss@example.com"])
+    user = models.User(clerk_user_id="user_x", email="boss@example.com", full_name=None, role="user")
+    db.add(user)
+    db.commit()
+    monkeypatch.setattr(security, "_identity", lambda t, s: {"id": "user_x", "email": None, "name": None, "role": None})
+    creds = type("C", (), {"scheme": "Bearer", "credentials": "t"})()
+    assert security.get_current_user(creds, db, settings).role == "admin"

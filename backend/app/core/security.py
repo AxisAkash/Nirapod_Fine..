@@ -117,7 +117,7 @@ def get_current_user(
     user = db.scalar(select(models.User).where(models.User.clerk_user_id == ident["id"]))
     if user is None and ident.get("needs_profile"):
         ident.update({k: v for k, v in _profile_from_clerk_api(ident["id"], settings).items() if v})
-    email = ident.get("email")
+    email = ident.get("email") or (user.email if user else None)
     role = "admin" if (ident.get("role") == "admin" or (email and email.lower() in {e.lower() for e in settings.admin_emails})) else "user"
     if user is None:
         user = models.User(clerk_user_id=ident["id"], email=email, full_name=ident.get("name"), role=role)
