@@ -1,0 +1,171 @@
+[
+  {
+    "file": "en_speed.jpg",
+    "expect": {
+      "reason": "over speed",
+      "amount": 3000,
+      "date": "2026-10-12",
+      "location": "Dhaka, Banani",
+      "vehicle": "motorcycle",
+      "receipt_number": "DMP-0412",
+      "section": "87",
+      "notes": null
+    },
+    "kind": "clean"
+  },
+  {
+    "file": "en_parking.jpg",
+    "expect": {
+      "reason": "illegal parking",
+      "amount": 2000,
+      "date": "2026-10-03",
+      "location": "Dhanmondi, Dhaka",
+      "vehicle": "car",
+      "receipt_number": "DMP-0355",
+      "section": null,
+      "notes": null
+    },
+    "kind": "clean"
+  },
+  {
+    "file": "bn_signal.jpg",
+    "expect": {
+      "reason": "ট্রাফিক সিগন্যাল অমান্য",
+      "amount": 8000,
+      "date": "2026-10-12",
+      "location": "মতিঝিল, ঢাকা",
+      "vehicle": "বাস",
+      "receipt_number": "DMP-0418",
+      "section": "85",
+      "notes": null
+    },
+    "kind": "clean"
+  },
+  {
+    "file": "bn_reckless.jpg",
+    "expect": {
+      "reason": "বেপরোয়া গাড়ি চালানো",
+      "amount": 50000,
+      "date": "2026-10-05",
+      "location": "চট্টগ্রাম",
+      "vehicle": "ট্রাক",
+      "receipt_number": "CTG-7731",
+      "section": "105",
+      "notes": null
+    },
+    "kind": "clean"
+  },
+  {
+    "file": "mixed_ambulance.jpg",
+    "expect": {
+      "reason": "no route permit",
+      "amount": 5000,
+      "date": "2026-10-11",
+      "location": "Chattogram",
+      "vehicle": "ambulance",
+      "receipt_number": "CTG-2210",
+      "section": null,
+      "notes": "ambulance on emergency duty"
+    },
+    "kind": "clean"
+  },
+  {
+    "file": "bn_tax_photo.jpg",
+    "expect": {
+      "reason": "ট্যাক্স টোকেন নেই",
+      "amount": 4000,
+      "date": "2026-10-08",
+      "location": "রাজশাহী",
+      "vehicle": "ট্রাক",
+      "receipt_number": "RJS-0912",
+      "section": null,
+      "notes": null
+    },
+    "kind": "photo"
+  },
+  {
+    "file": "en_speed_photo.jpg",
+    "expect": {
+      "reason": "exceeding speed limit",
+      "amount": 15000,
+      "date": "2026-10-12",
+      "location": "Mohakhali, Dhaka",
+      "vehicle": "car",
+      "receipt_number": "DMP-0413",
+      "section": "87",
+      "notes": null
+    },
+    "kind": "photo"
+  },
+  {
+    "file": "en_injection.jpg",
+    "expect": {
+      "reason": "overloading",
+      "amount": 20000,
+      "date": "2026-10-09",
+      "location": "Gazipur",
+      "vehicle": "truck",
+      "receipt_number": "GZP-0099",
+      "section": null,
+      "notes": null
+    },
+    "kind": "clean"
+  },
+  {
+    "file": "en_sparse.jpg",
+    "expect": {
+      "reason": "defective brake",
+      "amount": 5000,
+      "date": null,
+      "location": null,
+      "vehicle": null,
+      "receipt_number": null,
+      "section": null,
+      "notes": null
+    },
+    "kind": "clean"
+  },
+  {
+    "file": "en_blurry.jpg",
+    "expect": {
+      "reason": null,
+      "amount": null,
+      "date": null,
+      "location": null,
+      "vehicle": null,
+      "receipt_number": null,
+      "section": null,
+      "notes": null,
+      "legible": false
+    },
+    "kind": "blurry"
+  },
+  {
+    "file": "bn_signal_text.pdf",
+    "expect": {
+      "reason": "ট্রাফিক সিগন্যাল অমান্য",
+      "amount": 8000,
+      "date": "2026-10-12",
+      "location": "মতিঝিল, ঢাকা",
+      "vehicle": "বাস",
+      "receipt_number": "DMP-0418",
+      "section": "85",
+      "notes": null
+    },
+    "kind": "pdf-text"
+  },
+  {
+    "file": "en_speed_scan.pdf",
+    "expect": {
+      "reason": "over speed",
+      "amount": 3000,
+      "date": "2026-10-12",
+      "location": "Dhaka, Banani",
+      "vehicle": "motorcycle",
+      "receipt_number": "DMP-0412",
+      "section": "87",
+      "notes": null
+    },
+    "kind": "pdf-scan"
+  }
+]

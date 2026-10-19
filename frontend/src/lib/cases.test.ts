@@ -54,7 +54,7 @@ function caseWith(over: Partial<CaseDetail> = {}, extracted: Partial<CaseDetail[
     id: "c1", created_at: "2026-10-12T10:00:00", updated_at: "2026-10-12T10:00:00", case_source: "manual_entry", dummy_url: null,
     validation_status: "VALID", validation_summary: "", ai_explanation: "", confidence_score: 90,
     extracted: { reason: "speeding", amount: 3000, date: "2026-10-12", location: "Dhaka", vehicle_type: "car", receipt_number: "A1", section: "87", notes: null, ...extracted },
-    manual_input: {}, receipt: null, dataset: null, matched_rule: null, matches: [], exception_checks: [], analysis: null, ...over,
+    manual_input: {}, receipt: null, dataset: null, matched_rule: null, matches: [], exception_checks: [], analysis: null, audit: { enabled: true, status: "not_recorded", latest: null, records: 0 }, ...over,
   };
 }
 
@@ -80,5 +80,37 @@ describe("buildLimitations", () => {
 describe("buildReferences", () => {
   it("is empty when nothing matched", () => {
     expect(buildReferences(caseWith())).toEqual([]);
+  });
+});
+
+import { auditStatusMeta, canRecord, integrityMeta, verifyMeta } from "@/lib/audit";
+import type { AuditSummary } from "@/types/api";
+
+const audit = (over: Partial<AuditSummary> = {}): AuditSummary => ({ enabled: true, status: "not_recorded", latest: null, records: 0, ...over });
+
+describe("audit labels", () => {
+  it("describes each record state", () => {
+    expect(auditStatusMeta(audit({ status: "sealed", records: 1 })).tone).toBe("ok");
+    expect(auditStatusMeta(audit({ status: "pending" })).tone).toBe("warn");
+    expect(auditStatusMeta(audit({ status: "failed" })).tone).toBe("bad");
+    expect(auditStatusMeta(audit({ enabled: false })).label).toBe("Auditing off");
+  });
+  it("offers Record now only when there is something to record and auditing is on", () => {
+    expect(canRecord(audit({ status: "pending" }))).toBe(true);
+    expect(canRecord(audit({ status: "failed" }))).toBe(true);
+    expect(canRecord(audit({ status: "not_recorded" }))).toBe(true);
+    expect(canRecord(audit({ status: "sealed" }))).toBe(false);
+    expect(canRecord(audit({ enabled: false, status: "not_recorded" }))).toBe(false);
+  });
+  it("shows a mismatch as a failure and a missing record as a warning", () => {
+    expect(verifyMeta("mismatch").tone).toBe("bad");
+    expect(verifyMeta("verified").tone).toBe("ok");
+    expect(verifyMeta("not_on_chain").tone).toBe("warn");
+    expect(verifyMeta("unavailable").tone).toBe("neutral");
+  });
+  it("labels the dataset integrity states", () => {
+    expect(integrityMeta("verified").tone).toBe("ok");
+    expect(integrityMeta("tampered").tone).toBe("bad");
+    expect(integrityMeta("unanchored").tone).toBe("warn");
   });
 });

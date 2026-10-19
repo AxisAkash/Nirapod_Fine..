@@ -11,9 +11,10 @@ from sqlalchemy.orm import Session, selectinload
 
 from app import models
 from app.core.config import BACKEND_DIR
-from app.core.hashing import hash_object, sha256_bytes, sha256_text
+from app.core.hashing import sha256_bytes, sha256_text
 from app.engine.models import Dataset, ExceptionRule, FineTier, Keyword, OffenceRule
 from app.seed import data as seed
+from app.services import integrity
 
 SOURCE_DIR = BACKEND_DIR.parent / "data" / "source"
 
@@ -94,28 +95,8 @@ def load_engine_dataset(db: Session, version: models.DatasetVersion) -> LoadedDa
 
 
 def dataset_content_hash(db: Session, version: models.DatasetVersion) -> str:
-    """Hash of everything that can change a verdict. Recomputed on demand so later edits are detectable."""
-    loaded = load_engine_dataset(db, version)
-    payload = {
-        "rules": [
-            {
-                "section": r.section, "title": r.title, "category": r.category, "min": r.min_fine, "max": r.max_fine,
-                "matchable": r.matchable, "aliases": sorted(r.aliases),
-                "keywords": sorted([k.word, k.weight] for k in r.keywords),
-                "tiers": [[t.label, t.max_fine, sorted(t.keywords)] for t in r.fine_tiers],
-            }
-            for r in sorted(loaded.dataset.rules, key=lambda r: r.section)
-        ],
-        "exceptions": [
-            {
-                "key": x.key, "category": x.category, "section": x.section, "effect": x.effect,
-                "vehicles": sorted(x.vehicles), "scope": x.scope_limit,
-                "keywords": sorted([k.word, k.weight] for k in x.keywords),
-            }
-            for x in sorted(loaded.dataset.exceptions, key=lambda x: x.key)
-        ],
-    }
-    return hash_object(payload)
+    """Fingerprint of everything in a version that a user can see or that can change a verdict."""
+    return integrity.content_hash(integrity.dataset_leaves(db, version))
 
 
 def _source_hash() -> str:
@@ -180,6 +161,9 @@ def activate_version(db: Session, version: models.DatasetVersion) -> None:
     db.flush()
     version.is_active = True
     version.status = "active"
+    db.flush()
+    # Activating a version is the moment its rules are sealed: write their fingerprints to the blockchain.
+    integrity.anchor_version(db, version)
     db.flush()
 
 

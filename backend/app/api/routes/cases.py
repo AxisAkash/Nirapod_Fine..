@@ -8,7 +8,7 @@ from app.api.serializers import case_detail, case_list_item
 from app.core.security import get_current_user
 from app.db.session import get_db
 from app.schemas import CaseList, ManualFields
-from app.services import analysis
+from app.services import analysis, sealing
 
 router = APIRouter(prefix="/cases", tags=["cases"])
 
@@ -56,3 +56,9 @@ def analyze(
     except analysis.AnalysisError as e:
         raise HTTPException(503, str(e)) from e
     return case_detail(case)
+
+
+@router.get("/{case_id}/verify")
+def verify(case: models.MamlaCase = Depends(owned_case), db: Session = Depends(get_db)) -> dict:
+    """Recompute the case, dataset and result fingerprints from the database and compare them with the blockchain."""
+    return sealing.verify_case(db, case)

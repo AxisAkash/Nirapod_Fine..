@@ -5,7 +5,7 @@ from __future__ import annotations
 from typing import Any
 
 from app import models
-from app.schemas import CaseListItem
+from app.schemas import CaseListItem, FieldReading, ReadingOut
 
 
 def case_list_item(c: models.MamlaCase) -> CaseListItem:
@@ -39,7 +39,8 @@ def case_detail(c: models.MamlaCase) -> dict[str, Any]:
         "manual_input": c.manual_input or {},
         "receipt": (
             {"id": str(c.receipt.id), "file_name": c.receipt.file_name, "file_type": c.receipt.file_type,
-             "file_hash": c.receipt.file_hash}
+             "file_hash": c.receipt.file_hash, "reading_status": c.receipt.extraction_status,
+             "text_read": c.receipt.raw_ocr_text, "reading_model": (c.receipt.extraction or {}).get("model")}
             if c.receipt else None
         ),
         "dataset": (
@@ -63,4 +64,28 @@ def case_detail(c: models.MamlaCase) -> dict[str, Any]:
             for e in c.exception_checks
         ],
         "analysis": c.analysis_details,
+        "audit": audit_summary(c),
+    }
+
+
+def reading_out(receipt: models.UploadedReceipt, message: str | None = None) -> ReadingOut:
+    ex = receipt.extraction or {}
+    return ReadingOut(
+        status=receipt.extraction_status or "pending", message=message, language=ex.get("language"), legible=ex.get("legible"),
+        fields={k: FieldReading(**v) for k, v in (ex.get("fields") or {}).items()},
+    )
+
+
+def audit_summary(c: models.MamlaCase) -> dict[str, Any]:
+    """What is recorded for a case, from the database only. Use /verify to compare it with the blockchain."""
+    from app.services import sealing
+
+    latest = sealing.latest_record(c)
+    from app.core.config import get_settings
+
+    return {
+        "enabled": get_settings().blockchain_enabled,
+        "status": latest.status if latest else "not_recorded",
+        "latest": sealing.history(c)[-1] if latest else None,
+        "records": len(c.records),
     }

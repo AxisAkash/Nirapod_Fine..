@@ -12,7 +12,7 @@ from app import models
 from app.core.security import require_admin
 from app.db.session import get_db
 from app.schemas import ExceptionRuleCreate, ExceptionRuleIn, OffenceRuleCreate, OffenceRuleIn, VersionCreate
-from app.services import datasets
+from app.services import datasets, integrity
 
 router = APIRouter(prefix="/admin", tags=["admin"], dependencies=[Depends(require_admin)])
 
@@ -46,7 +46,9 @@ def _version_out(db: Session, v: models.DatasetVersion) -> dict[str, Any]:
     exc = db.scalar(select(func.count()).select_from(models.ExceptionRule).where(models.ExceptionRule.dataset_version_id == v.id))
     return {"id": str(v.id), "version_name": v.version_name, "description": v.description, "status": v.status,
             "is_active": v.is_active, "source_file_name": v.source_file_name, "source_hash": v.source_hash,
-            "created_at": v.created_at.isoformat(), "offence_rule_count": rules, "exception_rule_count": exc}
+            "created_at": v.created_at.isoformat(), "offence_rule_count": rules, "exception_rule_count": exc,
+            "anchor_status": v.anchor_status, "anchor_tx_hash": v.anchor_tx_hash,
+            "anchored_at": v.anchored_at.isoformat() if v.anchored_at else None}
 
 
 def _rule_out(r: models.OffenceRule) -> dict[str, Any]:
@@ -141,6 +143,23 @@ def activate(version_id: uuid.UUID, db: Session = Depends(get_db)) -> dict[str, 
 def version_hash(version_id: uuid.UUID, db: Session = Depends(get_db)) -> dict[str, str]:
     v = _version(db, version_id)
     return {"version_id": str(v.id), "source_hash": v.source_hash, "content_hash": datasets.dataset_content_hash(db, v)}
+
+
+@router.get("/dataset-versions/{version_id}/integrity")
+def version_integrity(version_id: uuid.UUID, db: Session = Depends(get_db)) -> dict[str, Any]:
+    """Check this version's rules in the database against what was recorded on the blockchain when it was activated."""
+    return integrity.check_dataset(db, _version(db, version_id)).as_dict()
+
+
+@router.post("/dataset-versions/{version_id}/anchor")
+def anchor_version(version_id: uuid.UUID, db: Session = Depends(get_db)) -> dict[str, Any]:
+    """Record an activated version on the blockchain, or retry if that was not possible at activation."""
+    v = _version(db, version_id)
+    if v.status == "draft":
+        raise HTTPException(409, "A draft cannot be recorded. Activate it first.")
+    integrity.anchor_version(db, v)
+    db.commit()
+    return _version_out(db, v)
 
 
 # ---------- offence rules ----------------------------------------------------------------------------------

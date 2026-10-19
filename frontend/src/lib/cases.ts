@@ -38,6 +38,8 @@ export function buildLimitations(c: CaseDetail): string[] {
   if (!x.vehicle_type) out.push("No vehicle type was provided, so vehicle-based exceptions could not be checked.");
   const missing = [!x.date && "date", !x.location && "location", !x.receipt_number && "receipt number"].filter(Boolean);
   if (missing.length) out.push(`Some notice details are missing: ${missing.join(", ")}.`);
+  const integrity = c.analysis?.flags.includes("Dataset integrity could not be checked");
+  if (integrity) out.push("The legal dataset could not be confirmed against the blockchain when this was checked, so its integrity is unverified.");
   if (c.case_source === "dummy_url") out.push("This record uses an illustrative sample notice. It was not read from any URL you entered.");
   out.push("Fine limits and exception rules come from the prototype's configured dataset, built from published summary guides. They have not been verified against the official Act.");
   out.push("This is an informational assessment, not an authoritative legal determination.");

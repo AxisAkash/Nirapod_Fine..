@@ -18,6 +18,13 @@ export function ReceiptPreview({ receipt, extracted }: { receipt: CaseDetail["re
           Open the PDF receipt
         </a>
       )}
+      {receipt.text_read && (
+        <details className="text-sm">
+          <summary className="cursor-pointer font-medium text-primary">Text read from the receipt</summary>
+          <pre className="mt-2 max-h-64 overflow-auto rounded-lg bg-muted p-3 font-sans text-[0.82rem] whitespace-pre-wrap">{receipt.text_read}</pre>
+          {receipt.reading_model && <p className="mt-1 text-xs text-muted-foreground">Read by {receipt.reading_model}. Checked by you before the analysis.</p>}
+        </details>
+      )}
       <dl className="grid grid-cols-[6rem_1fr] gap-x-3 gap-y-1 text-sm">
         <dt className="text-muted-foreground">File</dt>
         <dd className="break-all">{receipt.file_name ?? "-"}</dd>

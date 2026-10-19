@@ -90,6 +90,8 @@ export interface Analysis {
   candidates: AnalysisCandidate[];
   exceptions: AnalysisException[];
   justifications: Justification[];
+  /** Who wrote the explanation. "template" is the standard text, used when the AI text fails its checks. */
+  explanation?: { source: "ai" | "template"; model: string | null; note: string | null };
 }
 
 export interface CaseExtracted {
@@ -115,7 +117,15 @@ export interface CaseDetail {
   confidence_score: number | null;
   extracted: CaseExtracted;
   manual_input: Record<string, string | number | null>;
-  receipt: { id: string; file_name: string | null; file_type: string | null; file_hash: string | null } | null;
+  receipt: {
+    id: string;
+    file_name: string | null;
+    file_type: string | null;
+    file_hash: string | null;
+    reading_status: string | null;
+    text_read: string | null;
+    reading_model: string | null;
+  } | null;
   dataset: { id: string; name: string } | null;
   matched_rule: {
     id: string;
@@ -131,6 +141,73 @@ export interface CaseDetail {
   matches: { section: string; title: string; score: number; reason: string | null }[];
   exception_checks: { key: string; title: string; applies: boolean; reason: string | null; source_reference: string | null }[];
   analysis: Analysis | null;
+  audit: AuditSummary;
+}
+
+export type FieldReadStatus = "read" | "unverified" | "missing";
+
+/** One field read from a receipt by the AI. "unverified" means it could not be confirmed, so the user should check it. */
+export interface ReadField {
+  value: string | number | null;
+  status: FieldReadStatus;
+  note: string | null;
+}
+
+export interface Reading {
+  status: "done" | "disabled" | "failed" | "rate_limited" | "pending";
+  message: string | null;
+  language: string | null;
+  legible: boolean | null;
+  fields: Record<string, ReadField>;
+}
+
+export interface AuditRecord {
+  id: string;
+  status: "sealed" | "pending" | "failed";
+  network: string | null;
+  transaction_hash: string | null;
+  block_number: number | null;
+  chain_record_id: number | null;
+  created_at: string;
+  sealed_at: string | null;
+  error: string | null;
+  case_hash: string;
+  dataset_hash: string;
+  result_hash: string;
+  current: boolean;
+}
+
+/** What is recorded for a case, from the database. "enabled" is false when blockchain auditing is switched off. */
+export interface AuditSummary {
+  enabled: boolean;
+  status: "sealed" | "pending" | "failed" | "not_recorded";
+  latest: AuditRecord | null;
+  records: number;
+}
+
+export interface VerifyRow {
+  item: "Case" | "Dataset" | "Result";
+  recomputed: string;
+  recorded: string;
+  on_chain: string | null;
+  ok: boolean;
+}
+
+export interface DatasetIntegrity {
+  status: "verified" | "tampered" | "unanchored" | "unchecked" | "disabled";
+  message: string;
+  changed: { what: "changed" | "added" | "removed"; name: string }[];
+  content_hash: string | null;
+  anchored_hash: string | null;
+  anchor_tx: string | null;
+}
+
+export interface VerifyResult {
+  status: "verified" | "mismatch" | "not_on_chain" | "unavailable" | "pending" | "failed" | "not_recorded";
+  message: string;
+  rows: VerifyRow[];
+  history: AuditRecord[];
+  dataset_check: DatasetIntegrity | null;
 }
 
 export interface UploadResult {
@@ -139,6 +216,7 @@ export interface UploadResult {
   file_name: string | null;
   file_type: string;
   file_hash: string;
+  reading: Reading;
 }
 
 /** Receipt fields the user can type or correct. */
@@ -188,6 +266,9 @@ export interface AdminVersion {
   created_at: string;
   offence_rule_count: number;
   exception_rule_count: number;
+  anchor_status: "anchored" | "pending" | null;
+  anchor_tx_hash: string | null;
+  anchored_at: string | null;
 }
 
 export interface AliasItem {

@@ -38,7 +38,7 @@ export function CorrectDetailsDialog({ caseId, extracted }: { caseId: string; ex
     setBusy(true);
     setError(undefined);
     try {
-      const fields: ManualFields = { ...v, amount: parseAmountInput(v.amount) };
+      const fields: ManualFields = { ...v, amount: parseAmountInput(v.amount) ?? "" };
       await analyzeCase(caseId, fields);
       toast.success("Analysed again with your corrections.");
       setOpen(false);

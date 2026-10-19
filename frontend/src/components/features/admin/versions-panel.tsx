@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
@@ -12,8 +12,10 @@ import { Input } from "@/components/ui/input";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { formatDate, shortHash } from "@/lib/format";
 import { cn } from "@/lib/utils";
-import { activateVersion, createDraft, getVersionHash } from "@/services/admin.client";
-import type { AdminVersion } from "@/types/api";
+import { activateVersion, anchorVersion, createDraft, getIntegrity, getVersionHash } from "@/services/admin.client";
+import { integrityMeta } from "@/lib/audit";
+import { TONE_STYLES } from "@/constants/status";
+import type { AdminVersion, DatasetIntegrity } from "@/types/api";
 
 const STATE_STYLE = { active: "bg-ok-bg text-ok", draft: "bg-warn-bg text-warn", archived: "bg-muted text-muted-foreground" };
 
@@ -25,7 +27,30 @@ export function VersionsPanel({ versions }: { versions: AdminVersion[] }) {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string>();
   const [hashes, setHashes] = useState<Record<string, string>>({});
+  const [checks, setChecks] = useState<Record<string, DatasetIntegrity>>({});
+  const [checking, setChecking] = useState<string | null>(null);
   const hasDraft = versions.some((v) => v.status === "draft");
+
+  async function check(v: AdminVersion) {
+    setChecking(v.id);
+    try {
+      const result = await getIntegrity(v.id);
+      setChecks((s) => ({ ...s, [v.id]: result }));
+    } catch (e) {
+      toast.error(e instanceof Error ? e.message : "Could not check the dataset.");
+    } finally {
+      setChecking(null);
+    }
+  }
+
+  // The version in use is checked as soon as the page opens, so a changed rule is noticed straight away.
+  const activeId = versions.find((v) => v.status === "active")?.id;
+  useEffect(() => {
+    if (!activeId) return;
+    getIntegrity(activeId)
+      .then((result) => setChecks((s) => ({ ...s, [activeId]: result })))
+      .catch(() => undefined);
+  }, [activeId]);
 
   async function run(task: () => Promise<unknown>, done: string) {
     setBusy(true);
@@ -65,12 +90,14 @@ export function VersionsPanel({ versions }: { versions: AdminVersion[] }) {
               <TableHead className="text-right">Offence rules</TableHead>
               <TableHead className="text-right">Exceptions</TableHead>
               <TableHead>Content hash</TableHead>
+              <TableHead>Blockchain</TableHead>
               <TableHead>Actions</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {versions.map((v) => (
-              <TableRow key={v.id}>
+              <Fragment key={v.id}>
+              <TableRow>
                 <TableCell>
                   <p className="font-medium">{v.version_name}</p>
                   <p className="text-xs text-muted-foreground">
@@ -102,6 +129,22 @@ export function VersionsPanel({ versions }: { versions: AdminVersion[] }) {
                     </Button>
                   )}
                 </TableCell>
+                <TableCell className="whitespace-normal">
+                  {v.status === "draft" ? (
+                    <span className="text-xs text-muted-foreground">Recorded when activated</span>
+                  ) : (
+                    <div className="grid gap-1">
+                      <span className={cn("w-fit rounded-full px-2.5 py-0.5 font-mono text-xs", v.anchor_status === "anchored" ? "bg-ok-bg text-ok" : v.anchor_status === "pending" ? "bg-warn-bg text-warn" : "bg-muted text-muted-foreground")}>
+                        {v.anchor_status === "anchored" ? "Recorded" : v.anchor_status === "pending" ? "Waiting" : "Not recorded"}
+                      </span>
+                      {checks[v.id] && (
+                        <span className={cn("w-fit rounded-full px-2.5 py-0.5 font-mono text-xs", TONE_STYLES[integrityMeta(checks[v.id].status).tone].soft)}>
+                          {integrityMeta(checks[v.id].status).label}
+                        </span>
+                      )}
+                    </div>
+                  )}
+                </TableCell>
                 <TableCell>
                   <div className="flex flex-wrap gap-1.5">
                     <Link href={`/admin/dataset?tab=rules&version=${v.id}`} className={buttonVariants({ variant: "outline", size: "sm" })}>
@@ -112,9 +155,39 @@ export function VersionsPanel({ versions }: { versions: AdminVersion[] }) {
                         Activate
                       </Button>
                     )}
+                    {v.status !== "draft" && (
+                      <Button variant="outline" size="sm" disabled={checking === v.id} onClick={() => check(v)}>
+                        {checking === v.id ? "Checking\u2026" : "Check integrity"}
+                      </Button>
+                    )}
+                    {v.status !== "draft" && v.anchor_status !== "anchored" && (
+                      <Button
+                        size="sm"
+                        onClick={async () => {
+                          try {
+                            await anchorVersion(v.id);
+                            toast.success("Recorded on the blockchain.");
+                            router.refresh();
+                          } catch (e) {
+                            toast.error(e instanceof Error ? e.message : "Could not record it.");
+                          }
+                        }}
+                      >
+                        Record on blockchain
+                      </Button>
+                    )}
                   </div>
                 </TableCell>
               </TableRow>
+              {checks[v.id] && checks[v.id].status !== "verified" && (
+                <TableRow>
+                  <TableCell colSpan={7} className={cn("whitespace-normal text-sm", TONE_STYLES[integrityMeta(checks[v.id].status).tone].soft)}>
+                    <b>{integrityMeta(checks[v.id].status).label}.</b> {checks[v.id].message}
+                    {checks[v.id].status === "tampered" && " New results are blocked until this is resolved."}
+                  </TableCell>
+                </TableRow>
+              )}
+              </Fragment>
             ))}
           </TableBody>
         </Table>

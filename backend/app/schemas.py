@@ -49,12 +49,29 @@ class CaseList(BaseModel):
     total: int
 
 
+class FieldReading(BaseModel):
+    """One field read from the receipt. status: read (found in the text), unverified (not found), missing."""
+
+    value: str | int | None = None
+    status: str = "missing"
+    note: str | None = None  # e.g. "Two readings of the receipt differed"
+
+
+class ReadingOut(BaseModel):
+    status: str  # done | disabled | failed | rate_limited | pending
+    message: str | None = None
+    language: str | None = None
+    legible: bool | None = None
+    fields: dict[str, FieldReading] = {}
+
+
 class UploadOut(BaseModel):
     receipt_id: uuid.UUID
     case_id: uuid.UUID
     file_name: str | None
     file_type: str
     file_hash: str
+    reading: ReadingOut
 
 
 class DummyIn(BaseModel):

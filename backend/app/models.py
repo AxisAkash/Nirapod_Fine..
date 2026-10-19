@@ -8,6 +8,7 @@ from typing import Any
 
 from sqlalchemy import (
     JSON,
+    BigInteger,
     Boolean,
     Date,
     DateTime,
@@ -68,6 +69,12 @@ class DatasetVersion(Base):
     is_active: Mapped[bool] = mapped_column(Boolean, default=False, server_default=text("false"))
     # added: draft | active | archived. Only draft versions can be edited; is_active mirrors status == 'active'.
     status: Mapped[str] = mapped_column(Text, nullable=False, default="draft", server_default="draft")
+    # added: where this version's fingerprint was written on the blockchain (anchor_status: anchored | pending)
+    anchor_status: Mapped[str | None] = mapped_column(Text)
+    anchor_tx_hash: Mapped[str | None] = mapped_column(Text)
+    anchor_block: Mapped[int | None] = mapped_column(Integer)
+    anchored_content_hash: Mapped[str | None] = mapped_column(Text)
+    anchored_at: Mapped[datetime | None] = mapped_column(DateTime)
     created_at: Mapped[datetime] = _created()
 
     rules: Mapped[list[OffenceRule]] = relationship(back_populates="dataset_version", cascade="all, delete-orphan")
@@ -192,6 +199,11 @@ class UploadedReceipt(Base):
     file_type: Mapped[str | None] = mapped_column(Text)
     file_hash: Mapped[str | None] = mapped_column(Text)
     raw_ocr_text: Mapped[str | None] = mapped_column(Text)
+    # added: what the AI read from the file. {"fields": {name: {"value", "status"}}, "model", "usage", ...}
+    extraction: Mapped[dict[str, Any] | None] = mapped_column(JsonType)
+    # added: pending | done | failed | disabled | rate_limited
+    extraction_status: Mapped[str | None] = mapped_column(Text)
+    extracted_at: Mapped[datetime | None] = mapped_column(DateTime)
     created_at: Mapped[datetime] = _created()
 
 
@@ -232,6 +244,7 @@ class MamlaCase(Base):
     receipt: Mapped[UploadedReceipt | None] = relationship()
     dataset_version: Mapped[DatasetVersion | None] = relationship()
     matched_rule: Mapped[OffenceRule | None] = relationship(foreign_keys=[matched_offence_rule_id])
+    records: Mapped[list[BlockchainRecord]] = relationship(order_by="BlockchainRecord.created_at", cascade="all, delete-orphan")
     matches: Mapped[list[MamlaCaseMatch]] = relationship(cascade="all, delete-orphan", order_by="MamlaCaseMatch.match_score.desc()")
     exception_checks: Mapped[list[MamlaExceptionCheck]] = relationship(cascade="all, delete-orphan")
 
@@ -292,4 +305,13 @@ class BlockchainRecord(Base):
     blockchain_network: Mapped[str | None] = mapped_column(Text)
     smart_contract_address: Mapped[str | None] = mapped_column(Text)
     transaction_hash: Mapped[str | None] = mapped_column(Text)
+    # added: sealed | pending | failed, where on the chain it is, and the random salt used in the case hash
+    status: Mapped[str] = mapped_column(Text, nullable=False, default="pending", server_default="pending")
+    chain_id: Mapped[int | None] = mapped_column(BigInteger)
+    chain_record_id: Mapped[int | None] = mapped_column(Integer)
+    block_number: Mapped[int | None] = mapped_column(Integer)
+    salt: Mapped[str | None] = mapped_column(Text)
+    dataset_version_id: Mapped[uuid.UUID | None] = mapped_column(UUID(as_uuid=True))
+    error: Mapped[str | None] = mapped_column(Text)
+    sealed_at: Mapped[datetime | None] = mapped_column(DateTime)
     created_at: Mapped[datetime] = _created()

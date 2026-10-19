@@ -4,8 +4,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { AmountCheck } from "@/components/features/cases/amount-check";
+import { AuditNote } from "@/components/features/cases/audit-note";
 import { AnalyzeNow } from "@/components/features/cases/analyze-now";
 import { CorrectDetailsDialog } from "@/components/features/cases/correct-details-dialog";
+import { ExplanationBody } from "@/components/features/cases/explanation-card";
 import { ExtractedFields } from "@/components/features/cases/extracted-fields";
 import { JustificationList } from "@/components/features/cases/justification-list";
 import { MatchedSection } from "@/components/features/cases/matched-section";
@@ -130,8 +132,7 @@ async function ResultContent({ params }: { params: PageProps<"/cases/[id]/result
       </SectionCard>
 
       <SectionCard title="Explanation">
-        <p className="rounded-lg bg-muted px-4 py-3 text-sm">{c.ai_explanation}</p>
-        <p className="mt-2 text-xs text-muted-foreground">Written from the matched rules only. It never cites a section that was not matched.</p>
+        <ExplanationBody text={c.ai_explanation} analysis={a} />
       </SectionCard>
 
       <div className="grid gap-4 lg:grid-cols-2">
@@ -165,6 +166,7 @@ async function ResultContent({ params }: { params: PageProps<"/cases/[id]/result
           Analyze another notice
         </Link>
       </div>
+      <AuditNote caseId={c.id} audit={c.audit} />
       <p className="border-t pt-3.5 text-[0.82rem] text-muted-foreground">Informational tool, not legal advice. Dataset: {a.dataset}.</p>
     </>
   );

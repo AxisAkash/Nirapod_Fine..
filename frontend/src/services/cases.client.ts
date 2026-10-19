@@ -1,5 +1,5 @@
 import { apiFetch, jsonBody } from "@/services/client";
-import type { CaseDetail, DummyScenario, ManualFields, UploadResult } from "@/types/api";
+import type { AuditSummary, CaseDetail, DummyScenario, ManualFields, UploadResult, VerifyResult } from "@/types/api";
 
 function appendFields(form: FormData, fields: ManualFields) {
   for (const [key, value] of Object.entries(fields)) {
@@ -7,7 +7,8 @@ function appendFields(form: FormData, fields: ManualFields) {
   }
 }
 
-export const uploadReceipt = (file: File, fields: ManualFields) => {
+/** Uploads a file. The service reads it with AI and returns what it found, for the user to check. */
+export const uploadReceipt = (file: File, fields: ManualFields = {}) => {
   const form = new FormData();
   form.append("file", file);
   appendFields(form, fields);
@@ -26,3 +27,9 @@ export const getScenarios = () => apiFetch<DummyScenario[]>("/dummy-url/scenario
 /** Runs a sample notice through the analysis. The URL, if any, is kept on the case but never fetched. */
 export const analyzeSample = (input: { url?: string; scenario?: string }) =>
   apiFetch<CaseDetail>("/dummy-url/analyze", { method: "POST", ...jsonBody(input) });
+
+/** Recomputes the case, dataset and result fingerprints and compares them with the blockchain. */
+export const verifyCase = (caseId: string) => apiFetch<VerifyResult>(`/cases/${caseId}/verify`);
+
+/** Records a case on the blockchain, or retries a pending or failed record. */
+export const recordCase = (caseId: string) => apiFetch<AuditSummary>("/blockchain/record", { method: "POST", ...jsonBody({ case_id: caseId }) });

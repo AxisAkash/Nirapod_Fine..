@@ -3,6 +3,8 @@ import { Suspense } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { AuditPanel } from "@/components/features/cases/audit-panel";
+import { ExplanationBody } from "@/components/features/cases/explanation-card";
 import { ExtractedFields } from "@/components/features/cases/extracted-fields";
 import { ReceiptPreview } from "@/components/features/cases/receipt-preview";
 import { SectionCard } from "@/components/features/cases/section-card";
@@ -130,13 +132,11 @@ async function CaseRecordContent({ params }: { params: PageProps<"/cases/[id]">[
       </SectionCard>
 
       <SectionCard title="Explanation">
-        <p className="rounded-lg bg-muted px-4 py-3 text-sm">{c.ai_explanation ?? "No explanation yet."}</p>
+        <ExplanationBody text={c.ai_explanation} analysis={a} />
       </SectionCard>
 
-      <SectionCard title="Audit record">
-        <p className="text-sm text-muted-foreground">
-          Not recorded yet. When audit logging is switched on, the case, dataset and result hashes appear here with the transaction that proves nothing was changed afterwards.
-        </p>
+      <SectionCard title="Blockchain audit record">
+        <AuditPanel caseId={c.id} audit={c.audit} />
       </SectionCard>
     </>
   );

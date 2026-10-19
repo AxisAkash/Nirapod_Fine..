@@ -9,21 +9,26 @@ export function FormField({
   htmlFor,
   hint,
   error,
+  tag,
   className,
   children,
 }: {
   label: string;
   htmlFor: string;
   hint?: string;
+  tag?: ReactNode;
   error?: string;
   className?: string;
   children: ReactNode;
 }) {
   return (
     <div className={cn("grid content-start gap-1.5", className)}>
-      <Label htmlFor={htmlFor} className="text-sm font-medium">
-        {label}
-      </Label>
+      <div className="flex flex-wrap items-center gap-x-2">
+        <Label htmlFor={htmlFor} className="text-sm font-medium">
+          {label}
+        </Label>
+        {tag}
+      </div>
       {children}
       {hint && !error && <p className="text-xs text-muted-foreground">{hint}</p>}
       {error && (

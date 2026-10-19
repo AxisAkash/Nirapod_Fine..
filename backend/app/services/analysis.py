@@ -12,8 +12,10 @@ from sqlalchemy.orm import Session
 from app import models
 from app.engine import PriorCase, ReceiptInput, Status, explain, validate
 from app.engine.serialize import result_to_dict
+from app.services import explainer, integrity, sealing
 from app.services.datasets import get_active_version, load_engine_dataset
 from app.services.extraction import extract_fields
+from app.services.parsing import parse_amount, parse_date
 
 PENDING = "PENDING_ANALYSIS"
 FIELDS = ("reason", "amount", "section", "vehicle", "notes", "date", "location", "receipt_number")
@@ -25,32 +27,14 @@ class AnalysisError(Exception):
     pass
 
 
-def parse_amount(value: Any) -> int | None:
-    if value is None or value == "":
-        return None
-    if isinstance(value, bool):
-        return None
-    if isinstance(value, (int, float)):
-        return int(value)
-    digits = re.sub(r"[^\d]", "", str(value).translate(str.maketrans("০১২৩৪৫৬৭৮৯", "0123456789")))
-    return int(digits) if digits else None
-
-
-def parse_date(value: Any) -> date | None:
-    if not value:
-        return None
-    if isinstance(value, date):
-        return value
-    for fmt in ("%Y-%m-%d", "%d/%m/%Y", "%d-%m-%Y"):
-        try:
-            return datetime.strptime(str(value).strip(), fmt).date()
-        except ValueError:
-            continue
-    return None
+class DatasetIntegrityError(AnalysisError):
+    """The legal rules in the database no longer match what was recorded on the blockchain."""
 
 
 def _clean(fields: dict[str, Any]) -> dict[str, Any]:
-    return {k: (v.strip() if isinstance(v, str) else v) for k, v in fields.items() if k in FIELDS and v not in (None, "")}
+    """Keep what the user sent. An empty string is kept on purpose: it means "this field is blank", which must
+    override a value the AI read from the receipt. Only fields that were not sent at all (None) are dropped."""
+    return {k: (v.strip() if isinstance(v, str) else v) for k, v in fields.items() if k in FIELDS and v is not None}
 
 
 def create_case(
@@ -78,6 +62,9 @@ def analyze_case(db: Session, case: models.MamlaCase, overrides: dict[str, Any] 
     if overrides:
         case.manual_input = {**(case.manual_input or {}), **_clean(overrides)}
     fields = {**extract_fields(case.receipt), **(case.manual_input or {})}
+    check = integrity.check_dataset(db, version)
+    if check.status == "tampered":
+        raise DatasetIntegrityError(f"The legal dataset failed its integrity check, so no result was produced. {check.message}")
     loaded = load_engine_dataset(db, version)
 
     prior_rows = db.scalars(
@@ -118,7 +105,13 @@ def analyze_case(db: Session, case: models.MamlaCase, overrides: dict[str, Any] 
     case.matched_offence_rule_id = loaded.rule_ids[matched.section] if matched else None
     case.validation_status = result.status.value
     case.validation_summary = result.summary
-    case.ai_explanation = explain(result, receipt)
+    details = result_to_dict(result)
+    explanation = explainer.explain(details, receipt.amount, template=explain(result, receipt))
+    details["explanation"] = {"source": explanation.source, "model": explanation.model, "note": explanation.note}
+    details["dataset_integrity"] = {"status": check.status, "message": check.message}
+    if check.status in {"unanchored", "unchecked"}:
+        details["flags"] = [*details["flags"], "Dataset integrity could not be checked"]
+    case.ai_explanation = explanation.text
     case.confidence_score = result.confidence
     case.extracted_reason = receipt.reason or None
     case.extracted_amount = receipt.amount
@@ -128,7 +121,7 @@ def analyze_case(db: Session, case: models.MamlaCase, overrides: dict[str, Any] 
     case.extracted_receipt_number = receipt.receipt_number
     case.extracted_section = receipt.section
     case.claim_notes = receipt.notes
-    case.analysis_details = result_to_dict(result)
+    case.analysis_details = details
 
     if matched and result.status in COUNTS_AS_HISTORY and receipt.amount is not None:
         db.add(models.MamlaHistory(
@@ -137,5 +130,6 @@ def analyze_case(db: Session, case: models.MamlaCase, overrides: dict[str, Any] 
             occurred_at=case.created_at,
         ))
     db.commit()
+    sealing.seal_quietly(db, case)  # record it on the blockchain; never fails the analysis
     db.refresh(case)
     return case

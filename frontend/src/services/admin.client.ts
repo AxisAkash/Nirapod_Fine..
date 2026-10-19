@@ -1,11 +1,17 @@
 import { apiFetch, jsonBody } from "@/services/client";
-import type { AdminException, AdminRule, AdminVersion, AliasItem, FineTier, KeywordItem } from "@/types/api";
+import type { AdminException, AdminRule, AdminVersion, AliasItem, DatasetIntegrity, FineTier, KeywordItem } from "@/types/api";
 
 export const createDraft = (name: string, description?: string) =>
   apiFetch<AdminVersion>("/admin/dataset-versions", { method: "POST", ...jsonBody({ name, description }) });
 
 export const activateVersion = (id: string) =>
   apiFetch<AdminVersion>(`/admin/dataset-versions/${id}/activate`, { method: "POST" });
+
+/** Checks a version's rules in the database against what was recorded on the blockchain. */
+export const getIntegrity = (id: string) => apiFetch<DatasetIntegrity>(`/admin/dataset-versions/${id}/integrity`);
+
+/** Records an activated version on the blockchain, or retries if that was not possible at activation. */
+export const anchorVersion = (id: string) => apiFetch<AdminVersion>(`/admin/dataset-versions/${id}/anchor`, { method: "POST" });
 
 export const getVersionHash = (id: string) =>
   apiFetch<{ version_id: string; source_hash: string; content_hash: string }>(`/admin/dataset-versions/${id}/hash`);
