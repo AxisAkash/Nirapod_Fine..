@@ -81,14 +81,16 @@ export function ChecksTable({ cases }: { cases: CaseListItem[] }) {
   );
 }
 
-export function EmptyChecks() {
+export function EmptyChecks({ showAction = true }: { showAction?: boolean }) {
   return (
     <div className="px-4 py-9 text-center text-muted-foreground">
       <b className="text-foreground">No checks yet</b>
-      <p className="mx-auto mt-1.5 mb-3.5 max-w-[44ch]">Analyze your first traffic fine notice to see the offence, the matched section and the fine limit check here.</p>
-      <Link href="/dashboard#notice" className="inline-flex items-center rounded-md border border-lamp bg-lamp px-4 py-2 text-sm font-semibold text-[#1a1305] hover:brightness-105">
-        Analyze your first notice
-      </Link>
+      <p className={cn("mx-auto mt-1.5 max-w-[44ch]", showAction && "mb-3.5")}>Your analysed mamlas will appear here, with the offence, the matched section and the fine limit check.</p>
+      {showAction && (
+        <Link href="/dashboard#notice" className="inline-flex items-center rounded-md border border-lamp bg-lamp px-4 py-2 text-sm font-semibold text-[#0f2a20] hover:brightness-105">
+          Analyze your first mamla
+        </Link>
+      )}
     </div>
   );
 }

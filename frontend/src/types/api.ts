@@ -219,18 +219,6 @@ export interface UploadResult {
   reading: Reading;
 }
 
-/** Receipt fields the user can type or correct. */
-export interface ManualFields {
-  reason?: string;
-  amount?: string | number;
-  section?: string;
-  vehicle?: string;
-  notes?: string;
-  date?: string;
-  location?: string;
-  receipt_number?: string;
-}
-
 export interface DummyScenario {
   key: string;
   reason: string;

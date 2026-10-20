@@ -2,6 +2,7 @@
 
 import os
 import tempfile
+import uuid
 from pathlib import Path
 
 # Must be set before any `app` module is imported: the engine and settings read these once.
@@ -23,6 +24,7 @@ from alembic.config import Config  # noqa: E402
 from fastapi.testclient import TestClient  # noqa: E402
 from sqlalchemy import text  # noqa: E402
 
+from app import models  # noqa: E402
 from app.db.session import SessionLocal, engine  # noqa: E402
 from app.main import app  # noqa: E402
 from app.services.datasets import seed_default_dataset  # noqa: E402
@@ -67,6 +69,32 @@ def db():
 def client():
     with TestClient(app) as c:
         yield c
+
+
+class _Resp:
+    def __init__(self, status_code, body):
+        self.status_code, self._body, self.text = status_code, body, str(body)
+
+    def json(self):
+        return self._body
+
+
+def post_manual(client, headers, fields):
+    """Make and analyse a case from known values, straight through the services. There is no endpoint for this:
+    users cannot type details in, so tests that need exact values build the case here."""
+    from app.api.serializers import case_detail
+    from app.services import analysis
+
+    me = client.get("/api/me", headers=headers).json()
+    with SessionLocal() as session:
+        user = session.get(models.User, uuid.UUID(me["id"]))
+        case = analysis.create_case(session, user, "manual_entry", fields)
+        try:
+            case = analysis.analyze_case(session, case)
+        except analysis.AnalysisError as e:
+            session.rollback()
+            return _Resp(503, {"detail": str(e)})
+        return _Resp(201, case_detail(case))
 
 
 def auth(token: str = "dev-user") -> dict[str, str]:

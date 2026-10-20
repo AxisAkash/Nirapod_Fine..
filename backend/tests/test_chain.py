@@ -8,6 +8,7 @@ from app import models
 from app.services import integrity, sealing
 from app.services.datasets import get_active_version
 from tests.conftest import auth
+from tests.conftest import post_manual
 
 
 def tamper(db, sql, **params):
@@ -18,7 +19,7 @@ def tamper(db, sql, **params):
 
 
 def manual(client, headers, **fields):
-    r = client.post("/api/cases/manual", json=fields, headers=headers)
+    r = post_manual(client, headers, fields)
     assert r.status_code == 201, r.text
     return r.json()
 
@@ -225,7 +226,7 @@ def test_several_changes_are_all_reported(client, admin_h, anchored, db):
 
 def test_no_result_is_produced_from_tampered_rules(client, user_h, admin_h, anchored, db):
     tamper(db, "UPDATE offence_rules SET max_fine = 1000000 WHERE section_number = '87'")  # make a huge fine look fine
-    r = client.post("/api/cases/manual", json={"reason": "speeding", "amount": 500000}, headers=user_h)
+    r = post_manual(client, user_h, {"reason": "speeding", "amount": 500000})
     assert r.status_code == 503
     assert "failed its integrity check" in r.json()["detail"] and "Section 87 changed" in r.json()["detail"]
     assert client.get("/api/cases", headers=user_h).json()["total"] == 0  # nothing half-made is left behind
@@ -265,7 +266,7 @@ def test_tampering_cannot_be_hidden_by_an_outage_once_the_anchor_is_known(client
     manual(client, user_h, reason="speeding", amount=3000)
     chain.down = True
     tamper(db, "UPDATE offence_rules SET max_fine = 1000000 WHERE section_number = '87'")
-    assert client.post("/api/cases/manual", json={"reason": "speeding", "amount": 500000}, headers=user_h).status_code == 503
+    assert post_manual(client, user_h, {"reason": "speeding", "amount": 500000}).status_code == 503
 
 
 # =============================================================== recording a case
@@ -414,18 +415,6 @@ def test_recording_a_sealed_case_again_changes_nothing(client, user_h, anchored,
 
 
 # =============================================================== corrections keep the history
-def test_a_correction_adds_a_new_record_and_keeps_the_old_one(client, user_h, anchored, chain):
-    body = manual(client, user_h, reason="speeding", amount=3000, section="87")
-    corrected = client.post(f"/api/cases/{body['id']}/analyze", json={"amount": 15000}, headers=user_h).json()
-    assert corrected["audit"]["records"] == 2
-    v = verify(client, user_h, body["id"])
-    assert v["status"] == "verified" and [h["current"] for h in v["history"]] == [False, True]
-    first, second = v["history"]
-    assert first["result_hash"] != second["result_hash"] and first["chain_record_id"] != second["chain_record_id"]
-    old = chain.client.get_case(first["chain_record_id"])  # the original result is still on the chain, unchanged
-    assert old.result_hash == first["result_hash"]
-
-
 def test_recording_again_without_any_change_uses_a_fresh_salt(client, user_h, anchored):
     body = manual(client, user_h, reason="speeding", amount=3000)
     again = client.post(f"/api/cases/{body['id']}/analyze", headers=user_h).json()

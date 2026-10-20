@@ -19,19 +19,11 @@ router = APIRouter(prefix="/receipts", tags=["receipts"])
 @router.post("/upload", response_model=UploadOut, status_code=201)
 async def upload_receipt(
     file: UploadFile = File(...),
-    reason: str | None = Form(None),
-    amount: str | None = Form(None),
-    section: str | None = Form(None),
-    vehicle: str | None = Form(None),
-    notes: str | None = Form(None),
-    date: str | None = Form(None),
-    location: str | None = Form(None),
-    receipt_number: str | None = Form(None),
     read: bool = Form(True),
     db: Session = Depends(get_db),
     user: models.User = Depends(get_current_user),
 ) -> UploadOut:
-    """Store the receipt file, hash it, and open a case. Optional fields correct or replace what is read from the file."""
+    """Store the receipt file, hash it, and open a case. Every detail comes from reading the file; none can be typed in."""
     limit = get_settings().max_upload_mb * 1024 * 1024
     content = await file.read(limit + 1)
     try:
@@ -44,9 +36,7 @@ async def upload_receipt(
     )
     db.add(receipt)
     db.flush()
-    fields = {"reason": reason, "amount": amount, "section": section, "vehicle": vehicle, "notes": notes,
-              "date": date, "location": location, "receipt_number": receipt_number}
-    case = analysis.create_case(db, user, "receipt_upload", fields, receipt)
+    case = analysis.create_case(db, user, "receipt_upload", {}, receipt)
     db.commit()
     message = None
     if read:

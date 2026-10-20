@@ -54,13 +54,11 @@ def create_case(
     return case
 
 
-def analyze_case(db: Session, case: models.MamlaCase, overrides: dict[str, Any] | None = None) -> models.MamlaCase:
+def analyze_case(db: Session, case: models.MamlaCase) -> models.MamlaCase:
     """Run the engine and replace every stored result for this case. Safe to call again on the same case."""
     version = get_active_version(db)
     if version is None:
         raise AnalysisError("No active dataset version. Run `python -m app.seed` first.")
-    if overrides:
-        case.manual_input = {**(case.manual_input or {}), **_clean(overrides)}
     fields = {**extract_fields(case.receipt), **(case.manual_input or {})}
     check = integrity.check_dataset(db, version)
     if check.status == "tampered":

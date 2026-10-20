@@ -18,8 +18,8 @@ export default function ChecksPage({ searchParams }: PageProps<"/checks">) {
         eyebrow="History"
         title="Recent checks"
         actions={
-          <Link href="/dashboard#notice" className="inline-flex items-center rounded-md border border-lamp bg-lamp px-4 py-2 text-sm font-semibold text-[#1a1305] hover:brightness-105">
-            Analyze a notice
+          <Link href="/dashboard#notice" className="inline-flex items-center rounded-md border border-lamp bg-lamp px-4 py-2 text-sm font-semibold text-[#0f2a20] hover:brightness-105">
+            Analyze a mamla
           </Link>
         }
       />

@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
 import { amberButton, sizeLg } from "@/components/features/landing/buttons";
-import { ReceiptPaper } from "@/components/features/cases/receipt-paper";
 import { ProcessingSteps } from "@/components/features/upload/processing-steps";
 import { Input } from "@/components/ui/input";
 import { NativeSelect } from "@/components/ui/native-select";
@@ -16,14 +15,14 @@ import { cn } from "@/lib/utils";
 import { analyzeSample, getScenarios } from "@/services/cases.client";
 import type { DummyScenario } from "@/types/api";
 
-type PanelState = "idle" | "checking" | "unsupported" | "example";
+type PanelState = "idle" | "checking" | "unsupported";
 
 const linkButton = "font-medium text-primary underline underline-offset-2 hover:brightness-125 text-[0.88rem]";
 const panel = "grid min-w-0 gap-2.5 rounded-lg border bg-muted px-4 py-3.5";
 
 const scenarioLabel = (s: DummyScenario) => `${capitalize(s.reason)} · Tk ${formatNumber(s.amount)} · ${s.vehicle}`;
 
-/** The main call to action: paste a notice URL. Reading external pages is not available, so it offers a sample notice. */
+/** The main call to action: paste an AI Mamla URL. Reading external pages is not available, so it offers a sample notice. */
 export function UrlCard() {
   const input = useRef<HTMLInputElement>(null);
   const flow = useAnalysisFlow();
@@ -41,7 +40,7 @@ export function UrlCard() {
 
   // The sample list comes from the service, so load it the first time a sample is offered.
   useEffect(() => {
-    if ((state !== "unsupported" && state !== "example") || scenarios) return;
+    if (state !== "unsupported" || scenarios) return;
     getScenarios()
       .then((list) => {
         setScenarios(list);
@@ -83,7 +82,6 @@ export function UrlCard() {
   }
 
   const checking = state === "checking";
-  const chosen = scenarios?.find((s) => s.key === key) ?? scenarios?.[0];
   const picker = (
     <label className="grid max-w-[420px] gap-1 text-[0.78rem] font-medium text-muted-foreground">
       Sample scenario
@@ -101,15 +99,15 @@ export function UrlCard() {
   return (
     <section id="notice" aria-labelledby="notice-title" className="grid scroll-mt-20 gap-3 rounded-[10px] border bg-card p-5">
       <h2 id="notice-title" className="font-sans text-[1.25rem] leading-[1.3] font-semibold">
-        Check a Traffic Fine Notice
+        Check Your Mamla
       </h2>
       <p className="max-w-[70ch] text-muted-foreground">
-        Paste the URL of your traffic fine notice to review the offence details and check them against the configured legal rules.
+        Paste an AI Mamla URL or upload a manual mamla receipt to review the offence details and check them against the configured legal rules.
       </p>
 
       <form onSubmit={submit} noValidate className="grid gap-1.5">
         <label htmlFor="notice-url" className="text-[0.8rem] font-medium text-muted-foreground">
-          Notice URL
+          AI Mamla URL
         </label>
         <div className="flex flex-col gap-2 sm:flex-row sm:items-stretch">
           <Input
@@ -138,7 +136,7 @@ export function UrlCard() {
                 Checking&hellip;
               </>
             ) : (
-              "Analyze Notice"
+              "Analyze Mamla"
             )}
           </button>
         </div>
@@ -146,17 +144,11 @@ export function UrlCard() {
           {error}
         </p>
         <p id="notice-help" className="max-w-[70ch] text-[0.82rem] text-muted-foreground">
-          The URL must point to a notice or page that contains the traffic fine details, such as the offence, section and amount.
+          Enter the AI Mamla URL of your case. The page must contain the traffic fine details, such as the offence, section and amount.
         </p>
       </form>
 
       <div className="flex flex-wrap items-center gap-2">
-        <button type="button" className={linkButton} onClick={() => setState("example")}>
-          View an example notice
-        </button>
-        <span className="text-muted-foreground" aria-hidden="true">
-          &middot;
-        </span>
         <Link href="/upload" className={linkButton}>
           Upload a receipt instead
         </Link>
@@ -187,28 +179,6 @@ export function UrlCard() {
         </div>
       )}
 
-      {state === "example" && (
-        <div className={panel}>
-          <b>Example notice</b>
-          <p className="max-w-[70ch] text-[0.92rem]">An illustrative sample. It is not a real notice and not your data.</p>
-          {picker}
-          {chosen && (
-            <div className="max-w-[420px]">
-              <ReceiptPaper
-                data={{ reason: chosen.reason, amount: chosen.amount, date: chosen.date, location: chosen.location, vehicle_type: chosen.vehicle, receipt_number: chosen.receipt_number, section: chosen.section || null, notes: chosen.notes || null }}
-              />
-            </div>
-          )}
-          <div className="flex flex-wrap gap-2">
-            <button type="button" className={cn(amberButton, "px-4 py-2 text-sm")} disabled={!scenarios} onClick={() => runSample()}>
-              Analyze this sample
-            </button>
-            <button type="button" className="rounded-md border border-primary px-4 py-2 text-sm font-medium text-primary hover:bg-accent" onClick={() => setState("idle")}>
-              Close
-            </button>
-          </div>
-        </div>
-      )}
       {flow.error && (
         <p role="alert" className="text-sm text-bad">
           {flow.error}

@@ -1,26 +1,15 @@
 import { apiFetch, jsonBody } from "@/services/client";
-import type { AuditSummary, CaseDetail, DummyScenario, ManualFields, UploadResult, VerifyResult } from "@/types/api";
+import type { AuditSummary, CaseDetail, DummyScenario, UploadResult, VerifyResult } from "@/types/api";
 
-function appendFields(form: FormData, fields: ManualFields) {
-  for (const [key, value] of Object.entries(fields)) {
-    if (value !== undefined && value !== "") form.append(key, String(value));
-  }
-}
-
-/** Uploads a file. The service reads it with AI and returns what it found, for the user to check. */
-export const uploadReceipt = (file: File, fields: ManualFields = {}) => {
+/** Uploads a file. The service reads it with AI and returns what it found. Nothing can be typed in alongside it. */
+export const uploadReceipt = (file: File) => {
   const form = new FormData();
   form.append("file", file);
-  appendFields(form, fields);
   return apiFetch<UploadResult>("/receipts/upload", { method: "POST", body: form });
 };
 
-export const createManualCase = (fields: ManualFields) =>
-  apiFetch<CaseDetail>("/cases/manual", { method: "POST", ...jsonBody(fields) });
-
-/** Runs the analysis. Optional fields correct the case first; calling it again replaces the earlier result. */
-export const analyzeCase = (caseId: string, corrections?: ManualFields) =>
-  apiFetch<CaseDetail>(`/cases/${caseId}/analyze`, { method: "POST", ...(corrections ? jsonBody(corrections) : {}) });
+/** Runs the analysis on the case as stored; calling it again replaces the earlier result. */
+export const analyzeCase = (caseId: string) => apiFetch<CaseDetail>(`/cases/${caseId}/analyze`, { method: "POST" });
 
 export const getScenarios = () => apiFetch<DummyScenario[]>("/dummy-url/scenarios");
 

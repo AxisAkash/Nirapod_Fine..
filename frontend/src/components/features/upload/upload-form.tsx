@@ -1,20 +1,16 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { FileText, Loader2 } from "lucide-react";
+import { Loader2 } from "lucide-react";
 
 import { Dropzone } from "@/components/features/upload/dropzone";
 import { FieldTag } from "@/components/features/upload/field-tag";
 import { ProcessingSteps } from "@/components/features/upload/processing-steps";
 import { Button } from "@/components/ui/button";
-import { FormField } from "@/components/ui/form-field";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { VEHICLE_HINTS } from "@/constants/upload";
 import { useAnalysisFlow } from "@/hooks/use-analysis-flow";
-import { parseAmountInput } from "@/lib/format";
-import { analyzeCase, createManualCase, uploadReceipt } from "@/services/cases.client";
-import type { ManualFields, Reading, UploadResult } from "@/types/api";
+import { cn } from "@/lib/utils";
+import { analyzeCase, uploadReceipt } from "@/services/cases.client";
+import type { Reading, UploadResult } from "@/types/api";
 
 type FieldKey = "reason" | "amount" | "section" | "vehicle" | "date" | "location" | "receipt_number" | "notes";
 type Values = Record<FieldKey, string>;
@@ -52,28 +48,23 @@ function valuesFromReading(reading: Reading): Values {
   return out;
 }
 
-type Step = "choose" | "reading" | "review";
+type Status = "empty" | "reading" | "done" | "failed";
 
 export function UploadForm() {
-  const [step, setStep] = useState<Step>("choose");
   const [file, setFile] = useState<File | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
+  const [status, setStatus] = useState<Status>("empty");
   const [upload, setUpload] = useState<UploadResult | null>(null);
-  const [initial, setInitial] = useState<Values>(EMPTY);
   const [v, setV] = useState<Values>(EMPTY);
-  const [errors, setErrors] = useState<{ reason?: string; amount?: string }>({});
   const [notice, setNotice] = useState<string | null>(null);
   const flow = useAnalysisFlow();
 
-  // A preview of the chosen image, shown next to the form so the details can be checked against it.
+  // A preview of the chosen image, shown beside the details so they can be compared with it.
   // It is created when a file is chosen (not in an effect), and released when replaced or when the page closes.
   const previewUrl = useRef<string | null>(null);
-  function chooseFile(f: File | null) {
-    if (previewUrl.current) URL.revokeObjectURL(previewUrl.current);
-    previewUrl.current = f && f.type.startsWith("image/") ? URL.createObjectURL(f) : null;
-    setPreview(previewUrl.current);
-    setFile(f);
-  }
+  // Each file gets a token, so a slow answer for a file that has since been replaced or removed is ignored.
+  const token = useRef(0);
+
   useEffect(
     () => () => {
       if (previewUrl.current) URL.revokeObjectURL(previewUrl.current);
@@ -81,56 +72,44 @@ export function UploadForm() {
     [],
   );
 
-  const set = (k: FieldKey) => (e: { target: { value: string } }) => setV((s) => ({ ...s, [k]: e.target.value }));
-
-  async function readReceipt() {
-    if (!file) return;
-    setStep("reading");
-    setNotice(null);
-    try {
-      const up = await uploadReceipt(file);
-      setUpload(up);
-      const values = valuesFromReading(up.reading);
-      setInitial(values);
-      setV(values);
-      setNotice(up.reading.message);
-    } catch (e) {
-      setNotice(e instanceof Error ? e.message : "We could not upload this file. Type the details below.");
-      setUpload(null);
-      setInitial(EMPTY);
-      setV(EMPTY);
-    }
-    setStep("review");
-  }
-
-  function startOver() {
-    setStep("choose");
-    chooseFile(null);
+  function chooseFile(f: File | null) {
+    const mine = ++token.current;
+    if (previewUrl.current) URL.revokeObjectURL(previewUrl.current);
+    previewUrl.current = f && f.type.startsWith("image/") ? URL.createObjectURL(f) : null;
+    setPreview(previewUrl.current);
+    setFile(f);
     setUpload(null);
     setV(EMPTY);
-    setInitial(EMPTY);
-    setErrors({});
     setNotice(null);
     flow.reset();
+    if (!f) return setStatus("empty");
+    void readReceipt(f, mine);
+  }
+
+  // Choosing a file reads it straight away; the details are filled in by the AI and cannot be edited.
+  async function readReceipt(f: File, mine: number) {
+    setStatus("reading");
+    try {
+      const up = await uploadReceipt(f);
+      if (mine !== token.current) return;
+      setUpload(up);
+      setV(valuesFromReading(up.reading));
+      setNotice(up.reading.message);
+      setStatus(up.reading.status === "done" && up.reading.fields.reason?.value ? "done" : "failed");
+    } catch (e) {
+      if (mine !== token.current) return;
+      setNotice(e instanceof Error ? e.message : "We could not upload this file. Try another one.");
+      setStatus("failed");
+    }
   }
 
   function analyse(e: React.FormEvent) {
     e.preventDefault();
-    const next: typeof errors = {};
-    if (!v.reason.trim()) next.reason = "Enter the offence as written on the receipt.";
-    if (v.amount.trim() && parseAmountInput(v.amount) === undefined) next.amount = "The fine amount must be a number.";
-    setErrors(next);
-    if (Object.keys(next).length) return;
-
-    // Send every field, blank ones included: a field you cleared must override what was read from the receipt.
-    const fields: ManualFields = { ...v, amount: parseAmountInput(v.amount) ?? "" };
+    if (!upload || status !== "done") return;
     void flow.run(async (setStage) => {
       setStage("analysing");
-      if (upload) {
-        await analyzeCase(upload.case_id, fields);
-        return upload.case_id;
-      }
-      return (await createManualCase(fields)).id;
+      await analyzeCase(upload.case_id);
+      return upload.case_id;
     });
   }
 
@@ -143,116 +122,78 @@ export function UploadForm() {
     );
   }
 
-  if (step === "reading") {
-    return (
-      <div role="status" className="grid place-items-center gap-3 rounded-xl border bg-card px-6 py-14 text-center">
-        <Loader2 className="size-8 animate-spin text-primary" aria-hidden="true" />
-        <h2 className="text-xl font-semibold">Reading your receipt</h2>
-        <p className="max-w-[46ch] text-sm text-muted-foreground">We are uploading the file and reading the text on it. This usually takes about ten seconds.</p>
-      </div>
-    );
-  }
-
-  if (step === "choose") {
-    return (
-      <div className="grid gap-4">
-        <section className="max-w-2xl rounded-xl border bg-card p-4">
-          <h2 className="mb-3 font-mono text-xs font-medium tracking-wider text-muted-foreground uppercase">Receipt file</h2>
-          <Dropzone file={file} onChange={chooseFile} />
-          <p className="mt-3 text-xs text-muted-foreground">
-            We read the receipt for you, and you check the details before anything is compared with the law. To read it, the file is sent to an AI service, so only upload receipts you are comfortable sharing. The file is stored with your case.
-          </p>
-          <div className="mt-4 flex flex-wrap items-center gap-3">
-            <Button size="lg" disabled={!file} onClick={readReceipt}>
-              Read receipt
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              onClick={() => {
-                setNotice(null);
-                setStep("review");
-              }}
-            >
-              Enter the details by hand
-            </Button>
-          </div>
-        </section>
-      </div>
-    );
-  }
-
-  // step === "review"
   const reading = upload?.reading;
-  const read = reading?.status === "done";
+  const reader = status === "reading";
+  const done = status === "done";
+  const message = flow.error ?? notice;
   return (
-    <form onSubmit={analyse} className="grid gap-5" noValidate>
-      {(notice || flow.error) && (
-        <div role="alert" className={`rounded-lg border px-4 py-3 text-sm ${flow.error || reading?.status === "failed" ? "border-bad bg-bad-bg text-bad" : "border-warn bg-warn-bg text-warn"}`}>
-          {flow.error ?? notice}
+    <form onSubmit={analyse} className="grid gap-4" noValidate>
+      {message && (
+        <div role="alert" className={`rounded-lg border px-4 py-3 text-sm ${flow.error || status === "failed" ? "border-bad bg-bad-bg text-bad" : "border-warn bg-warn-bg text-warn"}`}>
+          {message}
         </div>
       )}
 
-      <div className="grid gap-4 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
-        {upload && file && (
-          <section className="h-fit min-w-0 rounded-xl border bg-card p-4 lg:sticky lg:top-20">
-            <h2 className="mb-3 font-mono text-xs font-medium tracking-wider text-muted-foreground uppercase">Your receipt</h2>
-            {preview ? (
-              // A local preview of the file the user just chose; there is nothing for the image optimiser to do.
-              // eslint-disable-next-line @next/next/no-img-element
-              <img src={preview} alt="The receipt you uploaded" className="max-h-[28rem] w-full rounded-lg border bg-muted object-contain" />
-            ) : (
-              <div className="flex items-center gap-3 rounded-lg border bg-muted p-4">
-                <FileText className="size-8 text-primary" aria-hidden="true" />
-                <span className="min-w-0 truncate text-sm font-medium">{file.name}</span>
-              </div>
-            )}
-            {read && <p className="mt-3 text-xs text-muted-foreground">Compare each detail with this receipt. Digits in dates and amounts are the easiest thing to misread.</p>}
-          </section>
-        )}
+      <div className="grid items-stretch gap-4 lg:grid-cols-2">
+        <section className="flex min-w-0 flex-col rounded-xl border bg-card p-5">
+          <StepHeading no="1" title="Upload receipt" />
+          <Dropzone file={file} onChange={chooseFile} tall={!file} />
+          {file && preview && (
+            // A local preview of the file the user just chose; there is nothing for the image optimiser to do.
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={preview} alt="The receipt you uploaded" className="mt-4 max-h-[26rem] w-full rounded-lg border bg-muted object-contain" />
+          )}
+          <p className="mt-auto pt-4 text-xs leading-relaxed text-muted-foreground">
+            The receipt is read by AI as soon as you choose it. The file is sent to an AI service and stored with your case, so only upload receipts you are comfortable sharing.
+          </p>
+        </section>
 
-        <section className={`min-w-0 rounded-xl border bg-card p-4 ${upload && file ? "" : "lg:col-span-2 lg:max-w-3xl"}`}>
-          <h2 className="mb-3 font-mono text-xs font-medium tracking-wider text-muted-foreground uppercase">{read ? "Check the details" : "Receipt details"}</h2>
-          <div className="grid gap-3 sm:grid-cols-2">
+        <section className="flex min-w-0 flex-col rounded-xl border bg-card p-5" aria-busy={reader}>
+          <div className="mb-4 flex items-center justify-between gap-2">
+            <StepHeading no="2" title="Extracted details" className="mb-0" />
+            {reader && (
+              <span role="status" className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                <Loader2 className="size-3.5 animate-spin text-primary" aria-hidden="true" />
+                Reading&hellip;
+              </span>
+            )}
+            {done && <span className="rounded-full bg-muted px-2.5 py-0.5 font-mono text-[0.68rem] text-muted-foreground">Read-only</span>}
+          </div>
+          <dl className="grid flex-1 content-start gap-x-6 gap-y-4 sm:grid-cols-2">
             {FIELDS.map((f) => {
-              const tag = read ? <FieldTag field={reading?.fields[f.key]} edited={v[f.key] !== initial[f.key]} /> : null;
-              const id = `u-${f.key}`;
+              const value = v[f.key].trim();
               return (
-                <FormField key={f.key} label={f.label} htmlFor={id} error={errors[f.key as "reason" | "amount"]} hint={f.hint} tag={tag} className={f.wide ? "sm:col-span-2" : ""}>
-                  {f.multiline ? (
-                    <Textarea id={id} rows={2} value={v[f.key]} onChange={set(f.key)} />
-                  ) : (
-                    <Input
-                      id={id}
-                      type={f.type}
-                      list={f.key === "vehicle" ? "vehicle-hints" : undefined}
-                      inputMode={f.key === "amount" ? "numeric" : undefined}
-                      value={v[f.key]}
-                      onChange={set(f.key)}
-                      placeholder={f.placeholder}
-                      aria-invalid={!!errors[f.key as "reason" | "amount"]}
-                    />
-                  )}
-                </FormField>
+                <div key={f.key} className={cn("min-w-0 border-b pb-3", f.wide && "sm:col-span-2")}>
+                  <dt className="mb-1 flex items-center justify-between gap-2 text-xs font-medium text-muted-foreground">
+                    {f.label}
+                    {done && <FieldTag field={reading?.fields[f.key]} edited={false} />}
+                  </dt>
+                  <dd className={cn("min-h-6 text-[0.95rem] break-words whitespace-pre-wrap", value ? "font-medium text-foreground" : "text-muted-foreground/60", reader && "animate-pulse")}>{value || "\u2014"}</dd>
+                </div>
               );
             })}
-            <datalist id="vehicle-hints">
-              {VEHICLE_HINTS.map((h) => (
-                <option key={h} value={h} />
-              ))}
-            </datalist>
+          </dl>
+          <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t pt-4">
+            <p className="max-w-[44ch] text-xs text-muted-foreground">
+              {done ? "Check these against your receipt. If something is wrong, remove the file and upload a clearer picture." : "The details appear here once the receipt has been read. They cannot be edited."}
+            </p>
+            <Button type="submit" size="lg" disabled={!done}>
+              Analyse receipt
+            </Button>
           </div>
         </section>
       </div>
-
-      <div className="flex flex-wrap items-center gap-3">
-        <Button type="submit" size="lg">
-          Analyse receipt
-        </Button>
-        <Button type="button" variant="outline" size="lg" onClick={startOver}>
-          Start over
-        </Button>
-      </div>
     </form>
+  );
+}
+
+function StepHeading({ no, title, className }: { no: string; title: string; className?: string }) {
+  return (
+    <h2 className={cn("mb-4 flex items-center gap-2.5 text-base font-semibold", className)}>
+      <span aria-hidden="true" className="grid size-6 place-items-center rounded-full bg-primary font-mono text-xs text-primary-foreground">
+        {no}
+      </span>
+      {title}
+    </h2>
   );
 }

@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Body, Depends, HTTPException, Query
+from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
@@ -7,7 +7,7 @@ from app.api.deps import owned_case
 from app.api.serializers import case_detail, case_list_item
 from app.core.security import get_current_user
 from app.db.session import get_db
-from app.schemas import CaseList, ManualFields
+from app.schemas import CaseList
 from app.services import analysis, sealing
 
 router = APIRouter(prefix="/cases", tags=["cases"])
@@ -29,16 +29,6 @@ def list_cases(
     return CaseList(items=[case_list_item(c) for c in rows], total=total)
 
 
-@router.post("/manual", status_code=201)
-def create_manual_case(
-    fields: ManualFields, db: Session = Depends(get_db), user: models.User = Depends(get_current_user)
-) -> dict:
-    """Create and analyse a case from typed fields only, with no receipt file."""
-    case = analysis.create_case(db, user, "manual_entry", fields.model_dump())
-    case = analysis.analyze_case(db, case)
-    return case_detail(case)
-
-
 @router.get("/{case_id}")
 def get_case(case: models.MamlaCase = Depends(owned_case)) -> dict:
     return case_detail(case)
@@ -46,13 +36,12 @@ def get_case(case: models.MamlaCase = Depends(owned_case)) -> dict:
 
 @router.post("/{case_id}/analyze")
 def analyze(
-    overrides: ManualFields | None = Body(default=None),
     case: models.MamlaCase = Depends(owned_case),
     db: Session = Depends(get_db),
 ) -> dict:
-    """Run the engine. Optional fields correct the case first. Analysing again replaces the earlier result."""
+    """Run the engine on the case as stored. Analysing again replaces the earlier result."""
     try:
-        case = analysis.analyze_case(db, case, overrides.model_dump() if overrides else None)
+        case = analysis.analyze_case(db, case)
     except analysis.AnalysisError as e:
         raise HTTPException(503, str(e)) from e
     return case_detail(case)

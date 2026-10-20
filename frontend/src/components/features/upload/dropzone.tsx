@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { ACCEPT_ATTR, ACCEPTED_TYPES, MAX_UPLOAD_MB } from "@/constants/upload";
 import { cn } from "@/lib/utils";
 
-export function Dropzone({ file, onChange }: { file: File | null; onChange: (f: File | null) => void }) {
+export function Dropzone({ file, onChange, tall }: { file: File | null; onChange: (f: File | null) => void; tall?: boolean }) {
   const input = useRef<HTMLInputElement>(null);
   const [over, setOver] = useState(false);
   const [error, setError] = useState<string>();
@@ -52,7 +52,8 @@ export function Dropzone({ file, onChange }: { file: File | null; onChange: (f: 
           accept(e.dataTransfer.files[0]);
         }}
         className={cn(
-          "flex w-full flex-col items-center gap-1 rounded-lg border-2 border-dashed bg-muted px-4 py-8 text-center text-sm text-muted-foreground transition-colors hover:border-primary",
+          "flex w-full flex-col items-center justify-center gap-1 rounded-lg border-2 border-dashed bg-muted px-4 py-8 text-center text-sm text-muted-foreground transition-colors hover:border-primary",
+          tall && "min-h-[22rem]",
           over && "border-primary bg-accent",
         )}
       >

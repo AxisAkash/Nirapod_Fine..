@@ -57,7 +57,7 @@ async function YourChecks() {
             </Link>
           )}
         </div>
-        <div className="overflow-hidden rounded-lg border bg-card">{recent.length ? <ChecksTable cases={recent} /> : <EmptyChecks />}</div>
+        <div className="overflow-hidden rounded-lg border bg-card">{recent.length ? <ChecksTable cases={recent} /> : <EmptyChecks showAction={false} />}</div>
       </section>
     </>
   );

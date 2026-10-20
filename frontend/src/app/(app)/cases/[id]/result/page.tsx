@@ -6,7 +6,6 @@ import { notFound } from "next/navigation";
 import { AmountCheck } from "@/components/features/cases/amount-check";
 import { AuditNote } from "@/components/features/cases/audit-note";
 import { AnalyzeNow } from "@/components/features/cases/analyze-now";
-import { CorrectDetailsDialog } from "@/components/features/cases/correct-details-dialog";
 import { ExplanationBody } from "@/components/features/cases/explanation-card";
 import { ExtractedFields } from "@/components/features/cases/extracted-fields";
 import { JustificationList } from "@/components/features/cases/justification-list";
@@ -23,7 +22,7 @@ import { getCase } from "@/services/data.server";
 
 export const metadata: Metadata = { title: "Result" };
 
-const amber = "inline-flex items-center rounded-md border border-lamp bg-lamp px-4 py-2 text-sm font-semibold text-[#1a1305] hover:brightness-105";
+const amber = "inline-flex items-center rounded-md border border-lamp bg-lamp px-4 py-2 text-sm font-semibold text-[#0f2a20] hover:brightness-105";
 
 export default function ResultPage({ params }: PageProps<"/cases/[id]/result">) {
   return (
@@ -46,7 +45,6 @@ async function ResultContent({ params }: { params: PageProps<"/cases/[id]/result
           <p className="mb-4 text-sm text-muted-foreground">The notice was saved. Run the analysis to see the result.</p>
           <div className="flex flex-wrap gap-2">
             <AnalyzeNow caseId={c.id} />
-            <CorrectDetailsDialog caseId={c.id} extracted={c.extracted} />
           </div>
         </div>
       </>
@@ -161,9 +159,8 @@ async function ResultContent({ params }: { params: PageProps<"/cases/[id]/result
         <Link href={`/cases/${c.id}`} className={buttonVariants({ size: "lg" })}>
           View full case record
         </Link>
-        <CorrectDetailsDialog caseId={c.id} extracted={c.extracted} />
         <Link href="/dashboard#notice" className={amber}>
-          Analyze another notice
+          Analyze another mamla
         </Link>
       </div>
       <AuditNote caseId={c.id} audit={c.audit} />

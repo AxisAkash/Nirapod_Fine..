@@ -8,7 +8,6 @@ export interface NavItem {
 export const APP_NAV: NavItem[] = [
   { href: "/dashboard", label: "Overview" },
   { href: "/checks", label: "Recent Checks" },
-  { href: "/how-it-works", label: "How It Works" },
   { href: "/admin/dataset", label: "Admin dataset", adminOnly: true },
 ];
 

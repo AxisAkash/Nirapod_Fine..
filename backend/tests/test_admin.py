@@ -3,10 +3,11 @@ from sqlalchemy import func, select
 from app import models
 from app.services.datasets import dataset_content_hash, get_active_version, seed_default_dataset
 from tests.conftest import auth
+from tests.conftest import post_manual
 
 
 def manual(client, headers, **fields):
-    r = client.post("/api/cases/manual", json=fields, headers=headers)
+    r = post_manual(client, headers, fields)
     assert r.status_code == 201, r.text
     return r.json()
 

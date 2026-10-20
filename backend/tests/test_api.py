@@ -5,10 +5,11 @@ from sqlalchemy import func, select
 
 from app import models
 from tests.conftest import JPG, PDF, PNG, auth
+from tests.conftest import post_manual
 
 
 def manual(client, headers, **fields):
-    r = client.post("/api/cases/manual", json=fields, headers=headers)
+    r = post_manual(client, headers, fields)
     assert r.status_code == 201, r.text
     return r.json()
 
@@ -33,14 +34,13 @@ def test_me_creates_the_local_user_and_reads_the_role(client, user_h, admin_h):
 
 # ---------- receipts ---------------------------------------------------------------------------------
 def test_upload_stores_the_file_hashes_it_and_opens_a_pending_case(client, user_h):
-    r = client.post("/api/receipts/upload", files={"file": ("receipt.png", PNG, "image/png")},
-                    data={"reason": "over speed", "amount": "3000"}, headers=user_h)
+    r = client.post("/api/receipts/upload", files={"file": ("receipt.png", PNG, "image/png")}, headers=user_h)
     assert r.status_code == 201, r.text
     body = r.json()
     assert body["file_hash"] == hashlib.sha256(PNG).hexdigest() and body["file_type"] == "image/png"
     case = client.get(f"/api/cases/{body['case_id']}", headers=user_h).json()
     assert case["validation_status"] == "PENDING_ANALYSIS"
-    assert case["manual_input"] == {"reason": "over speed", "amount": "3000"}
+    assert case["manual_input"] == {}  # nothing is typed in: every detail comes from reading the file
     assert case["receipt"]["file_hash"] == body["file_hash"]
 
 
@@ -70,14 +70,15 @@ def test_receipt_file_is_downloadable_only_by_its_owner(client, user_h, other_h)
     assert client.get(f"/api/receipts/{up['receipt_id']}/file", headers=other_h).status_code == 404
 
 
-def test_upload_then_analyze_with_corrections(client, user_h):
-    up = client.post("/api/receipts/upload", files={"file": ("a.png", PNG, "image/png")},
-                     data={"reason": "illegal parking", "amount": "2000"}, headers=user_h).json()
+def test_analyze_ignores_any_corrections_sent_with_it(client, user_h):
+    up = client.post("/api/receipts/upload", files={"file": ("a.png", PNG, "image/png")}, headers=user_h).json()
     r = client.post(f"/api/cases/{up['case_id']}/analyze", json={"amount": 9000, "section": "90"}, headers=user_h)
     assert r.status_code == 200
-    body = r.json()
-    assert body["validation_status"] == "INVALID_FINE_TOO_HIGH"  # the correction (9000) replaced the typed 2000
-    assert body["extracted"]["amount"] == 9000 and body["matched_rule"]["section"] == "90"
+    assert r.json()["extracted"]["amount"] != 9000  # users cannot change a case's details
+
+
+def test_there_is_no_endpoint_for_typing_a_case_in(client, user_h):
+    assert client.post("/api/cases/manual", json={"reason": "speeding", "amount": 3000}, headers=user_h).status_code in (404, 405, 422)
 
 
 # ---------- analysis --------------------------------------------------------------------------------------
@@ -146,12 +147,6 @@ def test_analysing_again_replaces_results_and_never_double_counts(client, user_h
     assert nxt["analysis"]["occurrence"] == 2 and nxt["analysis"]["allowed_fine"] == 6000
     again = client.post(f"/api/cases/{case['id']}/analyze", headers=user_h).json()
     assert again["analysis"]["occurrence"] == 1  # a later case never changes an earlier one
-
-
-def test_correcting_a_case_updates_the_history_row(client, user_h, db):
-    case = manual(client, user_h, reason="speeding", amount=3000)
-    client.post(f"/api/cases/{case['id']}/analyze", json={"amount": 4000}, headers=user_h)
-    assert db.scalar(select(models.MamlaHistory.fine_amount)) == 4000
 
 
 # ---------- ownership -----------------------------------------------------------------------------------------

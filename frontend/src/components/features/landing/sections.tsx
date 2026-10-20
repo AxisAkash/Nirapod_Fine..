@@ -27,7 +27,7 @@ function SectionHead({ eyebrow, title, sub }: { eyebrow: string; title: string; 
 
 function TileCard({ tile, onWarm }: { tile: Tile; onWarm?: boolean }) {
   return (
-    <div className={cn("grid min-w-0 content-start gap-2.5 rounded-lg border p-5 transition hover:border-primary hover:shadow-[0_4px_14px_rgba(11,26,51,0.08)]", onWarm ? "bg-warm" : "bg-card")}>
+    <div className={cn("grid min-w-0 content-start gap-2.5 rounded-lg border p-5 transition hover:border-primary hover:shadow-[0_4px_14px_rgba(15,42,32,0.08)]", onWarm ? "bg-warm" : "bg-card")}>
       <div className="grid size-10 place-items-center rounded-lg border bg-card text-primary">
         <LandingIcon name={tile.icon} />
       </div>
@@ -134,7 +134,7 @@ export function CtaBand() {
           <h2 className="max-w-[24ch] font-sans text-[clamp(1.5rem,3vw,2.1rem)] leading-[1.2] font-semibold tracking-[-0.015em] text-white">
             Understand your traffic fine before drawing conclusions.
           </h2>
-          <p className="mt-2 max-w-[52ch] text-[#b9c8e2]">Review the recorded details, applicable rules, and available evidence in one place.</p>
+          <p className="mt-2 max-w-[52ch] text-[#b9cfc3]">Review the recorded details, applicable rules, and available evidence in one place.</p>
         </div>
         <Link href="/upload" className={cn(amberButton, sizeLg)}>
           Check Mamla
