@@ -77,6 +77,46 @@ def test_analyze_ignores_any_corrections_sent_with_it(client, user_h):
     assert r.json()["extracted"]["amount"] != 9000  # users cannot change a case's details
 
 
+def test_an_uploaded_but_unanalysed_receipt_is_not_a_recent_check(client, user_h):
+    up = client.post("/api/receipts/upload", files={"file": ("a.png", PNG, "image/png")}, headers=user_h).json()
+    assert client.get("/api/cases", headers=user_h).json() == {"items": [], "total": 0}
+    client.post(f"/api/cases/{up['case_id']}/analyze", headers=user_h)
+    assert client.get("/api/cases", headers=user_h).json()["total"] == 1
+
+
+def test_unanalysed_uploads_are_deleted_after_a_day_but_nothing_else(client, user_h, db):
+    from datetime import timedelta
+
+    from app import models
+    from app.core.config import get_settings
+    from app.services.cleanup import purge_unanalysed_uploads
+
+    def upload():
+        return client.post("/api/receipts/upload", files={"file": ("a.png", PNG, "image/png")}, headers=user_h).json()
+
+    def age(case_id, hours):
+        case = db.get(models.MamlaCase, case_id)
+        case.created_at = models.utcnow() - timedelta(hours=hours)
+        db.commit()
+
+    stale, fresh, done = upload(), upload(), upload()
+    client.post(f"/api/cases/{done['case_id']}/analyze", headers=user_h)
+    import uuid
+
+    for item, hours in ((stale, 25), (fresh, 2), (done, 48)):
+        age(uuid.UUID(item["case_id"]), hours)
+    stale_file = get_settings().storage_dir / db.get(models.UploadedReceipt, uuid.UUID(stale["receipt_id"])).file_url
+    assert stale_file.exists()
+
+    assert purge_unanalysed_uploads(db) == 1
+    db.expire_all()
+    assert db.get(models.MamlaCase, uuid.UUID(stale["case_id"])) is None
+    assert db.get(models.UploadedReceipt, uuid.UUID(stale["receipt_id"])) is None
+    assert not stale_file.exists()
+    assert db.get(models.MamlaCase, uuid.UUID(fresh["case_id"])) is not None  # under a day old: kept
+    assert db.get(models.MamlaCase, uuid.UUID(done["case_id"])) is not None  # analysed: kept however old
+
+
 def test_there_is_no_endpoint_for_typing_a_case_in(client, user_h):
     assert client.post("/api/cases/manual", json={"reason": "speeding", "amount": 3000}, headers=user_h).status_code in (404, 405, 422)
 

@@ -21,7 +21,8 @@ def list_cases(
     db: Session = Depends(get_db),
     user: models.User = Depends(get_current_user),
 ) -> CaseList:
-    q = select(models.MamlaCase).where(models.MamlaCase.user_id == user.id)
+    # A case exists from the moment a receipt is uploaded, but it only counts as a check once it has been analysed.
+    q = select(models.MamlaCase).where(models.MamlaCase.user_id == user.id, models.MamlaCase.validation_status != analysis.PENDING)
     if status:
         q = q.where(models.MamlaCase.validation_status == status)
     total = db.scalar(select(func.count()).select_from(q.subquery())) or 0

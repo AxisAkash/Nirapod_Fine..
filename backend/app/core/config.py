@@ -27,6 +27,7 @@ class Settings(BaseSettings):
     # Receipt files
     storage_dir: Path = BACKEND_DIR / "storage"
     max_upload_mb: int = 10
+    unanalysed_upload_max_age_hours: int = 24  # uploads never analysed within this time are deleted
 
     # AI (OpenRouter). Without a key the app still works: details are typed in and explanations use the template.
     openrouter_api_key: str | None = None
