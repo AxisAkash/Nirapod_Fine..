@@ -1,15 +1,6 @@
-import type { Metadata } from "next";
+import { redirect } from "next/navigation";
 
-import { UploadForm } from "@/components/features/upload/upload-form";
-import { PageHeader } from "@/components/layouts/page-header";
-
-export const metadata: Metadata = { title: "Check a receipt" };
-
+/** Uploading now happens on the Overview page. This keeps old links working. */
 export default function UploadPage() {
-  return (
-    <>
-      <PageHeader eyebrow="New check" title="Upload a mamla receipt" />
-      <UploadForm />
-    </>
-  );
+  redirect("/dashboard#notice");
 }

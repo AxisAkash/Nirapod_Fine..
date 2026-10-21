@@ -1,9 +1,14 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
 
-import { amberButton, sizeLg } from "@/components/features/landing/buttons";
+import { Check, Link2, UploadCloud } from "lucide-react";
+
+import { amberButton } from "@/components/features/landing/buttons";
+import { buttonVariants } from "@/components/ui/button";
+import { CheckStepper } from "@/components/features/upload/check-stepper";
+import { ReviewStep } from "@/components/features/upload/review-step";
+import { UploadPanel, type ReadReceipt } from "@/components/features/upload/upload-panel";
 import { ProcessingSteps } from "@/components/features/upload/processing-steps";
 import { Input } from "@/components/ui/input";
 import { NativeSelect } from "@/components/ui/native-select";
@@ -16,8 +21,8 @@ import { analyzeSample, getScenarios } from "@/services/cases.client";
 import type { DummyScenario } from "@/types/api";
 
 type PanelState = "idle" | "checking" | "unsupported";
+type Mode = "url" | "upload";
 
-const linkButton = "font-medium text-primary underline underline-offset-2 hover:brightness-125 text-[0.88rem]";
 const panel = "grid min-w-0 gap-2.5 rounded-lg border bg-muted px-4 py-3.5";
 
 const scenarioLabel = (s: DummyScenario) => `${capitalize(s.reason)} · Tk ${formatNumber(s.amount)} · ${s.vehicle}`;
@@ -29,6 +34,8 @@ export function UrlCard() {
   const [url, setUrl] = useState("");
   const [error, setError] = useState("");
   const [state, setState] = useState<PanelState>("idle");
+  const [mode, setMode] = useState<Mode>("url");
+  const [receipt, setReceipt] = useState<ReadReceipt | null>(null);
   const [scenarios, setScenarios] = useState<DummyScenario[] | null>(null);
   const [scenarioError, setScenarioError] = useState("");
   const [key, setKey] = useState("speed");
@@ -81,6 +88,20 @@ export function UrlCard() {
     );
   }
 
+  if (receipt) {
+    return (
+      <section id="notice" aria-labelledby="notice-title" className="grid scroll-mt-20 gap-5 rounded-xl border bg-card p-5 sm:p-7">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <h2 id="notice-title" className="font-sans text-[1.5rem] leading-[1.25] font-semibold">
+            Check Your Mamla
+          </h2>
+          <CheckStepper current={2} />
+        </div>
+        <ReviewStep receipt={receipt} onReset={() => setReceipt(null)} />
+      </section>
+    );
+  }
+
   const checking = state === "checking";
   const picker = (
     <label className="grid max-w-[420px] gap-1 text-[0.78rem] font-medium text-muted-foreground">
@@ -97,61 +118,104 @@ export function UrlCard() {
   );
 
   return (
-    <section id="notice" aria-labelledby="notice-title" className="grid scroll-mt-20 gap-3 rounded-[10px] border bg-card p-5">
-      <h2 id="notice-title" className="font-sans text-[1.25rem] leading-[1.3] font-semibold">
-        Check Your Mamla
-      </h2>
-      <p className="max-w-[70ch] text-muted-foreground">
-        Paste an AI Mamla URL or upload a manual mamla receipt to review the offence details and check them against the configured legal rules.
-      </p>
-
-      <form onSubmit={submit} noValidate className="grid gap-1.5">
-        <label htmlFor="notice-url" className="text-[0.8rem] font-medium text-muted-foreground">
-          AI Mamla URL
-        </label>
-        <div className="flex flex-col gap-2 sm:flex-row sm:items-stretch">
-          <Input
-            ref={input}
-            id="notice-url"
-            type="text"
-            inputMode="url"
-            autoComplete="off"
-            spellCheck={false}
-            placeholder="https://example.com/traffic-fine-notice"
-            value={url}
-            readOnly={checking}
-            aria-invalid={error ? true : undefined}
-            aria-describedby="notice-help notice-error"
-            className={cn("h-11 flex-1 text-[0.95rem]", error && "border-bad")}
-            onChange={(e) => {
-              setUrl(e.target.value);
-              if (error) setError("");
-              if (state === "unsupported") setState("idle");
-            }}
-          />
-          <button type="submit" disabled={checking} aria-busy={checking} className={cn(amberButton, sizeLg, "gap-2 px-[22px] disabled:cursor-not-allowed disabled:opacity-50")}>
-            {checking ? (
-              <>
-                <span aria-hidden="true" className="inline-block size-3.5 animate-spin rounded-full border-2 border-current border-t-transparent" />
-                Checking&hellip;
-              </>
-            ) : (
-              "Analyze Mamla"
-            )}
-          </button>
+    <section id="notice" aria-labelledby="notice-title" className="grid scroll-mt-20 gap-5 rounded-xl border bg-card p-5 sm:p-7">
+      <div className="grid items-center gap-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12">
+        <div>
+          <h2 id="notice-title" className="font-sans text-[1.5rem] leading-[1.25] font-semibold">
+            Check Your Mamla
+          </h2>
+          <p className="mt-2 max-w-[48ch] text-muted-foreground">Add your mamla and we check the fine against the configured legal rules.</p>
+          <ul className="mt-4 grid gap-2 text-sm text-muted-foreground">
+            {["Offence and section matched automatically", "Fine compared with the legal limit", "Exceptions and repeat offences considered"].map((t) => (
+              <li key={t} className="flex items-center gap-2">
+                <Check aria-hidden="true" className="size-4 shrink-0 text-primary" />
+                {t}
+              </li>
+            ))}
+          </ul>
         </div>
-        <p id="notice-error" role="alert" className="m-0 text-sm text-bad empty:hidden">
-          {error}
-        </p>
-        <p id="notice-help" className="max-w-[70ch] text-[0.82rem] text-muted-foreground">
-          Enter the AI Mamla URL of your case. The page must contain the traffic fine details, such as the offence, section and amount.
-        </p>
-      </form>
 
-      <div className="flex flex-wrap items-center gap-2">
-        <Link href="/upload" className={linkButton}>
-          Upload a receipt instead
-        </Link>
+        <div className="min-w-0">
+          {mode === "upload" && (
+            <div className="mb-4">
+              <CheckStepper current={1} />
+            </div>
+          )}
+          <div role="tablist" aria-label="How to add your mamla" className="mb-4 inline-flex rounded-lg bg-muted p-1">
+            {(
+              [
+                ["url", "AI Mamla URL", Link2],
+                ["upload", "Upload receipt", UploadCloud],
+              ] as const
+            ).map(([id, label, Icon]) => (
+              <button
+                key={id}
+                type="button"
+                role="tab"
+                id={`mode-${id}`}
+                aria-selected={mode === id}
+                aria-controls={`panel-${id}`}
+                onClick={() => setMode(id)}
+                className={cn(
+                  "inline-flex items-center gap-2 rounded-md px-3.5 py-1.5 text-sm font-medium transition-colors",
+                  mode === id ? "bg-card text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground",
+                )}
+              >
+                <Icon aria-hidden="true" className="size-4" />
+                {label}
+              </button>
+            ))}
+          </div>
+
+          {mode === "url" ? (
+            <form id="panel-url" role="tabpanel" aria-labelledby="mode-url" onSubmit={submit} noValidate className="grid gap-2">
+              <label htmlFor="notice-url" className="text-sm font-medium">
+                Paste the AI Mamla URL
+              </label>
+              <div className="flex flex-col gap-2 sm:flex-row">
+                <Input
+                  ref={input}
+                  id="notice-url"
+                  type="text"
+                  inputMode="url"
+                  autoComplete="off"
+                  spellCheck={false}
+                  placeholder="https://example.com/traffic-fine-notice"
+                  value={url}
+                  readOnly={checking}
+                  aria-invalid={error ? true : undefined}
+                  aria-describedby="notice-help notice-error"
+                  className={cn("h-12 flex-1 text-[0.95rem]", error && "border-bad")}
+                  onChange={(e) => {
+                    setUrl(e.target.value);
+                    if (error) setError("");
+                    if (state === "unsupported") setState("idle");
+                  }}
+                />
+                <button type="submit" disabled={checking} aria-busy={checking} className={cn(buttonVariants({ size: "lg" }), "h-12 gap-2 px-6 disabled:cursor-not-allowed disabled:opacity-50")}>
+                  {checking ? (
+                    <>
+                      <span aria-hidden="true" className="inline-block size-3.5 animate-spin rounded-full border-2 border-current border-t-transparent" />
+                      Checking&hellip;
+                    </>
+                  ) : (
+                    "Analyze Mamla"
+                  )}
+                </button>
+              </div>
+              <p id="notice-error" role="alert" className="m-0 text-sm text-bad empty:hidden">
+                {error}
+              </p>
+              <p id="notice-help" className="text-xs text-muted-foreground">
+                The page must show the traffic fine details, such as the offence, section and amount.
+              </p>
+            </form>
+          ) : (
+            <div id="panel-upload" role="tabpanel" aria-labelledby="mode-upload">
+              <UploadPanel onRead={setReceipt} />
+            </div>
+          )}
+        </div>
       </div>
 
       {state === "unsupported" && (

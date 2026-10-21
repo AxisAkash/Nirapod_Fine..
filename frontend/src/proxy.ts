@@ -1,7 +1,7 @@
 import { clerkMiddleware } from "@clerk/nextjs/server";
 
 // Everything except the landing page and the sign-in screens needs a signed-in user.
-const PROTECTED_PREFIXES = ["/dashboard", "/upload", "/cases", "/dummy-url", "/admin"];
+const PROTECTED_PREFIXES = ["/dashboard", "/upload", "/checks", "/result", "/cases", "/dummy-url", "/admin"];
 
 const isProtected = (req: { nextUrl: { pathname: string } }) =>
   PROTECTED_PREFIXES.some((prefix) => req.nextUrl.pathname === prefix || req.nextUrl.pathname.startsWith(`${prefix}/`));

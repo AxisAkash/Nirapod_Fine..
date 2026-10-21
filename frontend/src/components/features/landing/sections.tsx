@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 function Band({ id, alt, children }: { id: string; alt?: boolean; children: ReactNode }) {
   return (
     <section id={id} className={cn("scroll-mt-[60px] border-t py-[clamp(56px,8vw,96px)]", alt ? "bg-card" : "bg-warm")}>
-      <div className="mx-auto max-w-[1320px] px-[clamp(16px,3vw,32px)]">{children}</div>
+      <div className="mx-auto max-w-(--page-max) px-[clamp(16px,3vw,32px)]">{children}</div>
     </section>
   );
 }
@@ -129,14 +129,14 @@ export function Outcomes() {
 export function CtaBand() {
   return (
     <section className="bg-navy py-[clamp(48px,7vw,80px)] text-white">
-      <div className="mx-auto flex max-w-[1320px] flex-wrap items-center justify-between gap-x-10 gap-y-5 px-[clamp(16px,3vw,32px)]">
+      <div className="mx-auto flex max-w-(--page-max) flex-wrap items-center justify-between gap-x-10 gap-y-5 px-[clamp(16px,3vw,32px)]">
         <div>
           <h2 className="max-w-[24ch] font-sans text-[clamp(1.5rem,3vw,2.1rem)] leading-[1.2] font-semibold tracking-[-0.015em] text-white">
             Understand your traffic fine before drawing conclusions.
           </h2>
           <p className="mt-2 max-w-[52ch] text-[#b9cfc3]">Review the recorded details, applicable rules, and available evidence in one place.</p>
         </div>
-        <Link href="/upload" className={cn(amberButton, sizeLg)}>
+        <Link href="/dashboard#notice" className={cn(amberButton, sizeLg)}>
           Check Mamla
         </Link>
       </div>

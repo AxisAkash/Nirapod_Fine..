@@ -13,7 +13,7 @@ function scrollTo(id: string) {
 export function SiteFooter() {
   return (
     <footer className="border-t bg-warm py-10">
-      <div className="mx-auto max-w-[1320px] px-[clamp(16px,3vw,32px)]">
+      <div className="mx-auto max-w-(--page-max) px-[clamp(16px,3vw,32px)]">
         <div className="flex flex-wrap justify-between gap-x-12 gap-y-6">
           <div className="min-w-0 max-w-[44ch]">
             <b className="mb-1.5 block font-heading text-[1.05rem] font-semibold text-primary">{SITE.name}</b>
@@ -27,7 +27,7 @@ export function SiteFooter() {
                 {l.label}
               </button>
             ))}
-            <Link href="/upload" className="py-1 text-sm text-muted-foreground hover:text-primary">
+            <Link href="/dashboard#notice" className="py-1 text-sm text-muted-foreground hover:text-primary">
               Check Mamla
             </Link>
           </nav>

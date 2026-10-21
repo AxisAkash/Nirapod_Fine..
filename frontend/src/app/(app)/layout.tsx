@@ -25,7 +25,7 @@ async function AppShell({ children }: { children: ReactNode }) {
     return (
       <>
         <AppHeader isAdmin={false} />
-        <main className="mx-auto w-full max-w-[1320px] flex-1 px-[clamp(16px,3vw,32px)] py-8">
+        <main className="mx-auto w-full max-w-(--page-max) flex-1 px-[clamp(16px,3vw,32px)] py-8">
           <ServiceError message={message} />
         </main>
       </>
@@ -34,7 +34,7 @@ async function AppShell({ children }: { children: ReactNode }) {
   return (
     <>
       <AppHeader isAdmin={me.role === "admin"} />
-      <main className="mx-auto flex w-full max-w-[1320px] flex-1 flex-col gap-6 px-[clamp(16px,3vw,32px)] py-6">{children}</main>
+      <main className="mx-auto flex w-full max-w-(--page-max) flex-1 flex-col gap-6 px-[clamp(16px,3vw,32px)] py-6">{children}</main>
     </>
   );
 }
@@ -43,7 +43,7 @@ function ShellSkeleton() {
   return (
     <>
       <AppHeader isAdmin={false} />
-      <main aria-busy="true" aria-label="Loading" className="mx-auto grid w-full max-w-[1320px] flex-1 content-start gap-4 px-[clamp(16px,3vw,32px)] py-6">
+      <main aria-busy="true" aria-label="Loading" className="mx-auto grid w-full max-w-(--page-max) flex-1 content-start gap-4 px-[clamp(16px,3vw,32px)] py-6">
         <Skeleton className="h-10 w-64" />
         <Skeleton className="h-40" />
         <Skeleton className="h-72" />

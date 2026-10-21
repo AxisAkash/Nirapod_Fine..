@@ -117,6 +117,13 @@ def test_unanalysed_uploads_are_deleted_after_a_day_but_nothing_else(client, use
     assert db.get(models.MamlaCase, uuid.UUID(done["case_id"])) is not None  # analysed: kept however old
 
 
+def test_an_unanalysed_case_exposes_what_was_read_from_its_receipt(client, user_h):
+    up = client.post("/api/receipts/upload", files={"file": ("a.png", PNG, "image/png")}, headers=user_h).json()
+    case = client.get(f"/api/cases/{up['case_id']}", headers=user_h).json()
+    reading = case["receipt"]["reading"]
+    assert reading["status"] == up["reading"]["status"] and set(reading["fields"]) == set(up["reading"]["fields"])
+
+
 def test_there_is_no_endpoint_for_typing_a_case_in(client, user_h):
     assert client.post("/api/cases/manual", json={"reason": "speeding", "amount": 3000}, headers=user_h).status_code in (404, 405, 422)
 

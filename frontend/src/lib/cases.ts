@@ -1,4 +1,5 @@
 import { groupOf, type ResultGroup } from "@/constants/status";
+import { formatNumber } from "@/lib/format";
 import type { CaseDetail, CaseListItem } from "@/types/api";
 
 export const capitalize = (s: string | null | undefined) => {
@@ -55,3 +56,37 @@ export function buildReferences(c: CaseDetail): string[] {
   for (const e of a?.exceptions ?? []) if (!refs.includes(e.source_reference)) refs.push(e.source_reference);
   return refs;
 }
+
+/**
+ * The matching engine describes why a section scored as terse text, such as `exact alias “over speed” +40`.
+ * This turns each piece into a plain sentence for the page. Text it does not recognise is returned unchanged.
+ */
+export function describeScoreReason(reason: string): string {
+  const r = reason.trim();
+  const alias = r.match(/^(exact|partial) alias [“"](.+)[”"] \+(\d+)$/);
+  if (alias) return alias[1] === "exact" ? `Offence text is exactly “${alias[2]}” (+${alias[3]})` : `Offence text partly matches “${alias[2]}” (+${alias[3]})`;
+  const keywords = r.match(/^keywords (.+)$/);
+  if (keywords) return `Key words found: ${keywords[1].replace(/ \+(\d+)/g, " (+$1)")}`;
+  const title = r.match(/^title match \+(\d+)$/);
+  if (title) return `Offence text contains the section's title (+${title[1]})`;
+  const cited = r.match(/^cited section \+(\d+)$/);
+  if (cited) return `Receipt cites this section number (+${cited[1]})`;
+  const amount = r.match(/^amount within range \+(\d+)$/);
+  if (amount) return `Fine is within this section's limit (+${amount[1]})`;
+  const best = r.match(/^best reason score (\d+), threshold (\d+)$/);
+  if (best) return `Best offence-text score was ${best[1]}; at least ${best[2]} is needed to choose a section`;
+  const limits = r.match(/^max_fine = (\S+), min_fine = (\S+)$/);
+  if (limits) {
+    const max = limits[1] === "None" ? "no Taka ceiling" : `up to Tk ${formatNumber(Number(limits[1]))}`;
+    return `Fine limit: ${max}${Number(limits[2]) > 0 ? `, minimum Tk ${formatNumber(Number(limits[2]))}` : ""}`;
+  }
+  const allowed = r.match(/^allowed_fine = (min\(previous × 2, max_fine\)|max_fine) = (\d+)$/);
+  if (allowed) {
+    const basis = allowed[1] === "max_fine" ? "the section's maximum" : "the lower of twice the previous fine and the section's maximum";
+    return `Allowed amount is ${basis}: Tk ${formatNumber(Number(allowed[2]))}`;
+  }
+  return r;
+}
+
+/** A whole `a · b · c` line of score reasons, as one list of plain sentences. */
+export const describeScoreLine = (line: string): string[] => line.split(" · ").map(describeScoreReason);

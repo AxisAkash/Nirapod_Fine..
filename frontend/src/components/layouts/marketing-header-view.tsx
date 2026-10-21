@@ -30,7 +30,7 @@ export function MarketingHeaderView({ signedIn }: { signedIn: boolean }) {
 
   return (
     <header className="sticky top-0 z-30 border-b bg-card">
-      <div className="mx-auto flex max-w-[1320px] items-center gap-x-4 px-[clamp(16px,3vw,32px)] py-2.5">
+      <div className="mx-auto flex max-w-(--page-max) items-center gap-x-4 px-[clamp(16px,3vw,32px)] py-2.5">
         <Link href="/" className="font-heading text-[1.1rem] font-semibold text-primary">
           {SITE.name}
         </Link>
@@ -51,7 +51,7 @@ export function MarketingHeaderView({ signedIn }: { signedIn: boolean }) {
               <Link href="/sign-in" className={cn(ghostButton, sizeSm, "hidden md:inline-flex")}>
                 Sign in
               </Link>
-              <Link href="/upload" className={cn(amberButton, sizeSm, "hidden md:inline-flex")}>
+              <Link href="/dashboard#notice" className={cn(amberButton, sizeSm, "hidden md:inline-flex")}>
                 Check Mamla
               </Link>
             </>
@@ -84,7 +84,7 @@ export function MarketingHeaderView({ signedIn }: { signedIn: boolean }) {
               <Link href="/sign-in" className={cn(ghostButton, "flex-1 px-4 py-2.5 text-sm")}>
                 Sign in
               </Link>
-              <Link href="/upload" className={cn(amberButton, "flex-1 px-4 py-2.5 text-sm")}>
+              <Link href="/dashboard#notice" className={cn(amberButton, "flex-1 px-4 py-2.5 text-sm")}>
                 Check Mamla
               </Link>
             </>

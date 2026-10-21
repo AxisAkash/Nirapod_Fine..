@@ -125,6 +125,7 @@ export interface CaseDetail {
     reading_status: string | null;
     text_read: string | null;
     reading_model: string | null;
+    reading: Reading | null;
   } | null;
   dataset: { id: string; name: string } | null;
   matched_rule: {

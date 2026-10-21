@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import { groupOf, RESULT_GROUPS } from "@/constants/status";
-import { buildLimitations, buildReferences, capitalize, countGroups, firstName, shortUrl } from "@/lib/cases";
+import { buildLimitations, buildReferences, capitalize, countGroups, describeScoreLine, describeScoreReason, firstName, shortUrl } from "@/lib/cases";
 import type { CaseDetail, ValidationStatus } from "@/types/api";
 
 describe("groupOf", () => {
@@ -112,5 +112,22 @@ describe("audit labels", () => {
     expect(integrityMeta("verified").tone).toBe("ok");
     expect(integrityMeta("tampered").tone).toBe("bad");
     expect(integrityMeta("unanchored").tone).toBe("warn");
+  });
+});
+
+describe("describeScoreReason", () => {
+  it("rewrites the engine's score notes as plain sentences", () => {
+    expect(describeScoreReason("exact alias “exceeding speed limit” +40")).toBe("Offence text is exactly “exceeding speed limit” (+40)");
+    expect(describeScoreReason("partial alias “fitness” +30")).toBe("Offence text partly matches “fitness” (+30)");
+    expect(describeScoreReason("keywords speed +20, speed limit +25")).toBe("Key words found: speed (+20), speed limit (+25)");
+    expect(describeScoreReason("cited section +50")).toBe("Receipt cites this section number (+50)");
+    expect(describeScoreReason("best reason score 20, threshold 30")).toContain("at least 30 is needed");
+    expect(describeScoreReason("allowed_fine = max_fine = 10000")).toBe("Allowed amount is the section's maximum: Tk 10,000");
+    expect(describeScoreReason("max_fine = None, min_fine = 0")).toBe("Fine limit: no Taka ceiling");
+  });
+
+  it("leaves anything it does not recognise as it was, and splits a whole line", () => {
+    expect(describeScoreReason("Road Transport Act s.87")).toBe("Road Transport Act s.87");
+    expect(describeScoreLine("exact alias “a” +40 · cited section +50")).toHaveLength(2);
   });
 });

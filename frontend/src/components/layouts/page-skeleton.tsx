@@ -11,16 +11,12 @@ export function PageSkeleton() {
   );
 }
 
-export function StatsAndTableSkeleton() {
+export function StatsSkeleton() {
   return (
-    <div aria-busy="true" aria-label="Loading your checks" className="grid gap-4">
-      <div className="grid gap-2.5 sm:grid-cols-3">
-        {Array.from({ length: 3 }).map((_, i) => (
-          <Skeleton key={i} className="h-[4.5rem]" />
-        ))}
-      </div>
-      <Skeleton className="h-8 w-40" />
-      <Skeleton className="h-64" />
+    <div aria-busy="true" aria-label="Loading your checks" className="grid gap-2.5 sm:grid-cols-3">
+      {Array.from({ length: 3 }).map((_, i) => (
+        <Skeleton key={i} className="h-[4.5rem]" />
+      ))}
     </div>
   );
 }

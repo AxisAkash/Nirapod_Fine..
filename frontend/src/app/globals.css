@@ -5,6 +5,7 @@
 /* Light theme only. Colours: pale ground, white cards, one muted green accent, colour reserved for status. */
 :root {
   --radius: 0.5rem;
+  --page-max: 1760px; /* widest the page content grows; one place to change the side gaps */
 
   --background: #f5f7f5;
   --foreground: #17211c;
@@ -109,4 +110,5 @@
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+
 

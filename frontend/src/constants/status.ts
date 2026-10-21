@@ -56,12 +56,6 @@ export const JUSTIFICATION_STRIPE: Record<string, string> = {
   info: "border-primary",
 };
 
-export const CASE_SOURCE_LABEL: Record<string, string> = {
-  receipt_upload: "Receipt",
-  manual_entry: "Typed details",
-  dummy_url: "Sample",
-};
-
 /** The three result groups shown on the dashboard and in history. */
 export type ResultGroup = "consistent" | "review" | "insufficient";
 

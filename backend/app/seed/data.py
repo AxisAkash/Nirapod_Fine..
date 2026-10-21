@@ -206,6 +206,8 @@ OFFENCE_RULES = [
             "unfit vehicle",
             "fitness certificate missing",
             "without fitness",
+            "fitness date expire",
+            "fitness date expired",
         ],
         ["ফিটনেস সনদ ছাড়া", "ফিটনেস নেই", "মেয়াদোত্তীর্ণ ফিটনেস"],
         [("fitness", 25), ("unfit", 20), ("unsafe vehicle", 15)],

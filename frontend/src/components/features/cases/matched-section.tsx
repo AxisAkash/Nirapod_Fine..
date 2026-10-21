@@ -1,3 +1,4 @@
+import { describeScoreReason } from "@/lib/cases";
 import type { Analysis } from "@/types/api";
 
 export function MatchedSection({ analysis, confidenceLabel = "Confidence" }: { analysis: Analysis; confidenceLabel?: string }) {
@@ -23,16 +24,17 @@ export function MatchedSection({ analysis, confidenceLabel = "Confidence" }: { a
         <p className="text-sm text-muted-foreground">No section could be selected for this offence.</p>
       )}
       <details className="text-sm">
-        <summary className="cursor-pointer font-medium text-primary">Show candidate sections and scores</summary>
+        <summary className="cursor-pointer font-medium text-primary">See how every section scored</summary>
+        <p className="mt-2 text-xs text-muted-foreground">Each section is scored against the receipt. The one with enough offence-text points and the highest total is chosen.</p>
         <div className="mt-2 overflow-x-auto">
           <table className="w-full text-left text-sm">
             <thead className="font-mono text-xs text-muted-foreground uppercase">
               <tr>
                 <th className="py-1.5 pr-3 font-medium">Section</th>
                 <th className="py-1.5 pr-3 font-medium">Offence</th>
-                <th className="py-1.5 pr-3 text-right font-medium">Reason</th>
-                <th className="py-1.5 pr-3 text-right font-medium">Cited</th>
-                <th className="py-1.5 text-right font-medium">Total</th>
+                <th className="py-1.5 pr-3 text-right font-medium">Offence text</th>
+                <th className="py-1.5 pr-3 text-right font-medium">Section cited</th>
+                <th className="py-1.5 text-right font-medium">Score</th>
               </tr>
             </thead>
             <tbody>
@@ -41,7 +43,9 @@ export function MatchedSection({ analysis, confidenceLabel = "Confidence" }: { a
                   <td className="py-2 pr-3 font-mono">{c.section}</td>
                   <td className="py-2 pr-3">
                     {c.title}
-                    <span className="block text-xs text-muted-foreground">{c.why.join(" · ") || "no signals"}</span>
+                    <span className="mt-0.5 block text-xs leading-relaxed text-muted-foreground">
+                      {c.why.length ? c.why.map((w) => <span key={w} className="block">{describeScoreReason(w)}</span>) : "No matching words"}
+                    </span>
                   </td>
                   <td className="py-2 pr-3 text-right font-mono tabular-nums">{c.reason_score}</td>
                   <td className="py-2 pr-3 text-right font-mono tabular-nums">{c.section_score}</td>

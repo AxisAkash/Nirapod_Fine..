@@ -14,8 +14,8 @@ const linkClass = "border-b-2 border-transparent px-0.5 py-1.5 text-[0.88rem] fo
 /** Highlights the current section. Reading the path happens at request time, so this part streams in. */
 function NavLinks({ isAdmin }: { isAdmin: boolean }) {
   const pathname = usePathname();
-  // A case's result and record pages belong to Overview; the upload flow belongs to it too.
-  const section = pathname.startsWith("/cases") || pathname.startsWith("/upload") ? "/dashboard" : pathname;
+  // A case's page is the Result tab; the old upload page belongs to Overview.
+  const section = pathname.startsWith("/cases") ? "/result" : pathname.startsWith("/upload") ? "/dashboard" : pathname;
   return (
     <>
       {APP_NAV.filter((n) => !n.adminOnly || isAdmin).map((n) => {
@@ -45,7 +45,7 @@ function PlainLinks({ isAdmin }: { isAdmin: boolean }) {
 export function AppHeader({ isAdmin }: { isAdmin: boolean }) {
   return (
     <header className="sticky top-0 z-30 border-b bg-card">
-      <div className="mx-auto flex max-w-[1320px] flex-wrap items-center gap-x-[22px] gap-y-1 px-[clamp(16px,3vw,32px)] py-2.5">
+      <div className="mx-auto flex max-w-(--page-max) flex-wrap items-center gap-x-[22px] gap-y-1 px-[clamp(16px,3vw,32px)] py-2.5">
         <Logo href="/dashboard" />
         <nav aria-label="Main" className="order-3 flex w-full gap-x-[22px] overflow-x-auto sm:order-none sm:ml-1 sm:w-auto">
           <Suspense fallback={<PlainLinks isAdmin={isAdmin} />}>

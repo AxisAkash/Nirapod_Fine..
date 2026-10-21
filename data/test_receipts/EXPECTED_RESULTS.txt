@@ -1,0 +1,43 @@
+Test receipts (all fictional, no black marks). Expected result for each, from the dataset in data/source/.
+Upload each from the same account; receipts 15 and 16 are a repeat-offence pair (15 first).
+
+01_valid_speeding_s87.jpg
+    -> VALID: Tk 5,000 is within the Tk 10,000 limit of s.87
+02_too_high_speeding_s87.jpg
+    -> INVALID_FINE_TOO_HIGH: Tk 15,000 is above the Tk 10,000 limit of s.87
+03_valid_fitness_s75.jpg
+    -> VALID: within the Tk 25,000 limit of s.75 (same wording as the reference photo)
+04_too_high_parking_s90.jpg
+    -> INVALID_FINE_TOO_HIGH: above the Tk 5,000 limit of s.90
+05_exception_ambulance_s77.jpg
+    -> VALID_BUT_EXCEPTION_POSSIBLE: ambulances are exempt from route permits (s.30)
+06_review_extortion_s83.jpg
+    -> NEEDS_MANUAL_REVIEW: s.83 has no Taka ceiling
+07_too_high_overload_s86.jpg
+    -> INVALID_FINE_TOO_HIGH: above the Tk 1 lakh limit of s.86
+08_valid_signal_s85_bangla.jpg
+    -> VALID: within the Tk 10,000 limit of s.85 (Bangla offence text)
+09_review_below_min_workshop_s97.jpg
+    -> NEEDS_MANUAL_REVIEW: below the Tk 25,000 minimum of s.97
+10_review_unknown_offence.jpg
+    -> NEEDS_MANUAL_REVIEW: offence not in the dataset
+11_too_high_no_licence_s66.jpg
+    -> INVALID_FINE_TOO_HIGH: above the Tk 25,000 limit of s.66
+12_valid_tax_token_s76_boundary.jpg
+    -> VALID: exactly the Tk 10,000 limit of s.76
+13_too_high_unregistered_s72.jpg
+    -> INVALID_FINE_TOO_HIGH: above the Tk 50,000 limit of s.72
+14_valid_fare_chart_s80.jpg
+    -> VALID: within the Tk 10,000 limit of s.80
+15_valid_air_horn_s88_first.jpg
+    -> VALID: first s.88 offence, within the Tk 10,000 limit. Upload this BEFORE receipt 16
+16_too_high_air_horn_s88_repeat.jpg
+    -> INVALID_FINE_TOO_HIGH: a repeat of receipt 15 may be fined at most twice the previous fine (Tk 4,000), even though Tk 5,000 is under the Tk 10,000 limit. Upload AFTER receipt 15, same account
+17_too_high_flammable_s93.jpg
+    -> INVALID_FINE_TOO_HIGH: above the Tk 25,000 limit of s.93
+18_valid_obstruct_inspection_s101_bangla.jpg
+    -> VALID: within the Tk 10,000 limit of s.101 (Bangla offence text)
+19_review_reckless_death_s105.jpg
+    -> VALID: Tk 5 lakh is exactly the s.105 fine ceiling (the law may also impose up to 5 years in prison; only the fine is checked)
+20_exception_fire_service_s77.jpg
+    -> VALID_BUT_EXCEPTION_POSSIBLE: fire-service vehicles are exempt from route permits (s.30)

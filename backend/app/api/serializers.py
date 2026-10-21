@@ -40,7 +40,8 @@ def case_detail(c: models.MamlaCase) -> dict[str, Any]:
         "receipt": (
             {"id": str(c.receipt.id), "file_name": c.receipt.file_name, "file_type": c.receipt.file_type,
              "file_hash": c.receipt.file_hash, "reading_status": c.receipt.extraction_status,
-             "text_read": c.receipt.raw_ocr_text, "reading_model": (c.receipt.extraction or {}).get("model")}
+             "text_read": c.receipt.raw_ocr_text, "reading_model": (c.receipt.extraction or {}).get("model"),
+             "reading": reading_out(c.receipt).model_dump()}
             if c.receipt else None
         ),
         "dataset": (
