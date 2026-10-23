@@ -1,0 +1,7 @@
+system,n,correct,handed_to_review,confidently_wrong,accuracy,wrong_rate,firm_answers,accuracy_of_firm_answers,false_approvals
+Rule engine (typed fields),224,160,55,9,0.7143,0.0402,147,0.9388,2
+"Rule engine, same cases (typed fields)",56,38,15,3,0.6786,0.0536,38,0.9211,0
+AI + rule engine (receipt pictures),56,26,27,3,0.4643,0.0536,26,0.8846,0
+AI alone (receipt pictures),56,40,13,3,0.7143,0.0536,40,0.925,0
+"AI + rule engine, legible pictures only",42,25,14,3,0.5952,0.0714,26,0.8846,0
+"AI alone, legible pictures only",42,39,0,3,0.9286,0.0714,40,0.925,0

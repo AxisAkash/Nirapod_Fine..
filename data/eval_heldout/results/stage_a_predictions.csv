@@ -1,0 +1,223 @@
+id,group,reason,amount,cited,true_section,pred_section,true_verdict,pred_verdict,correct
+C001,standard,Driving without a driving licence,10500,66,66,66,VALID,VALID,True
+C002,standard,Driving without a driving licence,41000,66,66,66,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C003,boundary,Driving without a driving licence,25000,,66,66,VALID,VALID,True
+C004,paraphrase,No valid licence while driving,9000,,66,none,VALID,NEEDS_MANUAL_REVIEW,False
+C005,paraphrase,No valid licence while driving,42000,66,66,none,INVALID_FINE_TOO_HIGH,NEEDS_MANUAL_REVIEW,False
+C006,bangla,ড্রাইভিং লাইসেন্স ছাড়া গাড়ি চালানো,19500,,66,66,VALID,VALID,True
+C007,bangla,ড্রাইভিং লাইসেন্স ছাড়া গাড়ি চালানো,41000,66,66,66,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C008,standard,Unlawful transfer of a driving licence,1500,67,67,67,VALID,VALID,True
+C009,standard,Unlawful transfer of a driving licence,10000,67,67,67,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C010,boundary,Unlawful transfer of a driving licence,5000,67,67,67,VALID,VALID,True
+C011,paraphrase,Lent his driving licence to another person,1500,67,67,66,VALID,INVALID_REASON_MISMATCH,False
+C012,paraphrase,Lent his driving licence to another person,7000,67,67,66,INVALID_FINE_TOO_HIGH,INVALID_REASON_MISMATCH,False
+C013,bangla,অবৈধভাবে ড্রাইভিং লাইসেন্স হস্তান্তর,3500,67,67,67,VALID,VALID,True
+C014,standard,Driving despite licence suspension,8000,,70,70,VALID,VALID,True
+C015,standard,Driving despite licence suspension,34000,70,70,70,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C016,boundary,Driving despite licence suspension,25000,,70,70,VALID,VALID,True
+C017,paraphrase,Driving while the licence was cancelled,9500,70,70,none,VALID,NEEDS_MANUAL_REVIEW,False
+C018,paraphrase,Driving while the licence was cancelled,34000,,70,none,INVALID_FINE_TOO_HIGH,NEEDS_MANUAL_REVIEW,False
+C019,bangla,লাইসেন্স বাতিল থাকা অবস্থায় গাড়ি চালানো,14000,,70,none,VALID,NEEDS_MANUAL_REVIEW,False
+C020,standard,Working as a conductor without a licence,3000,71,71,none,VALID,NEEDS_MANUAL_REVIEW,False
+C021,standard,Working as a conductor without a licence,9000,,71,none,INVALID_FINE_TOO_HIGH,NEEDS_MANUAL_REVIEW,False
+C022,boundary,Working as a conductor without a licence,5000,71,71,none,VALID,NEEDS_MANUAL_REVIEW,False
+C023,paraphrase,Bus conductor with no conductor licence,3500,,71,71,VALID,VALID,True
+C024,paraphrase,Bus conductor with no conductor licence,8000,71,71,71,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C025,bangla,লাইসেন্স ছাড়া কন্ডাক্টরের কাজ,1500,,71,66,VALID,VALID,True
+C026,bangla,লাইসেন্স ছাড়া কন্ডাক্টরের কাজ,8000,71,71,66,INVALID_FINE_TOO_HIGH,INVALID_REASON_MISMATCH,False
+C027,standard,Driving an unregistered vehicle,38000,,72,72,VALID,VALID,True
+C028,standard,Driving an unregistered vehicle,86000,72,72,72,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C029,boundary,Driving an unregistered vehicle,50000,72,72,72,VALID,VALID,True
+C030,paraphrase,Vehicle has no registration,29000,,72,72,VALID,VALID,True
+C031,paraphrase,Vehicle has no registration,61000,72,72,72,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C032,bangla,নিবন্ধন ছাড়া গাড়ি চালানো,36000,72,72,72,VALID,VALID,True
+C033,bangla,নিবন্ধন ছাড়া গাড়ি চালানো,89000,72,72,72,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C034,standard,Failure to register after ownership transfer,3500,,74,none,VALID,NEEDS_MANUAL_REVIEW,False
+C035,standard,Failure to register after ownership transfer,8000,74,74,none,INVALID_FINE_TOO_HIGH,NEEDS_MANUAL_REVIEW,False
+C036,boundary,Failure to register after ownership transfer,5000,,74,none,VALID,NEEDS_MANUAL_REVIEW,False
+C037,paraphrase,Ownership changed but registration not updated,3500,,74,none,VALID,NEEDS_MANUAL_REVIEW,False
+C038,paraphrase,Ownership changed but registration not updated,7000,,74,none,INVALID_FINE_TOO_HIGH,NEEDS_MANUAL_REVIEW,False
+C039,bangla,মালিকানা পরিবর্তনের পর নিবন্ধন না করা,1500,,74,none,VALID,NEEDS_MANUAL_REVIEW,False
+C040,bangla,মালিকানা পরিবর্তনের পর নিবন্ধন না করা,9000,,74,none,INVALID_FINE_TOO_HIGH,NEEDS_MANUAL_REVIEW,False
+C041,standard,Driving without a valid fitness certificate,8500,,75,none,VALID,NEEDS_MANUAL_REVIEW,False
+C042,standard,Driving without a valid fitness certificate,39000,,75,none,INVALID_FINE_TOO_HIGH,NEEDS_MANUAL_REVIEW,False
+C043,boundary,Driving without a valid fitness certificate,25000,75,75,none,VALID,NEEDS_MANUAL_REVIEW,False
+C044,paraphrase,Fitness Date Expire,10000,,75,75,VALID,VALID,True
+C045,paraphrase,Fitness Date Expire,45000,,75,75,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C046,bangla,ফিটনেস সনদ ছাড়া গাড়ি চালানো,15500,75,75,75,VALID,VALID,True
+C047,standard,Driving without a valid tax token,8000,,76,76,VALID,VALID,True
+C048,standard,Driving without a valid tax token,15000,,76,76,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C049,boundary,Driving without a valid tax token,10000,,76,76,VALID,VALID,True
+C050,paraphrase,Tax token expired,7500,76,76,76,VALID,VALID,True
+C051,paraphrase,Tax token expired,20000,76,76,76,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C052,bangla,ট্যাক্স টোকেন ছাড়া গাড়ি চালানো,3000,,76,76,VALID,VALID,True
+C053,bangla,ট্যাক্স টোকেন ছাড়া গাড়ি চালানো,13000,,76,76,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C054,standard,Operating without a route permit,12000,,77,77,VALID,VALID,True
+C055,standard,Operating without a route permit,36000,,77,77,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C056,boundary,Operating without a route permit,20000,77,77,77,VALID,VALID,True
+C057,paraphrase,No route permit for this transport vehicle,15500,,77,77,VALID,VALID,True
+C058,paraphrase,No route permit for this transport vehicle,27000,77,77,77,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C059,bangla,রুট পারমিট ছাড়া গাড়ি চালানো,6000,,77,77,VALID,VALID,True
+C060,bangla,রুট পারমিট ছাড়া গাড়ি চালানো,28000,77,77,77,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C061,standard,Violating restrictions on commercial use of a vehicle,17000,,79,79,VALID,VALID,True
+C062,standard,Violating restrictions on commercial use of a vehicle,37000,79,79,79,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C063,boundary,Violating restrictions on commercial use of a vehicle,25000,79,79,79,VALID,VALID,True
+C064,paraphrase,Private car used for commercial purpose,18500,79,79,none,VALID,NEEDS_MANUAL_REVIEW,False
+C065,paraphrase,Private car used for commercial purpose,38000,79,79,none,INVALID_FINE_TOO_HIGH,NEEDS_MANUAL_REVIEW,False
+C066,bangla,ব্যক্তিগত গাড়ি বাণিজ্যিক কাজে ব্যবহার,13000,,79,none,VALID,NEEDS_MANUAL_REVIEW,False
+C067,bangla,ব্যক্তিগত গাড়ি বাণিজ্যিক কাজে ব্যবহার,31000,,79,none,INVALID_FINE_TOO_HIGH,NEEDS_MANUAL_REVIEW,False
+C068,standard,Failing to display the fare chart,3000,,80,80,VALID,VALID,True
+C069,standard,Failing to display the fare chart,20000,,80,80,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C070,boundary,Failing to display the fare chart,10000,80,80,80,VALID,VALID,True
+C071,paraphrase,Charging more than the fixed fare,7500,80,80,none,VALID,NEEDS_MANUAL_REVIEW,False
+C072,paraphrase,Charging more than the fixed fare,13000,,80,none,INVALID_FINE_TOO_HIGH,NEEDS_MANUAL_REVIEW,False
+C073,bangla,ভাড়ার তালিকা প্রদর্শন না করা,7000,80,80,80,VALID,VALID,True
+C074,standard,Tampering with a taxi meter or overcharging passengers,16500,,81,81,VALID,VALID,True
+C075,standard,Tampering with a taxi meter or overcharging passengers,75000,81,81,81,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C076,boundary,Tampering with a taxi meter or overcharging passengers,50000,,81,81,VALID,VALID,True
+C077,paraphrase,Overcharged passengers with a tampered meter,22000,81,81,81,VALID,VALID,True
+C078,paraphrase,Overcharged passengers with a tampered meter,80000,,81,81,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C079,bangla,মিটারে কারসাজি করে অতিরিক্ত ভাড়া আদায়,38000,,81,80,VALID,INVALID_FINE_TOO_HIGH,False
+C080,bangla,মিটারে কারসাজি করে অতিরিক্ত ভাড়া আদায়,87000,81,81,81,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C081,standard,Violating technical specifications of a motor vehicle,262500,,84,none,VALID,NEEDS_MANUAL_REVIEW,False
+C082,standard,Violating technical specifications of a motor vehicle,389000,,84,none,INVALID_FINE_TOO_HIGH,NEEDS_MANUAL_REVIEW,False
+C083,boundary,Violating technical specifications of a motor vehicle,300000,84,84,none,VALID,NEEDS_MANUAL_REVIEW,False
+C084,paraphrase,Vehicle modified against its technical specification,253000,,84,84,VALID,VALID,True
+C085,paraphrase,Vehicle modified against its technical specification,590000,,84,84,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C086,bangla,যানবাহনের কারিগরি বৈশিষ্ট্য লঙ্ঘন,135500,,84,84,VALID,VALID,True
+C087,standard,Violating traffic signals,3000,85,85,85,VALID,VALID,True
+C088,standard,Violating traffic signals,16000,85,85,85,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C089,boundary,Violating traffic signals,10000,85,85,85,VALID,VALID,True
+C090,paraphrase,Jumped the red light,4500,85,85,85,VALID,VALID,True
+C091,paraphrase,Jumped the red light,19000,85,85,85,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C092,bangla,ট্রাফিক সংকেত অমান্য,6000,,85,85,VALID,VALID,True
+C093,bangla,ট্রাফিক সংকেত অমান্য,19000,85,85,85,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C094,standard,Overloading a vehicle,66000,86,86,86,VALID,VALID,True
+C095,standard,Overloading a vehicle,123000,,86,86,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C096,boundary,Overloading a vehicle,100000,,86,86,VALID,VALID,True
+C097,paraphrase,Carrying more weight than permitted,42000,,86,none,VALID,NEEDS_MANUAL_REVIEW,False
+C098,paraphrase,Carrying more weight than permitted,157000,86,86,none,INVALID_FINE_TOO_HIGH,NEEDS_MANUAL_REVIEW,False
+C099,bangla,অতিরিক্ত মালামাল বহন,49500,86,86,86,VALID,VALID,True
+C100,bangla,অতিরিক্ত মালামাল বহন,140000,,86,86,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C101,standard,Exceeding the speed limit,7000,,87,87,VALID,VALID,True
+C102,standard,Exceeding the speed limit,16000,,87,87,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C103,boundary,Exceeding the speed limit,10000,87,87,87,VALID,VALID,True
+C104,paraphrase,Driving too fast,8500,,87,87,VALID,VALID,True
+C105,paraphrase,Driving too fast,16000,87,87,87,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C106,bangla,অতিরিক্ত গতিতে গাড়ি চালানো,5500,,87,87,VALID,VALID,True
+C107,standard,Illegal use of horn,4000,,88,none,VALID,NEEDS_MANUAL_REVIEW,False
+C108,standard,Illegal use of horn,20000,,88,none,INVALID_FINE_TOO_HIGH,NEEDS_MANUAL_REVIEW,False
+C109,boundary,Illegal use of horn,10000,88,88,none,VALID,NEEDS_MANUAL_REVIEW,False
+C110,paraphrase,Blowing a loud horn in a silent zone,5500,88,88,88,VALID,VALID,True
+C111,paraphrase,Blowing a loud horn in a silent zone,20000,88,88,88,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C112,bangla,নিষিদ্ধ হর্ন ব্যবহার,7000,,88,none,VALID,NEEDS_MANUAL_REVIEW,False
+C113,bangla,নিষিদ্ধ হর্ন ব্যবহার,20000,88,88,none,INVALID_FINE_TOO_HIGH,NEEDS_MANUAL_REVIEW,False
+C114,standard,Illegal parking,4000,,90,90,VALID,VALID,True
+C115,standard,Illegal parking,9000,,90,90,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C116,boundary,Illegal parking,5000,,90,90,VALID,VALID,True
+C117,paraphrase,Parked in a no parking zone,4000,90,90,90,VALID,VALID,True
+C118,paraphrase,Parked in a no parking zone,8000,90,90,90,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C119,bangla,নিষিদ্ধ স্থানে গাড়ি পার্কিং,3000,90,90,90,VALID,VALID,True
+C120,standard,Violating highway rules for fast-moving vehicles,3000,,91,none,VALID,NEEDS_MANUAL_REVIEW,False
+C121,standard,Violating highway rules for fast-moving vehicles,7000,,91,none,INVALID_FINE_TOO_HIGH,NEEDS_MANUAL_REVIEW,False
+C122,boundary,Violating highway rules for fast-moving vehicles,5000,91,91,none,VALID,NEEDS_MANUAL_REVIEW,False
+C123,paraphrase,Slow vehicle in the fast lane of the highway,1500,91,91,91,VALID,VALID,True
+C124,paraphrase,Slow vehicle in the fast lane of the highway,10000,,91,91,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C125,bangla,মহাসড়কে দ্রুতগামী যানের নিয়ম লঙ্ঘন,3000,,91,none,VALID,NEEDS_MANUAL_REVIEW,False
+C126,bangla,মহাসড়কে দ্রুতগামী যানের নিয়ম লঙ্ঘন,9000,,91,none,INVALID_FINE_TOO_HIGH,NEEDS_MANUAL_REVIEW,False
+C127,standard,Transporting flammable substances improperly,21000,,93,93,VALID,VALID,True
+C128,standard,Transporting flammable substances improperly,39000,93,93,93,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C129,boundary,Transporting flammable substances improperly,25000,93,93,93,VALID,VALID,True
+C130,paraphrase,Carrying explosives inside a passenger bus,13500,,93,93,VALID,VALID,True
+C131,paraphrase,Carrying explosives inside a passenger bus,45000,,93,93,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C132,bangla,দাহ্য পদার্থ অনিরাপদে পরিবহন,16500,93,93,93,VALID,VALID,True
+C133,bangla,দাহ্য পদার্থ অনিরাপদে পরিবহন,46000,93,93,93,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C134,standard,Failure to give treatment to an accident victim,16500,,95,95,VALID,VALID,True
+C135,standard,Failure to give treatment to an accident victim,32000,,95,95,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C136,boundary,Failure to give treatment to an accident victim,20000,95,95,95,VALID,VALID,True
+C137,paraphrase,Did not take the injured person to hospital,10000,,95,none,VALID,NEEDS_MANUAL_REVIEW,False
+C138,paraphrase,Did not take the injured person to hospital,37000,95,95,none,INVALID_FINE_TOO_HIGH,NEEDS_MANUAL_REVIEW,False
+C139,bangla,দুর্ঘটনায় আহতকে চিকিৎসা না দেওয়া,10000,,95,95,VALID,INVALID_EXCEPTION_NOT_APPLICABLE,False
+C140,standard,Running a driving training school unlawfully,89500,96,96,96,VALID,VALID,True
+C141,standard,Running a driving training school unlawfully,151000,96,96,96,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C142,boundary,Running a driving training school unlawfully,100000,96,96,96,VALID,VALID,True
+C143,paraphrase,Unlicensed driving school,51000,,96,96,VALID,VALID,True
+C144,paraphrase,Unlicensed driving school,174000,,96,96,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C145,bangla,অনুমোদন ছাড়া ড্রাইভিং স্কুল পরিচালনা,55000,96,96,96,VALID,VALID,True
+C146,standard,Obstructing an inspection,3500,101,101,101,VALID,VALID,True
+C147,standard,Obstructing an inspection,14000,101,101,101,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C148,boundary,Obstructing an inspection,10000,,101,101,VALID,VALID,True
+C149,paraphrase,Refused to let the officer inspect the vehicle,6500,101,101,none,VALID,NEEDS_MANUAL_REVIEW,False
+C150,paraphrase,Refused to let the officer inspect the vehicle,16000,101,101,none,INVALID_FINE_TOO_HIGH,NEEDS_MANUAL_REVIEW,False
+C151,bangla,পরিদর্শনে বাধা প্রদান,6500,,101,101,VALID,VALID,True
+C152,standard,Failure to obey an order or give required information,4000,102,102,102,VALID,VALID,True
+C153,standard,Failure to obey an order or give required information,19000,102,102,102,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C154,boundary,Failure to obey an order or give required information,10000,102,102,102,VALID,VALID,True
+C155,paraphrase,Did not give the information the officer asked for,3000,,102,none,VALID,NEEDS_MANUAL_REVIEW,False
+C156,paraphrase,Did not give the information the officer asked for,20000,102,102,none,INVALID_FINE_TOO_HIGH,NEEDS_MANUAL_REVIEW,False
+C157,bangla,আদেশ অমান্য বা তথ্য না দেওয়া,5000,102,102,102,VALID,VALID,True
+C158,standard,Aggressive behaviour against public order,5000,103,103,103,VALID,VALID,True
+C159,standard,Aggressive behaviour against public order,15000,103,103,103,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C160,boundary,Aggressive behaviour against public order,10000,,103,103,VALID,VALID,True
+C161,paraphrase,Rude and aggressive conduct on the road,6500,103,103,103,VALID,VALID,True
+C162,paraphrase,Rude and aggressive conduct on the road,13000,103,103,103,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C163,bangla,জনশৃঙ্খলা বিরোধী আক্রমণাত্মক আচরণ,8500,103,103,none,VALID,NEEDS_MANUAL_REVIEW,False
+C164,standard,Violating government orders on transport,6000,104,104,none,VALID,NEEDS_MANUAL_REVIEW,False
+C165,standard,Violating government orders on transport,26000,104,104,none,INVALID_FINE_TOO_HIGH,NEEDS_MANUAL_REVIEW,False
+C166,boundary,Violating government orders on transport,20000,,104,none,VALID,NEEDS_MANUAL_REVIEW,False
+C167,paraphrase,Ignored a government directive on vehicles,8500,104,104,none,VALID,NEEDS_MANUAL_REVIEW,False
+C168,paraphrase,Ignored a government directive on vehicles,30000,104,104,none,INVALID_FINE_TOO_HIGH,NEEDS_MANUAL_REVIEW,False
+C169,bangla,সরকারি আদেশ লঙ্ঘন,8000,104,104,none,VALID,NEEDS_MANUAL_REVIEW,False
+C170,standard,Reckless driving causing death,349000,,105,105,VALID,VALID,True
+C171,standard,Reckless driving causing death,721000,,105,105,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C172,boundary,Reckless driving causing death,500000,,105,105,VALID,VALID,True
+C173,paraphrase,"Negligent driving, a pedestrian died",397500,105,105,105,VALID,VALID,True
+C174,paraphrase,"Negligent driving, a pedestrian died",887000,,105,105,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C175,bangla,বেপরোয়া গাড়ি চালিয়ে মৃত্যু ঘটানো,160500,,105,none,VALID,NEEDS_MANUAL_REVIEW,False
+C176,unknown,Throwing litter from a vehicle window,500,,none,none,NEEDS_MANUAL_REVIEW,NEEDS_MANUAL_REVIEW,True
+C177,unknown,Jaywalking by a pedestrian,3000,,none,none,NEEDS_MANUAL_REVIEW,NEEDS_MANUAL_REVIEW,True
+C178,unknown,Not wearing a helmet,1000,,none,none,NEEDS_MANUAL_REVIEW,NEEDS_MANUAL_REVIEW,True
+C179,unknown,Smoking inside a bus,3000,,none,none,NEEDS_MANUAL_REVIEW,NEEDS_MANUAL_REVIEW,True
+C180,unknown,Playing loud music at home,500,,none,none,NEEDS_MANUAL_REVIEW,NEEDS_MANUAL_REVIEW,True
+C181,unknown,Selling fruit on the footpath,1000,,none,none,NEEDS_MANUAL_REVIEW,NEEDS_MANUAL_REVIEW,True
+C182,unknown,Late return of a library book,1000,,none,none,NEEDS_MANUAL_REVIEW,NEEDS_MANUAL_REVIEW,True
+C183,unknown,Expired passport,3000,,none,none,NEEDS_MANUAL_REVIEW,NEEDS_MANUAL_REVIEW,True
+C184,unknown,Cutting a roadside tree,2000,,none,none,NEEDS_MANUAL_REVIEW,NEEDS_MANUAL_REVIEW,True
+C185,unknown,Using a mobile phone while walking,3000,,none,92(1),NEEDS_MANUAL_REVIEW,VALID,False
+C186,unknown,গাড়ির জানালা দিয়ে ময়লা ফেলা,5000,,none,none,NEEDS_MANUAL_REVIEW,NEEDS_MANUAL_REVIEW,True
+C187,unknown,রাস্তায় থুথু ফেলা,2000,,none,none,NEEDS_MANUAL_REVIEW,NEEDS_MANUAL_REVIEW,True
+C188,no_amount,Exceeding the speed limit,,,87,87,NEEDS_MANUAL_REVIEW,NEEDS_MANUAL_REVIEW,True
+C189,no_amount,Illegal parking,,,90,90,NEEDS_MANUAL_REVIEW,NEEDS_MANUAL_REVIEW,True
+C190,no_amount,Violating traffic signals,,,85,85,NEEDS_MANUAL_REVIEW,NEEDS_MANUAL_REVIEW,True
+C191,no_amount,Driving without a valid tax token,,,76,76,NEEDS_MANUAL_REVIEW,NEEDS_MANUAL_REVIEW,True
+C192,no_ceiling,Prohibited extortion related to transport,20000,,83,83,NEEDS_MANUAL_REVIEW,NEEDS_MANUAL_REVIEW,True
+C193,no_ceiling,Prohibited extortion related to transport,50000,,83,83,NEEDS_MANUAL_REVIEW,NEEDS_MANUAL_REVIEW,True
+C194,no_ceiling,Prohibited extortion related to transport,120000,,83,83,NEEDS_MANUAL_REVIEW,NEEDS_MANUAL_REVIEW,True
+C195,no_ceiling,Prohibited extortion related to transport,5000,,83,83,NEEDS_MANUAL_REVIEW,NEEDS_MANUAL_REVIEW,True
+C196,below_minimum,Operating a vehicle repair workshop unlawfully,5000,,97,97,NEEDS_MANUAL_REVIEW,NEEDS_MANUAL_REVIEW,True
+C197,below_minimum,Operating a vehicle repair workshop unlawfully,10000,,97,97,NEEDS_MANUAL_REVIEW,NEEDS_MANUAL_REVIEW,True
+C198,below_minimum,Operating a vehicle repair workshop unlawfully,20000,,97,97,NEEDS_MANUAL_REVIEW,NEEDS_MANUAL_REVIEW,True
+C199,boundary,Operating a vehicle repair workshop unlawfully,30000,,97,97,VALID,VALID,True
+C200,boundary,Operating a vehicle repair workshop unlawfully,120000,,97,97,INVALID_FINE_TOO_HIGH,INVALID_FINE_TOO_HIGH,True
+C201,mismatch,Exceeding the speed limit,6000,90,87,87,INVALID_REASON_MISMATCH,INVALID_REASON_MISMATCH,True
+C202,mismatch,Illegal parking,4000,85,90,90,INVALID_REASON_MISMATCH,INVALID_REASON_MISMATCH,True
+C203,mismatch,Violating traffic signals,7500,87,85,85,INVALID_REASON_MISMATCH,INVALID_REASON_MISMATCH,True
+C204,mismatch,Driving without a valid tax token,3500,75,76,76,INVALID_REASON_MISMATCH,INVALID_REASON_MISMATCH,True
+C205,mismatch,Driving without a valid fitness certificate,9000,76,75,none,INVALID_REASON_MISMATCH,NEEDS_MANUAL_REVIEW,False
+C206,mismatch,Overloading a vehicle,57500,87,86,86,INVALID_REASON_MISMATCH,INVALID_REASON_MISMATCH,True
+C207,mismatch,Illegal use of horn,8500,85,88,none,INVALID_REASON_MISMATCH,NEEDS_MANUAL_REVIEW,False
+C208,mismatch,Obstructing an inspection,6000,102,101,101,INVALID_REASON_MISMATCH,INVALID_REASON_MISMATCH,True
+C209,mismatch,Failing to display the fare chart,7500,81,80,80,INVALID_REASON_MISMATCH,INVALID_REASON_MISMATCH,True
+C210,mismatch,Driving without a driving licence,15000,70,66,66,INVALID_REASON_MISMATCH,INVALID_REASON_MISMATCH,True
+C211,exception,Operating without a route permit,15000,,77,77,VALID_BUT_EXCEPTION_POSSIBLE,VALID_BUT_EXCEPTION_POSSIBLE,True
+C212,exception,Operating without a route permit,15000,,77,77,VALID_BUT_EXCEPTION_POSSIBLE,VALID_BUT_EXCEPTION_POSSIBLE,True
+C213,exception,Operating without a route permit,15000,,77,77,VALID_BUT_EXCEPTION_POSSIBLE,VALID,False
+C214,exception,Operating without a route permit,15000,,77,77,VALID_BUT_EXCEPTION_POSSIBLE,VALID_BUT_EXCEPTION_POSSIBLE,True
+C215,exception,Operating without a route permit,15000,,77,77,VALID_BUT_EXCEPTION_POSSIBLE,VALID,False
+C216,exception,Operating without a route permit,15000,,77,77,VALID_BUT_EXCEPTION_POSSIBLE,VALID_BUT_EXCEPTION_POSSIBLE,True
+C217,exception_rejected,Exceeding the speed limit,4000,,87,87,INVALID_EXCEPTION_NOT_APPLICABLE,INVALID_EXCEPTION_NOT_APPLICABLE,True
+C218,exception_rejected,Exceeding the speed limit,7000,,87,87,INVALID_EXCEPTION_NOT_APPLICABLE,INVALID_EXCEPTION_NOT_APPLICABLE,True
+C219,exception_rejected,Violating traffic signals,7000,,85,85,INVALID_EXCEPTION_NOT_APPLICABLE,INVALID_EXCEPTION_NOT_APPLICABLE,True
+C220,exception_rejected,Violating traffic signals,6000,,85,85,INVALID_EXCEPTION_NOT_APPLICABLE,VALID,False
+C221,exception_rejected,Illegal parking,4000,,90,90,INVALID_EXCEPTION_NOT_APPLICABLE,INVALID_EXCEPTION_NOT_APPLICABLE,True
+C222,exception_rejected,Illegal parking,2500,,90,90,INVALID_EXCEPTION_NOT_APPLICABLE,VALID,False

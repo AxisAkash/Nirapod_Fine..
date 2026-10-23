@@ -48,7 +48,8 @@ def _rule(
         "imprisonment_text": imprisonment,
         "repeat_rule_text": repeat,
         "source_reference": FINES_REF.format(section=section),
-        "aliases": [{"text": a, "language": "en"} for a in aliases]
+        # The Act's own title is always an accepted wording of the offence, besides the shorter ones listed.
+        "aliases": [{"text": a, "language": "en"} for a in [offence, *(x for x in aliases if x != offence)]]
         + [{"text": a, "language": "bn"} for a in bn],
         "keywords": [{"word": w, "weight": wt} for w, wt in keywords],
         "matchable": matchable,

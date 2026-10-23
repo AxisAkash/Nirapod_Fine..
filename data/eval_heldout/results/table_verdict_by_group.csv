@@ -1,0 +1,12 @@
+group,n,correct,accuracy,ci_low,ci_high
+standard,54,40,0.7407,0.6107,0.8388
+boundary,29,22,0.7586,0.5789,0.8778
+paraphrase,54,32,0.5926,0.4597,0.7132
+bangla,40,25,0.625,0.4703,0.7578
+mismatch,10,8,0.8,0.4902,0.9433
+exception,6,4,0.6667,0.3,0.9032
+exception_rejected,6,4,0.6667,0.3,0.9032
+no_amount,4,4,1.0,0.5101,1.0
+no_ceiling,4,4,1.0,0.5101,1.0
+below_minimum,3,3,1.0,0.4385,1.0
+unknown,12,11,0.9167,0.6461,0.9851

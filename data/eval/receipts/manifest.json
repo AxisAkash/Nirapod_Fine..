@@ -1,0 +1,898 @@
+[
+  {
+    "file": "C144_clean_en.jpg",
+    "case_id": "C144",
+    "kind": "clean",
+    "lang": "en",
+    "expect": {
+      "reason": "Obstructing an inspection",
+      "amount": 7500,
+      "section": "101",
+      "vehicle": "Microbus",
+      "location": "Narayanganj",
+      "date": "2026-09-18",
+      "receipt_number": "DMP-5245",
+      "notes": null
+    }
+  },
+  {
+    "file": "C105_photo_en.jpg",
+    "case_id": "C105",
+    "kind": "photo",
+    "lang": "en",
+    "expect": {
+      "reason": "Illegal use of horn",
+      "amount": 6500,
+      "section": null,
+      "vehicle": "Motorcycle",
+      "location": "Gulshan, Dhaka",
+      "date": "2026-09-20",
+      "receipt_number": "DMP-3110",
+      "notes": null
+    }
+  },
+  {
+    "file": "C045_blurry_en.jpg",
+    "case_id": "C045",
+    "kind": "blurry",
+    "lang": "en",
+    "expect": {
+      "reason": "Driving without a valid tax token",
+      "amount": 6500,
+      "section": null,
+      "vehicle": "CNG auto-rickshaw",
+      "location": "Uttara, Dhaka",
+      "date": "2026-04-21",
+      "receipt_number": "DMP-7313",
+      "notes": null
+    }
+  },
+  {
+    "file": "C053_dim_en.jpg",
+    "case_id": "C053",
+    "kind": "dim",
+    "lang": "en",
+    "expect": {
+      "reason": "Operating without a route permit",
+      "amount": 31000,
+      "section": "77",
+      "vehicle": "CNG auto-rickshaw",
+      "location": "Khulna",
+      "date": "2026-01-07",
+      "receipt_number": "DMP-5372",
+      "notes": null
+    }
+  },
+  {
+    "file": "C040_clean_en.jpg",
+    "case_id": "C040",
+    "kind": "clean",
+    "lang": "en",
+    "expect": {
+      "reason": "Driving without a valid fitness certificate",
+      "amount": 37000,
+      "section": "75",
+      "vehicle": "Car",
+      "location": "Uttara, Dhaka",
+      "date": "2026-01-13",
+      "receipt_number": "DMP-2687",
+      "notes": null
+    }
+  },
+  {
+    "file": "C022_photo_en.jpg",
+    "case_id": "C022",
+    "kind": "photo",
+    "lang": "en",
+    "expect": {
+      "reason": "Working as a conductor without a licence",
+      "amount": 8000,
+      "section": "71",
+      "vehicle": "CNG auto-rickshaw",
+      "location": "Dhanmondi, Dhaka",
+      "date": "2026-03-04",
+      "receipt_number": "DMP-2237",
+      "notes": null
+    }
+  },
+  {
+    "file": "C173_blurry_en.jpg",
+    "case_id": "C173",
+    "kind": "blurry",
+    "lang": "en",
+    "expect": {
+      "reason": "Reckless driving causing death",
+      "amount": 767000,
+      "section": null,
+      "vehicle": "Truck",
+      "location": "Mirpur, Dhaka",
+      "date": "2026-06-23",
+      "receipt_number": "DMP-7908",
+      "notes": null
+    }
+  },
+  {
+    "file": "C028_dim_en.jpg",
+    "case_id": "C028",
+    "kind": "dim",
+    "lang": "en",
+    "expect": {
+      "reason": "Driving an unregistered vehicle",
+      "amount": 61000,
+      "section": null,
+      "vehicle": "CNG auto-rickshaw",
+      "location": "Rajshahi",
+      "date": "2026-05-26",
+      "receipt_number": "DMP-1860",
+      "notes": null
+    }
+  },
+  {
+    "file": "C152_clean_en.jpg",
+    "case_id": "C152",
+    "kind": "clean",
+    "lang": "en",
+    "expect": {
+      "reason": "Failure to obey an order or give required information",
+      "amount": 18000,
+      "section": "102",
+      "vehicle": "Microbus",
+      "location": "Farmgate, Dhaka",
+      "date": "2026-01-15",
+      "receipt_number": "DMP-8547",
+      "notes": null
+    }
+  },
+  {
+    "file": "C079_photo_en.jpg",
+    "case_id": "C079",
+    "kind": "photo",
+    "lang": "en",
+    "expect": {
+      "reason": "Violating technical specifications of a motor vehicle",
+      "amount": 135500,
+      "section": null,
+      "vehicle": "Microbus",
+      "location": "Narayanganj",
+      "date": "2026-07-20",
+      "receipt_number": "DMP-6362",
+      "notes": null
+    }
+  },
+  {
+    "file": "C009_blurry_en.jpg",
+    "case_id": "C009",
+    "kind": "blurry",
+    "lang": "en",
+    "expect": {
+      "reason": "Unlawful transfer of a driving licence",
+      "amount": 8000,
+      "section": null,
+      "vehicle": "Motorcycle",
+      "location": "Uttara, Dhaka",
+      "date": "2026-03-18",
+      "receipt_number": "DMP-5418",
+      "notes": null
+    }
+  },
+  {
+    "file": "C067_dim_en.jpg",
+    "case_id": "C067",
+    "kind": "dim",
+    "lang": "en",
+    "expect": {
+      "reason": "Failing to display the fare chart",
+      "amount": 19000,
+      "section": null,
+      "vehicle": "Rickshaw van",
+      "location": "Mirpur, Dhaka",
+      "date": "2026-09-27",
+      "receipt_number": "DMP-2560",
+      "notes": null
+    }
+  },
+  {
+    "file": "C125_clean_en.jpg",
+    "case_id": "C125",
+    "kind": "clean",
+    "lang": "en",
+    "expect": {
+      "reason": "Transporting flammable substances improperly",
+      "amount": 21000,
+      "section": "93",
+      "vehicle": "Truck",
+      "location": "Farmgate, Dhaka",
+      "date": "2026-02-05",
+      "receipt_number": "DMP-6692",
+      "notes": null
+    }
+  },
+  {
+    "file": "C172_photo_en.jpg",
+    "case_id": "C172",
+    "kind": "photo",
+    "lang": "en",
+    "expect": {
+      "reason": "Reckless driving causing death",
+      "amount": 318500,
+      "section": null,
+      "vehicle": "Car",
+      "location": "Khulna",
+      "date": "2026-08-10",
+      "receipt_number": "DMP-7655",
+      "notes": null
+    }
+  },
+  {
+    "file": "C162_blurry_en.jpg",
+    "case_id": "C162",
+    "kind": "blurry",
+    "lang": "en",
+    "expect": {
+      "reason": "Rude and aggressive conduct on the road",
+      "amount": 16000,
+      "section": null,
+      "vehicle": "Pickup",
+      "location": "Sylhet",
+      "date": "2026-05-04",
+      "receipt_number": "DMP-5832",
+      "notes": null
+    }
+  },
+  {
+    "file": "C155_dim_en.jpg",
+    "case_id": "C155",
+    "kind": "dim",
+    "lang": "en",
+    "expect": {
+      "reason": "Did not give the information the officer asked for",
+      "amount": 15000,
+      "section": "102",
+      "vehicle": "CNG auto-rickshaw",
+      "location": "Mirpur, Dhaka",
+      "date": "2026-06-17",
+      "receipt_number": "DMP-3884",
+      "notes": null
+    }
+  },
+  {
+    "file": "C075_clean_en.jpg",
+    "case_id": "C075",
+    "kind": "clean",
+    "lang": "en",
+    "expect": {
+      "reason": "Overcharged passengers with a tampered meter",
+      "amount": 24000,
+      "section": "81",
+      "vehicle": "Microbus",
+      "location": "Chattogram",
+      "date": "2026-09-28",
+      "receipt_number": "DMP-1429",
+      "notes": null
+    }
+  },
+  {
+    "file": "C122_photo_en.jpg",
+    "case_id": "C122",
+    "kind": "photo",
+    "lang": "en",
+    "expect": {
+      "reason": "Slow vehicle in the fast lane of the highway",
+      "amount": 9000,
+      "section": "91",
+      "vehicle": "Car",
+      "location": "Mirpur, Dhaka",
+      "date": "2026-08-20",
+      "receipt_number": "DMP-7122",
+      "notes": null
+    }
+  },
+  {
+    "file": "C070_blurry_en.jpg",
+    "case_id": "C070",
+    "kind": "blurry",
+    "lang": "en",
+    "expect": {
+      "reason": "Charging more than the fixed fare",
+      "amount": 13000,
+      "section": "80",
+      "vehicle": "Pickup",
+      "location": "Mirpur, Dhaka",
+      "date": "2026-02-13",
+      "receipt_number": "DMP-6935",
+      "notes": null
+    }
+  },
+  {
+    "file": "C134_dim_en.jpg",
+    "case_id": "C134",
+    "kind": "dim",
+    "lang": "en",
+    "expect": {
+      "reason": "Did not take the injured person to hospital",
+      "amount": 16500,
+      "section": null,
+      "vehicle": "CNG auto-rickshaw",
+      "location": "Motijheel, Dhaka",
+      "date": "2026-07-09",
+      "receipt_number": "DMP-1090",
+      "notes": null
+    }
+  },
+  {
+    "file": "C036_clean_en.jpg",
+    "case_id": "C036",
+    "kind": "clean",
+    "lang": "en",
+    "expect": {
+      "reason": "Ownership changed but registration not updated",
+      "amount": 3500,
+      "section": "74",
+      "vehicle": "Microbus",
+      "location": "Chattogram",
+      "date": "2026-06-05",
+      "receipt_number": "DMP-8737",
+      "notes": null
+    }
+  },
+  {
+    "file": "C011_photo_en.jpg",
+    "case_id": "C011",
+    "kind": "photo",
+    "lang": "en",
+    "expect": {
+      "reason": "Lent his driving licence to another person",
+      "amount": 3500,
+      "section": "67",
+      "vehicle": "Bus",
+      "location": "Gazipur",
+      "date": "2026-01-21",
+      "receipt_number": "DMP-3985",
+      "notes": null
+    }
+  },
+  {
+    "file": "C141_blurry_en.jpg",
+    "case_id": "C141",
+    "kind": "blurry",
+    "lang": "en",
+    "expect": {
+      "reason": "Unlicensed driving school",
+      "amount": 199000,
+      "section": "96",
+      "vehicle": "Truck",
+      "location": "Narayanganj",
+      "date": "2026-06-19",
+      "receipt_number": "DMP-4370",
+      "notes": null
+    }
+  },
+  {
+    "file": "C140_dim_en.jpg",
+    "case_id": "C140",
+    "kind": "dim",
+    "lang": "en",
+    "expect": {
+      "reason": "Unlicensed driving school",
+      "amount": 66500,
+      "section": null,
+      "vehicle": "Rickshaw van",
+      "location": "Narayanganj",
+      "date": "2026-08-26",
+      "receipt_number": "DMP-6164",
+      "notes": null
+    }
+  },
+  {
+    "file": "C090_clean_bn.jpg",
+    "case_id": "C090",
+    "kind": "clean",
+    "lang": "bn",
+    "expect": {
+      "reason": "ট্রাফিক সংকেত অমান্য",
+      "amount": 7000,
+      "section": null,
+      "vehicle": "Truck",
+      "location": "Dhanmondi, Dhaka",
+      "date": "2026-06-11",
+      "receipt_number": "DMP-4767",
+      "notes": null
+    }
+  },
+  {
+    "file": "C164_photo_bn.jpg",
+    "case_id": "C164",
+    "kind": "photo",
+    "lang": "bn",
+    "expect": {
+      "reason": "জনশৃঙ্খলা বিরোধী আক্রমণাত্মক আচরণ",
+      "amount": 20000,
+      "section": null,
+      "vehicle": "Pickup",
+      "location": "Gazipur",
+      "date": "2026-09-15",
+      "receipt_number": "DMP-2968",
+      "notes": null
+    }
+  },
+  {
+    "file": "C124_blurry_bn.jpg",
+    "case_id": "C124",
+    "kind": "blurry",
+    "lang": "bn",
+    "expect": {
+      "reason": "মহাসড়কে দ্রুতগামী যানের নিয়ম লঙ্ঘন",
+      "amount": 8000,
+      "section": null,
+      "vehicle": "Rickshaw van",
+      "location": "Chattogram",
+      "date": "2026-06-21",
+      "receipt_number": "DMP-4039",
+      "notes": null
+    }
+  },
+  {
+    "file": "C156_dim_bn.jpg",
+    "case_id": "C156",
+    "kind": "dim",
+    "lang": "bn",
+    "expect": {
+      "reason": "আদেশ অমান্য বা তথ্য না দেওয়া",
+      "amount": 8500,
+      "section": null,
+      "vehicle": "Rickshaw van",
+      "location": "Khulna",
+      "date": "2026-08-04",
+      "receipt_number": "DMP-3609",
+      "notes": null
+    }
+  },
+  {
+    "file": "C142_clean_bn.jpg",
+    "case_id": "C142",
+    "kind": "clean",
+    "lang": "bn",
+    "expect": {
+      "reason": "অনুমোদন ছাড়া ড্রাইভিং স্কুল পরিচালনা",
+      "amount": 45000,
+      "section": "96",
+      "vehicle": "Microbus",
+      "location": "Mirpur, Dhaka",
+      "date": "2026-01-27",
+      "receipt_number": "DMP-4124",
+      "notes": null
+    }
+  },
+  {
+    "file": "C051_photo_bn.jpg",
+    "case_id": "C051",
+    "kind": "photo",
+    "lang": "bn",
+    "expect": {
+      "reason": "ট্যাক্স টোকেন ছাড়া গাড়ি চালানো",
+      "amount": 15000,
+      "section": null,
+      "vehicle": "Motorcycle",
+      "location": "Mirpur, Dhaka",
+      "date": "2026-09-26",
+      "receipt_number": "DMP-8123",
+      "notes": null
+    }
+  },
+  {
+    "file": "C058_blurry_bn.jpg",
+    "case_id": "C058",
+    "kind": "blurry",
+    "lang": "bn",
+    "expect": {
+      "reason": "রুট পারমিট ছাড়া গাড়ি চালানো",
+      "amount": 26000,
+      "section": "77",
+      "vehicle": "Rickshaw van",
+      "location": "Uttara, Dhaka",
+      "date": "2026-09-08",
+      "receipt_number": "DMP-1783",
+      "notes": null
+    }
+  },
+  {
+    "file": "C020_dim_bn.jpg",
+    "case_id": "C020",
+    "kind": "dim",
+    "lang": "bn",
+    "expect": {
+      "reason": "লাইসেন্স বাতিল থাকা অবস্থায় গাড়ি চালানো",
+      "amount": 14500,
+      "section": "70",
+      "vehicle": "Motorcycle",
+      "location": "Uttara, Dhaka",
+      "date": "2026-07-31",
+      "receipt_number": "DMP-6390",
+      "notes": null
+    }
+  },
+  {
+    "file": "C013_clean_bn.jpg",
+    "case_id": "C013",
+    "kind": "clean",
+    "lang": "bn",
+    "expect": {
+      "reason": "অবৈধভাবে ড্রাইভিং লাইসেন্স হস্তান্তর",
+      "amount": 2000,
+      "section": null,
+      "vehicle": "CNG auto-rickshaw",
+      "location": "Farmgate, Dhaka",
+      "date": "2026-08-18",
+      "receipt_number": "DMP-7637",
+      "notes": null
+    }
+  },
+  {
+    "file": "C177_photo_bn.jpg",
+    "case_id": "C177",
+    "kind": "photo",
+    "lang": "bn",
+    "expect": {
+      "reason": "বেপরোয়া গাড়ি চালিয়ে মৃত্যু ঘটানো",
+      "amount": 376500,
+      "section": null,
+      "vehicle": "Bus",
+      "location": "Sylhet",
+      "date": "2026-02-11",
+      "receipt_number": "DMP-6793",
+      "notes": null
+    }
+  },
+  {
+    "file": "C149_blurry_bn.jpg",
+    "case_id": "C149",
+    "kind": "blurry",
+    "lang": "bn",
+    "expect": {
+      "reason": "পরিদর্শনে বাধা প্রদান",
+      "amount": 5000,
+      "section": null,
+      "vehicle": "CNG auto-rickshaw",
+      "location": "Chattogram",
+      "date": "2026-04-26",
+      "receipt_number": "DMP-9012",
+      "notes": null
+    }
+  },
+  {
+    "file": "C097_dim_bn.jpg",
+    "case_id": "C097",
+    "kind": "dim",
+    "lang": "bn",
+    "expect": {
+      "reason": "অতিরিক্ত মালামাল বহন",
+      "amount": 36000,
+      "section": "86",
+      "vehicle": "Rickshaw van",
+      "location": "Dhanmondi, Dhaka",
+      "date": "2026-02-01",
+      "receipt_number": "DMP-7642",
+      "notes": null
+    }
+  },
+  {
+    "file": "C107_clean_en.jpg",
+    "case_id": "C107",
+    "kind": "clean",
+    "lang": "en",
+    "expect": {
+      "reason": "Illegal use of horn",
+      "amount": 10000,
+      "section": "88",
+      "vehicle": "CNG auto-rickshaw",
+      "location": "Mirpur, Dhaka",
+      "date": "2026-10-07",
+      "receipt_number": "DMP-5400",
+      "notes": null
+    }
+  },
+  {
+    "file": "C100_photo_en.jpg",
+    "case_id": "C100",
+    "kind": "photo",
+    "lang": "en",
+    "expect": {
+      "reason": "Exceeding the speed limit",
+      "amount": 10000,
+      "section": "87",
+      "vehicle": "CNG auto-rickshaw",
+      "location": "Uttara, Dhaka",
+      "date": "2026-03-21",
+      "receipt_number": "DMP-1923",
+      "notes": null
+    }
+  },
+  {
+    "file": "C041_blurry_en.jpg",
+    "case_id": "C041",
+    "kind": "blurry",
+    "lang": "en",
+    "expect": {
+      "reason": "Driving without a valid fitness certificate",
+      "amount": 25000,
+      "section": "75",
+      "vehicle": "Rickshaw van",
+      "location": "Uttara, Dhaka",
+      "date": "2026-09-30",
+      "receipt_number": "DMP-7193",
+      "notes": null
+    }
+  },
+  {
+    "file": "C201_dim_en.jpg",
+    "case_id": "C201",
+    "kind": "dim",
+    "lang": "en",
+    "expect": {
+      "reason": "Operating a vehicle repair workshop unlawfully",
+      "amount": 30000,
+      "section": null,
+      "vehicle": "Bus",
+      "location": "Sylhet",
+      "date": "2026-09-05",
+      "receipt_number": "DMP-5259",
+      "notes": null
+    }
+  },
+  {
+    "file": "C217_clean_en.jpg",
+    "case_id": "C217",
+    "kind": "clean",
+    "lang": "en",
+    "expect": {
+      "reason": "Operating without a route permit",
+      "amount": 15000,
+      "section": null,
+      "vehicle": "Microbus",
+      "location": "Uttara, Dhaka",
+      "date": "2026-01-09",
+      "receipt_number": "DMP-1212",
+      "notes": "Vehicle belongs to a recognised driving training centre"
+    }
+  },
+  {
+    "file": "C215_photo_en.jpg",
+    "case_id": "C215",
+    "kind": "photo",
+    "lang": "en",
+    "expect": {
+      "reason": "Operating without a route permit",
+      "amount": 15000,
+      "section": null,
+      "vehicle": "Truck",
+      "location": "Khulna",
+      "date": "2026-01-19",
+      "receipt_number": "DMP-8442",
+      "notes": "Government-owned vehicle carrying relief goods"
+    }
+  },
+  {
+    "file": "C216_blurry_en.jpg",
+    "case_id": "C216",
+    "kind": "blurry",
+    "lang": "en",
+    "expect": {
+      "reason": "Operating without a route permit",
+      "amount": 15000,
+      "section": null,
+      "vehicle": "Bus",
+      "location": "Uttara, Dhaka",
+      "date": "2026-01-12",
+      "receipt_number": "DMP-5308",
+      "notes": "Bus took a different route because the road was flooded"
+    }
+  },
+  {
+    "file": "C213_dim_en.jpg",
+    "case_id": "C213",
+    "kind": "dim",
+    "lang": "en",
+    "expect": {
+      "reason": "Operating without a route permit",
+      "amount": 15000,
+      "section": null,
+      "vehicle": "Ambulance",
+      "location": "Farmgate, Dhaka",
+      "date": "2026-08-31",
+      "receipt_number": "DMP-9180",
+      "notes": "Ambulance on emergency duty, carrying a patient"
+    }
+  },
+  {
+    "file": "C218_clean_en.jpg",
+    "case_id": "C218",
+    "kind": "clean",
+    "lang": "en",
+    "expect": {
+      "reason": "Operating without a route permit",
+      "amount": 15000,
+      "section": null,
+      "vehicle": "Van",
+      "location": "Dhanmondi, Dhaka",
+      "date": "2026-04-22",
+      "receipt_number": "DMP-9613",
+      "notes": "Mobile library van"
+    }
+  },
+  {
+    "file": "C214_photo_en.jpg",
+    "case_id": "C214",
+    "kind": "photo",
+    "lang": "en",
+    "expect": {
+      "reason": "Operating without a route permit",
+      "amount": 15000,
+      "section": null,
+      "vehicle": "Fire service truck",
+      "location": "Narayanganj",
+      "date": "2026-08-28",
+      "receipt_number": "DMP-9298",
+      "notes": "Fire service truck responding to a fire"
+    }
+  },
+  {
+    "file": "C221_blurry_en.jpg",
+    "case_id": "C221",
+    "kind": "blurry",
+    "lang": "en",
+    "expect": {
+      "reason": "Violating traffic signals",
+      "amount": 8500,
+      "section": null,
+      "vehicle": "Rickshaw van",
+      "location": "Chattogram",
+      "date": "2026-07-11",
+      "receipt_number": "DMP-5243",
+      "notes": "Part of a VIP convoy"
+    }
+  },
+  {
+    "file": "C219_dim_en.jpg",
+    "case_id": "C219",
+    "kind": "dim",
+    "lang": "en",
+    "expect": {
+      "reason": "Exceeding the speed limit",
+      "amount": 3000,
+      "section": null,
+      "vehicle": "Bus",
+      "location": "Dhanmondi, Dhaka",
+      "date": "2026-09-21",
+      "receipt_number": "DMP-9129",
+      "notes": "Ambulance rushing a patient, driver claims emergency"
+    }
+  },
+  {
+    "file": "C220_clean_en.jpg",
+    "case_id": "C220",
+    "kind": "clean",
+    "lang": "en",
+    "expect": {
+      "reason": "Exceeding the speed limit",
+      "amount": 5500,
+      "section": null,
+      "vehicle": "Bus",
+      "location": "Mirpur, Dhaka",
+      "date": "2026-07-03",
+      "receipt_number": "DMP-4900",
+      "notes": "Driver says it was an emergency"
+    }
+  },
+  {
+    "file": "C206_photo_en.jpg",
+    "case_id": "C206",
+    "kind": "photo",
+    "lang": "en",
+    "expect": {
+      "reason": "Driving without a valid tax token",
+      "amount": 8500,
+      "section": "75",
+      "vehicle": "CNG auto-rickshaw",
+      "location": "Sylhet",
+      "date": "2026-03-06",
+      "receipt_number": "DMP-5591",
+      "notes": null
+    }
+  },
+  {
+    "file": "C211_blurry_en.jpg",
+    "case_id": "C211",
+    "kind": "blurry",
+    "lang": "en",
+    "expect": {
+      "reason": "Failing to display the fare chart",
+      "amount": 6500,
+      "section": "81",
+      "vehicle": "Car",
+      "location": "Rajshahi",
+      "date": "2026-04-02",
+      "receipt_number": "DMP-1425",
+      "notes": null
+    }
+  },
+  {
+    "file": "C212_dim_en.jpg",
+    "case_id": "C212",
+    "kind": "dim",
+    "lang": "en",
+    "expect": {
+      "reason": "Driving without a driving licence",
+      "amount": 22000,
+      "section": "70",
+      "vehicle": "Microbus",
+      "location": "Narayanganj",
+      "date": "2026-03-16",
+      "receipt_number": "DMP-2477",
+      "notes": null
+    }
+  },
+  {
+    "file": "C207_clean_en.jpg",
+    "case_id": "C207",
+    "kind": "clean",
+    "lang": "en",
+    "expect": {
+      "reason": "Driving without a valid fitness certificate",
+      "amount": 19000,
+      "section": "76",
+      "vehicle": "Bus",
+      "location": "Uttara, Dhaka",
+      "date": "2026-02-07",
+      "receipt_number": "DMP-3915",
+      "notes": null
+    }
+  },
+  {
+    "file": "C179_photo_en.jpg",
+    "case_id": "C179",
+    "kind": "photo",
+    "lang": "en",
+    "expect": {
+      "reason": "Jaywalking by a pedestrian",
+      "amount": 500,
+      "section": null,
+      "vehicle": "CNG auto-rickshaw",
+      "location": "Khulna",
+      "date": "2026-10-02",
+      "receipt_number": "DMP-2479",
+      "notes": null
+    }
+  },
+  {
+    "file": "C180_blurry_en.jpg",
+    "case_id": "C180",
+    "kind": "blurry",
+    "lang": "en",
+    "expect": {
+      "reason": "Not wearing a helmet",
+      "amount": 500,
+      "section": null,
+      "vehicle": "Car",
+      "location": "Gulshan, Dhaka",
+      "date": "2026-06-23",
+      "receipt_number": "DMP-1335",
+      "notes": null
+    }
+  },
+  {
+    "file": "C183_dim_en.jpg",
+    "case_id": "C183",
+    "kind": "dim",
+    "lang": "en",
+    "expect": {
+      "reason": "Selling fruit on the footpath",
+      "amount": 500,
+      "section": null,
+      "vehicle": "Bus",
+      "location": "Sylhet",
+      "date": "2026-09-23",
+      "receipt_number": "DMP-3033",
+      "notes": null
+    }
+  }
+]

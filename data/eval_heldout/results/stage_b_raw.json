@@ -1,0 +1,2242 @@
+[
+ {
+  "file": "C101_clean_en.jpg",
+  "case_id": "C101",
+  "kind": "clean",
+  "lang": "en",
+  "expect": {
+   "reason": "Exceeding the speed limit",
+   "amount": 7000,
+   "section": null,
+   "vehicle": "Pickup",
+   "location": "Khulna",
+   "date": "2026-04-03",
+   "receipt_number": "DMP-5340",
+   "notes": null
+  },
+  "got": {
+   "reason": "Exceeding the speed limit",
+   "amount": 7000,
+   "section": null,
+   "vehicle": "Pickup",
+   "date": "2026-04-03",
+   "location": "Khulna",
+   "receipt_number": "DMP-5340",
+   "notes": null
+  },
+  "date_first": "2026-04-03",
+  "judged": {
+   "reason": "ok",
+   "amount": "ok",
+   "section": "ok",
+   "vehicle": "ok",
+   "date": "ok",
+   "location": "ok",
+   "receipt_number": "ok",
+   "notes": "ok"
+  },
+  "seconds": 6.816073179244995,
+  "cost": 0.0009163999999999999,
+  "error": null
+ },
+ {
+  "file": "C153_photo_en.jpg",
+  "case_id": "C153",
+  "kind": "photo",
+  "lang": "en",
+  "expect": {
+   "reason": "Failure to obey an order or give required information",
+   "amount": 19000,
+   "section": "102",
+   "vehicle": "Motorcycle",
+   "location": "Narayanganj",
+   "date": "2026-08-15",
+   "receipt_number": "DMP-3156",
+   "notes": null
+  },
+  "got": {
+   "reason": "Failure to obey an order or give required information",
+   "amount": 19000,
+   "section": "102",
+   "vehicle": "Motorcycle",
+   "date": "2026-08-15",
+   "location": "Narayanganj",
+   "receipt_number": "DMP-3156",
+   "notes": null
+  },
+  "date_first": "2026-08-15",
+  "judged": {
+   "reason": "ok",
+   "amount": "ok",
+   "section": "ok",
+   "vehicle": "ok",
+   "date": "ok",
+   "location": "ok",
+   "receipt_number": "ok",
+   "notes": "ok"
+  },
+  "seconds": 9.423676252365112,
+  "cost": 0.0012224,
+  "error": null
+ },
+ {
+  "file": "C159_blurry_en.jpg",
+  "case_id": "C159",
+  "kind": "blurry",
+  "lang": "en",
+  "expect": {
+   "reason": "Aggressive behaviour against public order",
+   "amount": 15000,
+   "section": "103",
+   "vehicle": "Microbus",
+   "location": "Narayanganj",
+   "date": "2026-03-06",
+   "receipt_number": "DMP-6383",
+   "notes": null
+  },
+  "got": {
+   "reason": null,
+   "amount": null,
+   "section": null,
+   "vehicle": null,
+   "date": null,
+   "location": null,
+   "receipt_number": null,
+   "notes": null
+  },
+  "date_first": null,
+  "judged": {
+   "reason": "missed",
+   "amount": "missed",
+   "section": "missed",
+   "vehicle": "missed",
+   "date": "missed",
+   "location": "missed",
+   "receipt_number": "missed",
+   "notes": "ok"
+  },
+  "seconds": 9.838058948516846,
+  "cost": 0.000698,
+  "error": null
+ },
+ {
+  "file": "C152_dim_en.jpg",
+  "case_id": "C152",
+  "kind": "dim",
+  "lang": "en",
+  "expect": {
+   "reason": "Failure to obey an order or give required information",
+   "amount": 4000,
+   "section": "102",
+   "vehicle": "Microbus",
+   "location": "Mirpur, Dhaka",
+   "date": "2026-07-27",
+   "receipt_number": "DMP-2261",
+   "notes": null
+  },
+  "got": {
+   "reason": "Failure to obey an order or give required information",
+   "amount": 4000,
+   "section": "102",
+   "vehicle": "Microbus",
+   "date": "2026-07-27",
+   "location": "Mirpur, Dhaka",
+   "receipt_number": "DMP-2261",
+   "notes": null
+  },
+  "date_first": "2026-07-27",
+  "judged": {
+   "reason": "ok",
+   "amount": "ok",
+   "section": "ok",
+   "vehicle": "ok",
+   "date": "ok",
+   "location": "ok",
+   "receipt_number": "ok",
+   "notes": "ok"
+  },
+  "seconds": 7.561676025390625,
+  "cost": 0.0011036000000000002,
+  "error": null
+ },
+ {
+  "file": "C034_clean_en.jpg",
+  "case_id": "C034",
+  "kind": "clean",
+  "lang": "en",
+  "expect": {
+   "reason": "Failure to register after ownership transfer",
+   "amount": 3500,
+   "section": null,
+   "vehicle": "Microbus",
+   "location": "Dhanmondi, Dhaka",
+   "date": "2026-03-09",
+   "receipt_number": "DMP-4003",
+   "notes": null
+  },
+  "got": {
+   "reason": "Failure to register after ownership transfer",
+   "amount": 3500,
+   "section": null,
+   "vehicle": "Microbus",
+   "date": "2026-03-09",
+   "location": "Dhanmondi, Dhaka",
+   "receipt_number": "DMP-4003",
+   "notes": null
+  },
+  "date_first": "2026-03-09",
+  "judged": {
+   "reason": "ok",
+   "amount": "ok",
+   "section": "ok",
+   "vehicle": "ok",
+   "date": "ok",
+   "location": "ok",
+   "receipt_number": "ok",
+   "notes": "ok"
+  },
+  "seconds": 6.31774377822876,
+  "cost": 0.0009163999999999999,
+  "error": null
+ },
+ {
+  "file": "C127_photo_en.jpg",
+  "case_id": "C127",
+  "kind": "photo",
+  "lang": "en",
+  "expect": {
+   "reason": "Transporting flammable substances improperly",
+   "amount": 21000,
+   "section": null,
+   "vehicle": "Motorcycle",
+   "location": "Gulshan, Dhaka",
+   "date": "2026-09-24",
+   "receipt_number": "DMP-8900",
+   "notes": null
+  },
+  "got": {
+   "reason": "Transporting flammable substances improperly",
+   "amount": 21000,
+   "section": null,
+   "vehicle": "Motorcycle",
+   "date": "2026-09-24",
+   "location": "Gulshan, Dhaka",
+   "receipt_number": "DMP-8900",
+   "notes": null
+  },
+  "date_first": "2026-09-24",
+  "judged": {
+   "reason": "ok",
+   "amount": "ok",
+   "section": "ok",
+   "vehicle": "ok",
+   "date": "ok",
+   "location": "ok",
+   "receipt_number": "ok",
+   "notes": "ok"
+  },
+  "seconds": 6.4975831508636475,
+  "cost": 0.0009128000000000001,
+  "error": null
+ },
+ {
+  "file": "C061_blurry_en.jpg",
+  "case_id": "C061",
+  "kind": "blurry",
+  "lang": "en",
+  "expect": {
+   "reason": "Violating restrictions on commercial use of a vehicle",
+   "amount": 17000,
+   "section": null,
+   "vehicle": "Rickshaw van",
+   "location": "Motijheel, Dhaka",
+   "date": "2026-04-24",
+   "receipt_number": "DMP-3527",
+   "notes": null
+  },
+  "got": {
+   "reason": null,
+   "amount": null,
+   "section": null,
+   "vehicle": null,
+   "date": null,
+   "location": null,
+   "receipt_number": null,
+   "notes": null
+  },
+  "date_first": null,
+  "judged": {
+   "reason": "missed",
+   "amount": "missed",
+   "section": "ok",
+   "vehicle": "missed",
+   "date": "missed",
+   "location": "missed",
+   "receipt_number": "missed",
+   "notes": "ok"
+  },
+  "seconds": 9.742351055145264,
+  "cost": 0.0006968,
+  "error": null
+ },
+ {
+  "file": "C047_dim_en.jpg",
+  "case_id": "C047",
+  "kind": "dim",
+  "lang": "en",
+  "expect": {
+   "reason": "Driving without a valid tax token",
+   "amount": 8000,
+   "section": null,
+   "vehicle": "Car",
+   "location": "Dhanmondi, Dhaka",
+   "date": "2026-01-09",
+   "receipt_number": "DMP-9895",
+   "notes": null
+  },
+  "got": {
+   "reason": "Driving without a valid tax token",
+   "amount": 8000,
+   "section": null,
+   "vehicle": "Car",
+   "date": "2026-01-09",
+   "location": "Dhanmondi, Dhaka",
+   "receipt_number": "DMP-9895",
+   "notes": null
+  },
+  "date_first": "2026-01-09",
+  "judged": {
+   "reason": "ok",
+   "amount": "ok",
+   "section": "ok",
+   "vehicle": "ok",
+   "date": "ok",
+   "location": "ok",
+   "receipt_number": "ok",
+   "notes": "ok"
+  },
+  "seconds": 6.369678020477295,
+  "cost": 0.0011779999999999998,
+  "error": null
+ },
+ {
+  "file": "C094_clean_en.jpg",
+  "case_id": "C094",
+  "kind": "clean",
+  "lang": "en",
+  "expect": {
+   "reason": "Overloading a vehicle",
+   "amount": 66000,
+   "section": "86",
+   "vehicle": "Car",
+   "location": "Rajshahi",
+   "date": "2026-04-13",
+   "receipt_number": "DMP-7125",
+   "notes": null
+  },
+  "got": {
+   "reason": "Overloading a vehicle",
+   "amount": 66000,
+   "section": "86",
+   "vehicle": "Car",
+   "date": "2026-04-13",
+   "location": "Rajshahi",
+   "receipt_number": "DMP-7125",
+   "notes": null
+  },
+  "date_first": "2026-04-13",
+  "judged": {
+   "reason": "ok",
+   "amount": "ok",
+   "section": "ok",
+   "vehicle": "ok",
+   "date": "ok",
+   "location": "ok",
+   "receipt_number": "ok",
+   "notes": "ok"
+  },
+  "seconds": 5.2721710205078125,
+  "cost": 0.0009464,
+  "error": null
+ },
+ {
+  "file": "C158_photo_en.jpg",
+  "case_id": "C158",
+  "kind": "photo",
+  "lang": "en",
+  "expect": {
+   "reason": "Aggressive behaviour against public order",
+   "amount": 5000,
+   "section": "103",
+   "vehicle": "Bus",
+   "location": "Chattogram",
+   "date": "2026-09-11",
+   "receipt_number": "DMP-5808",
+   "notes": null
+  },
+  "got": {
+   "reason": "Aggressive behaviour against public order",
+   "amount": 5000,
+   "section": "103",
+   "vehicle": "Bus",
+   "date": "2026-09-11",
+   "location": "Chattogram",
+   "receipt_number": "DMP-5808",
+   "notes": null
+  },
+  "date_first": "2026-09-11",
+  "judged": {
+   "reason": "ok",
+   "amount": "ok",
+   "section": "ok",
+   "vehicle": "ok",
+   "date": "ok",
+   "location": "ok",
+   "receipt_number": "ok",
+   "notes": "ok"
+  },
+  "seconds": 7.142657041549683,
+  "cost": 0.0012488,
+  "error": null
+ },
+ {
+  "file": "C147_blurry_en.jpg",
+  "case_id": "C147",
+  "kind": "blurry",
+  "lang": "en",
+  "expect": {
+   "reason": "Obstructing an inspection",
+   "amount": 14000,
+   "section": "101",
+   "vehicle": "Truck",
+   "location": "Dhanmondi, Dhaka",
+   "date": "2026-07-05",
+   "receipt_number": "DMP-1576",
+   "notes": null
+  },
+  "got": {
+   "reason": null,
+   "amount": null,
+   "section": null,
+   "vehicle": null,
+   "date": null,
+   "location": null,
+   "receipt_number": null,
+   "notes": null
+  },
+  "date_first": null,
+  "judged": {
+   "reason": "missed",
+   "amount": "missed",
+   "section": "missed",
+   "vehicle": "missed",
+   "date": "missed",
+   "location": "missed",
+   "receipt_number": "missed",
+   "notes": "ok"
+  },
+  "seconds": 6.904790163040161,
+  "cost": 0.0007208,
+  "error": null
+ },
+ {
+  "file": "C068_dim_en.jpg",
+  "case_id": "C068",
+  "kind": "dim",
+  "lang": "en",
+  "expect": {
+   "reason": "Failing to display the fare chart",
+   "amount": 3000,
+   "section": null,
+   "vehicle": "CNG auto-rickshaw",
+   "location": "Chattogram",
+   "date": "2026-08-26",
+   "receipt_number": "DMP-1923",
+   "notes": null
+  },
+  "got": {
+   "reason": "Failing to display the fare chart",
+   "amount": 3000,
+   "section": null,
+   "vehicle": "CNG auto-rickshaw",
+   "date": "2026-08-26",
+   "location": "Chattogram",
+   "receipt_number": "DMP-1923",
+   "notes": null
+  },
+  "date_first": "2026-08-26",
+  "judged": {
+   "reason": "ok",
+   "amount": "ok",
+   "section": "ok",
+   "vehicle": "ok",
+   "date": "ok",
+   "location": "ok",
+   "receipt_number": "ok",
+   "notes": "ok"
+  },
+  "seconds": 5.466900110244751,
+  "cost": 0.0009332,
+  "error": null
+ },
+ {
+  "file": "C170_clean_en.jpg",
+  "case_id": "C170",
+  "kind": "clean",
+  "lang": "en",
+  "expect": {
+   "reason": "Reckless driving causing death",
+   "amount": 349000,
+   "section": null,
+   "vehicle": "Pickup",
+   "location": "Sylhet",
+   "date": "2026-06-10",
+   "receipt_number": "DMP-2499",
+   "notes": null
+  },
+  "got": {
+   "reason": "Reckless driving causing death",
+   "amount": 349000,
+   "section": null,
+   "vehicle": "Pickup",
+   "date": "2026-06-10",
+   "location": "Sylhet",
+   "receipt_number": "DMP-2499",
+   "notes": null
+  },
+  "date_first": "2026-06-10",
+  "judged": {
+   "reason": "ok",
+   "amount": "ok",
+   "section": "ok",
+   "vehicle": "ok",
+   "date": "ok",
+   "location": "ok",
+   "receipt_number": "ok",
+   "notes": "ok"
+  },
+  "seconds": 5.754727840423584,
+  "cost": 0.0009608,
+  "error": null
+ },
+ {
+  "file": "C087_photo_en.jpg",
+  "case_id": "C087",
+  "kind": "photo",
+  "lang": "en",
+  "expect": {
+   "reason": "Violating traffic signals",
+   "amount": 3000,
+   "section": "85",
+   "vehicle": "Bus",
+   "location": "Chattogram",
+   "date": "2026-06-15",
+   "receipt_number": "DMP-8283",
+   "notes": null
+  },
+  "got": {
+   "reason": "Violating traffic signals",
+   "amount": 3000,
+   "section": "85",
+   "vehicle": "Bus",
+   "date": "2026-06-15",
+   "location": "Chattogram",
+   "receipt_number": "DMP-8283",
+   "notes": null
+  },
+  "date_first": "2026-06-15",
+  "judged": {
+   "reason": "ok",
+   "amount": "ok",
+   "section": "ok",
+   "vehicle": "ok",
+   "date": "ok",
+   "location": "ok",
+   "receipt_number": "ok",
+   "notes": "ok"
+  },
+  "seconds": 4.824970960617065,
+  "cost": 0.0009272,
+  "error": null
+ },
+ {
+  "file": "C168_blurry_en.jpg",
+  "case_id": "C168",
+  "kind": "blurry",
+  "lang": "en",
+  "expect": {
+   "reason": "Ignored a government directive on vehicles",
+   "amount": 30000,
+   "section": "104",
+   "vehicle": "Pickup",
+   "location": "Mirpur, Dhaka",
+   "date": "2026-05-05",
+   "receipt_number": "DMP-6911",
+   "notes": null
+  },
+  "got": {
+   "reason": null,
+   "amount": null,
+   "section": null,
+   "vehicle": null,
+   "date": null,
+   "location": null,
+   "receipt_number": null,
+   "notes": null
+  },
+  "date_first": null,
+  "judged": {
+   "reason": "missed",
+   "amount": "missed",
+   "section": "missed",
+   "vehicle": "missed",
+   "date": "missed",
+   "location": "missed",
+   "receipt_number": "missed",
+   "notes": "ok"
+  },
+  "seconds": 9.55842113494873,
+  "cost": 0.0007232,
+  "error": null
+ },
+ {
+  "file": "C084_dim_en.jpg",
+  "case_id": "C084",
+  "kind": "dim",
+  "lang": "en",
+  "expect": {
+   "reason": "Vehicle modified against its technical specification",
+   "amount": 253000,
+   "section": null,
+   "vehicle": "Truck",
+   "location": "Sylhet",
+   "date": "2026-02-19",
+   "receipt_number": "DMP-3427",
+   "notes": null
+  },
+  "got": {
+   "reason": "Vehicle modified against its technical specification",
+   "amount": 253000,
+   "section": null,
+   "vehicle": "Truck",
+   "date": "2026-02-19",
+   "location": "Sylhet",
+   "receipt_number": "DMP-3427",
+   "notes": null
+  },
+  "date_first": "2026-02-19",
+  "judged": {
+   "reason": "ok",
+   "amount": "ok",
+   "section": "ok",
+   "vehicle": "ok",
+   "date": "ok",
+   "location": "ok",
+   "receipt_number": "ok",
+   "notes": "ok"
+  },
+  "seconds": 4.594504356384277,
+  "cost": 0.0009343999999999999,
+  "error": null
+ },
+ {
+  "file": "C174_clean_en.jpg",
+  "case_id": "C174",
+  "kind": "clean",
+  "lang": "en",
+  "expect": {
+   "reason": "Negligent driving, a pedestrian died",
+   "amount": 887000,
+   "section": null,
+   "vehicle": "Rickshaw van",
+   "location": "Gulshan, Dhaka",
+   "date": "2026-01-05",
+   "receipt_number": "DMP-3826",
+   "notes": null
+  },
+  "got": {
+   "reason": "Negligent driving, a pedestrian died",
+   "amount": 887000,
+   "section": null,
+   "vehicle": "Rickshaw van",
+   "date": "2026-01-05",
+   "location": "Gulshan, Dhaka",
+   "receipt_number": "DMP-3826",
+   "notes": null
+  },
+  "date_first": "2026-01-05",
+  "judged": {
+   "reason": "ok",
+   "amount": "ok",
+   "section": "ok",
+   "vehicle": "ok",
+   "date": "ok",
+   "location": "ok",
+   "receipt_number": "ok",
+   "notes": "ok"
+  },
+  "seconds": 4.586055278778076,
+  "cost": 0.0007928,
+  "error": null
+ },
+ {
+  "file": "C011_photo_en.jpg",
+  "case_id": "C011",
+  "kind": "photo",
+  "lang": "en",
+  "expect": {
+   "reason": "Lent his driving licence to another person",
+   "amount": 1500,
+   "section": "67",
+   "vehicle": "CNG auto-rickshaw",
+   "location": "Gazipur",
+   "date": "2026-05-17",
+   "receipt_number": "DMP-1175",
+   "notes": null
+  },
+  "got": {
+   "reason": "Lent his driving licence to another person",
+   "amount": 1500,
+   "section": "67",
+   "vehicle": "CNG auto-rickshaw",
+   "date": "2026-05-17",
+   "location": "Gazipur",
+   "receipt_number": "DMP-1175",
+   "notes": null
+  },
+  "date_first": "2026-05-17",
+  "judged": {
+   "reason": "ok",
+   "amount": "ok",
+   "section": "ok",
+   "vehicle": "ok",
+   "date": "ok",
+   "location": "ok",
+   "receipt_number": "ok",
+   "notes": "ok"
+  },
+  "seconds": 6.788992881774902,
+  "cost": 0.0011443999999999998,
+  "error": null
+ },
+ {
+  "file": "C072_blurry_en.jpg",
+  "case_id": "C072",
+  "kind": "blurry",
+  "lang": "en",
+  "expect": {
+   "reason": "Charging more than the fixed fare",
+   "amount": 13000,
+   "section": null,
+   "vehicle": "CNG auto-rickshaw",
+   "location": "Motijheel, Dhaka",
+   "date": "2026-07-16",
+   "receipt_number": "DMP-8258",
+   "notes": null
+  },
+  "got": {
+   "reason": null,
+   "amount": null,
+   "section": null,
+   "vehicle": null,
+   "date": null,
+   "location": null,
+   "receipt_number": null,
+   "notes": null
+  },
+  "date_first": null,
+  "judged": {
+   "reason": "missed",
+   "amount": "missed",
+   "section": "ok",
+   "vehicle": "missed",
+   "date": "missed",
+   "location": "missed",
+   "receipt_number": "missed",
+   "notes": "ok"
+  },
+  "seconds": 8.4307701587677,
+  "cost": 0.0007532,
+  "error": null
+ },
+ {
+  "file": "C024_dim_en.jpg",
+  "case_id": "C024",
+  "kind": "dim",
+  "lang": "en",
+  "expect": {
+   "reason": "Bus conductor with no conductor licence",
+   "amount": 8000,
+   "section": "71",
+   "vehicle": "CNG auto-rickshaw",
+   "location": "Gazipur",
+   "date": "2026-09-22",
+   "receipt_number": "DMP-1461",
+   "notes": null
+  },
+  "got": {
+   "reason": "Bus conductor with no conductor licence",
+   "amount": 8000,
+   "section": "71",
+   "vehicle": "CNG auto-rickshaw",
+   "date": "2026-09-22",
+   "location": "Gazipur",
+   "receipt_number": "DMP-1461",
+   "notes": null
+  },
+  "date_first": "2026-09-22",
+  "judged": {
+   "reason": "ok",
+   "amount": "ok",
+   "section": "ok",
+   "vehicle": "ok",
+   "date": "ok",
+   "location": "ok",
+   "receipt_number": "ok",
+   "notes": "ok"
+  },
+  "seconds": 4.8380286693573,
+  "cost": 0.0011372,
+  "error": null
+ },
+ {
+  "file": "C038_clean_en.jpg",
+  "case_id": "C038",
+  "kind": "clean",
+  "lang": "en",
+  "expect": {
+   "reason": "Ownership changed but registration not updated",
+   "amount": 7000,
+   "section": null,
+   "vehicle": "Rickshaw van",
+   "location": "Gulshan, Dhaka",
+   "date": "2026-04-28",
+   "receipt_number": "DMP-4906",
+   "notes": null
+  },
+  "got": {
+   "reason": "Ownership changed but registration not updated",
+   "amount": 7000,
+   "section": null,
+   "vehicle": "Rickshaw van",
+   "date": "2026-04-28",
+   "location": "Gulshan, Dhaka",
+   "receipt_number": "DMP-4906",
+   "notes": null
+  },
+  "date_first": "2026-04-28",
+  "judged": {
+   "reason": "ok",
+   "amount": "ok",
+   "section": "ok",
+   "vehicle": "ok",
+   "date": "ok",
+   "location": "ok",
+   "receipt_number": "ok",
+   "notes": "ok"
+  },
+  "seconds": 8.60888409614563,
+  "cost": 0.0008684000000000001,
+  "error": null
+ },
+ {
+  "file": "C117_photo_en.jpg",
+  "case_id": "C117",
+  "kind": "photo",
+  "lang": "en",
+  "expect": {
+   "reason": "Parked in a no parking zone",
+   "amount": 4000,
+   "section": "90",
+   "vehicle": "Microbus",
+   "location": "Khulna",
+   "date": "2026-09-28",
+   "receipt_number": "DMP-4226",
+   "notes": null
+  },
+  "got": {
+   "reason": "Parked in a no parking zone",
+   "amount": 4000,
+   "section": "90",
+   "vehicle": "Microbus",
+   "date": "2026-09-28",
+   "location": "Khulna",
+   "receipt_number": "DMP-4226",
+   "notes": null
+  },
+  "date_first": "2026-09-28",
+  "judged": {
+   "reason": "ok",
+   "amount": "ok",
+   "section": "ok",
+   "vehicle": "ok",
+   "date": "ok",
+   "location": "ok",
+   "receipt_number": "ok",
+   "notes": "ok"
+  },
+  "seconds": 5.813570976257324,
+  "cost": 0.0012188,
+  "error": null
+ },
+ {
+  "file": "C123_blurry_en.jpg",
+  "case_id": "C123",
+  "kind": "blurry",
+  "lang": "en",
+  "expect": {
+   "reason": "Slow vehicle in the fast lane of the highway",
+   "amount": 1500,
+   "section": "91",
+   "vehicle": "Microbus",
+   "location": "Gulshan, Dhaka",
+   "date": "2026-02-17",
+   "receipt_number": "DMP-4508",
+   "notes": null
+  },
+  "got": {
+   "reason": null,
+   "amount": null,
+   "section": null,
+   "vehicle": null,
+   "date": null,
+   "location": null,
+   "receipt_number": null,
+   "notes": null
+  },
+  "date_first": null,
+  "judged": {
+   "reason": "missed",
+   "amount": "missed",
+   "section": "missed",
+   "vehicle": "missed",
+   "date": "missed",
+   "location": "missed",
+   "receipt_number": "missed",
+   "notes": "ok"
+  },
+  "seconds": 16.675901889801025,
+  "cost": 0.0007844,
+  "error": null
+ },
+ {
+  "file": "C150_dim_en.jpg",
+  "case_id": "C150",
+  "kind": "dim",
+  "lang": "en",
+  "expect": {
+   "reason": "Refused to let the officer inspect the vehicle",
+   "amount": 16000,
+   "section": "101",
+   "vehicle": "Bus",
+   "location": "Sylhet",
+   "date": "2026-09-04",
+   "receipt_number": "DMP-9770",
+   "notes": null
+  },
+  "got": {
+   "reason": "Refused to let the officer inspect the vehicle",
+   "amount": 16000,
+   "section": "101",
+   "vehicle": "Bus",
+   "date": "2026-09-04",
+   "location": "Sylhet",
+   "receipt_number": "DMP-9770",
+   "notes": null
+  },
+  "date_first": "2026-09-04",
+  "judged": {
+   "reason": "ok",
+   "amount": "ok",
+   "section": "ok",
+   "vehicle": "ok",
+   "date": "ok",
+   "location": "ok",
+   "receipt_number": "ok",
+   "notes": "ok"
+  },
+  "seconds": 5.5712738037109375,
+  "cost": 0.0011828,
+  "error": null
+ },
+ {
+  "file": "C026_clean_bn.jpg",
+  "case_id": "C026",
+  "kind": "clean",
+  "lang": "bn",
+  "expect": {
+   "reason": "লাইসেন্স ছাড়া কন্ডাক্টরের কাজ",
+   "amount": 8000,
+   "section": "71",
+   "vehicle": "Microbus",
+   "location": "Motijheel, Dhaka",
+   "date": "2026-08-22",
+   "receipt_number": "DMP-5081",
+   "notes": null
+  },
+  "got": {
+   "reason": "লাইসেন্স ছাড়া কন্ডাক্টরের কাজ",
+   "amount": 8000,
+   "section": "71",
+   "vehicle": "Microbus",
+   "date": "2026-08-22",
+   "location": "Motijheel, Dhaka",
+   "receipt_number": "DMP-5081",
+   "notes": null
+  },
+  "date_first": "2026-08-22",
+  "judged": {
+   "reason": "ok",
+   "amount": "ok",
+   "section": "ok",
+   "vehicle": "ok",
+   "date": "ok",
+   "location": "ok",
+   "receipt_number": "ok",
+   "notes": "ok"
+  },
+  "seconds": 12.40859603881836,
+  "cost": 0.0015068,
+  "error": null
+ },
+ {
+  "file": "C073_photo_bn.jpg",
+  "case_id": "C073",
+  "kind": "photo",
+  "lang": "bn",
+  "expect": {
+   "reason": "ভাড়ার তালিকা প্রদর্শন না করা",
+   "amount": 7000,
+   "section": "80",
+   "vehicle": "Car",
+   "location": "Khulna",
+   "date": "2026-05-08",
+   "receipt_number": "DMP-8074",
+   "notes": null
+  },
+  "got": {
+   "reason": "ড্রাইভিং লাইসেন্স প্রদর্শন না করা",
+   "amount": 7000,
+   "section": "80",
+   "vehicle": "Car",
+   "date": "2026-09-08",
+   "location": "Khulna",
+   "receipt_number": "DMP-8074",
+   "notes": null
+  },
+  "date_first": "2026-09-08",
+  "judged": {
+   "reason": "wrong",
+   "amount": "ok",
+   "section": "ok",
+   "vehicle": "ok",
+   "date": "wrong",
+   "location": "ok",
+   "receipt_number": "ok",
+   "notes": "ok"
+  },
+  "seconds": 12.02547311782837,
+  "cost": 0.0020288,
+  "error": null
+ },
+ {
+  "file": "C139_blurry_bn.jpg",
+  "case_id": "C139",
+  "kind": "blurry",
+  "lang": "bn",
+  "expect": {
+   "reason": "দুর্ঘটনায় আহতকে চিকিৎসা না দেওয়া",
+   "amount": 10000,
+   "section": null,
+   "vehicle": "Motorcycle",
+   "location": "Motijheel, Dhaka",
+   "date": "2026-05-30",
+   "receipt_number": "DMP-5238",
+   "notes": null
+  },
+  "got": {
+   "reason": null,
+   "amount": null,
+   "section": null,
+   "vehicle": null,
+   "date": null,
+   "location": null,
+   "receipt_number": null,
+   "notes": null
+  },
+  "date_first": null,
+  "judged": {
+   "reason": "missed",
+   "amount": "missed",
+   "section": "ok",
+   "vehicle": "missed",
+   "date": "missed",
+   "location": "missed",
+   "receipt_number": "missed",
+   "notes": "ok"
+  },
+  "seconds": 7.058197021484375,
+  "cost": 0.0006392,
+  "error": null
+ },
+ {
+  "file": "C066_dim_bn.jpg",
+  "case_id": "C066",
+  "kind": "dim",
+  "lang": "bn",
+  "expect": {
+   "reason": "ব্যক্তিগত গাড়ি বাণিজ্যিক কাজে ব্যবহার",
+   "amount": 13000,
+   "section": null,
+   "vehicle": "CNG auto-rickshaw",
+   "location": "Farmgate, Dhaka",
+   "date": "2026-01-15",
+   "receipt_number": "DMP-9722",
+   "notes": null
+  },
+  "got": {
+   "reason": "ব্যক্তিগত গাড়ি বাণিজ্যিক কাজে ব্যবহার",
+   "amount": 13000,
+   "section": null,
+   "vehicle": "CNG auto-rickshaw",
+   "date": "2026-01-19",
+   "location": "Farmgate, Dhaka",
+   "receipt_number": "DMP-9722",
+   "notes": null
+  },
+  "date_first": "2026-01-19",
+  "judged": {
+   "reason": "ok",
+   "amount": "ok",
+   "section": "ok",
+   "vehicle": "ok",
+   "date": "wrong",
+   "location": "ok",
+   "receipt_number": "ok",
+   "notes": "ok"
+  },
+  "seconds": 17.407681941986084,
+  "cost": 0.0020624,
+  "error": null
+ },
+ {
+  "file": "C046_clean_bn.jpg",
+  "case_id": "C046",
+  "kind": "clean",
+  "lang": "bn",
+  "expect": {
+   "reason": "ফিটনেস সনদ ছাড়া গাড়ি চালানো",
+   "amount": 15500,
+   "section": "75",
+   "vehicle": "Rickshaw van",
+   "location": "Rajshahi",
+   "date": "2026-02-15",
+   "receipt_number": "DMP-3958",
+   "notes": null
+  },
+  "got": {
+   "reason": "ফিটনেস সনদ ছাড়া গাড়ি চালানো",
+   "amount": 15500,
+   "section": "79",
+   "vehicle": "Rickshaw van",
+   "date": "2026-03-15",
+   "location": "Rajshahi",
+   "receipt_number": "DMP-3958",
+   "notes": null
+  },
+  "date_first": "2026-03-15",
+  "judged": {
+   "reason": "ok",
+   "amount": "ok",
+   "section": "wrong",
+   "vehicle": "ok",
+   "date": "wrong",
+   "location": "ok",
+   "receipt_number": "ok",
+   "notes": "ok"
+  },
+  "seconds": 8.335138082504272,
+  "cost": 0.0015476,
+  "error": null
+ },
+ {
+  "file": "C086_photo_bn.jpg",
+  "case_id": "C086",
+  "kind": "photo",
+  "lang": "bn",
+  "expect": {
+   "reason": "যানবাহনের কারিগরি বৈশিষ্ট্য লঙ্ঘন",
+   "amount": 135500,
+   "section": null,
+   "vehicle": "Truck",
+   "location": "Mirpur, Dhaka",
+   "date": "2026-10-03",
+   "receipt_number": "DMP-6915",
+   "notes": null
+  },
+  "got": {
+   "reason": "যানবাহনের কারিগরি বৈশিষ্ট্য নষ্টন",
+   "amount": 105000,
+   "section": null,
+   "vehicle": "Truck",
+   "date": "2026-10-03",
+   "location": "Mirpur, Dhaka",
+   "receipt_number": "DMP-6915",
+   "notes": null
+  },
+  "date_first": "2026-10-03",
+  "judged": {
+   "reason": "ok",
+   "amount": "wrong",
+   "section": "ok",
+   "vehicle": "ok",
+   "date": "ok",
+   "location": "ok",
+   "receipt_number": "ok",
+   "notes": "ok"
+  },
+  "seconds": 15.724040031433105,
+  "cost": 0.0017432,
+  "error": null
+ },
+ {
+  "file": "C032_blurry_bn.jpg",
+  "case_id": "C032",
+  "kind": "blurry",
+  "lang": "bn",
+  "expect": {
+   "reason": "নিবন্ধন ছাড়া গাড়ি চালানো",
+   "amount": 36000,
+   "section": "72",
+   "vehicle": "Motorcycle",
+   "location": "Rajshahi",
+   "date": "2026-03-22",
+   "receipt_number": "DMP-5476",
+   "notes": null
+  },
+  "got": {
+   "reason": null,
+   "amount": null,
+   "section": null,
+   "vehicle": null,
+   "date": null,
+   "location": null,
+   "receipt_number": null,
+   "notes": null
+  },
+  "date_first": null,
+  "judged": {
+   "reason": "missed",
+   "amount": "missed",
+   "section": "missed",
+   "vehicle": "missed",
+   "date": "missed",
+   "location": "missed",
+   "receipt_number": "missed",
+   "notes": "ok"
+  },
+  "seconds": 8.418613195419312,
+  "cost": 0.0007375999999999999,
+  "error": null
+ },
+ {
+  "file": "C006_dim_bn.jpg",
+  "case_id": "C006",
+  "kind": "dim",
+  "lang": "bn",
+  "expect": {
+   "reason": "ড্রাইভিং লাইসেন্স ছাড়া গাড়ি চালানো",
+   "amount": 19500,
+   "section": null,
+   "vehicle": "Motorcycle",
+   "location": "Dhanmondi, Dhaka",
+   "date": "2026-03-17",
+   "receipt_number": "DMP-9616",
+   "notes": null
+  },
+  "got": {
+   "reason": "ড্রাইভিং লাইসেন্স ছাড়া গাড়ি চালানো",
+   "amount": 19500,
+   "section": null,
+   "vehicle": "Motorcycle",
+   "date": "2026-03-17",
+   "location": "Dhanmondi, Dhaka",
+   "receipt_number": "DMP-9616",
+   "notes": null
+  },
+  "date_first": "2026-05-17",
+  "judged": {
+   "reason": "ok",
+   "amount": "ok",
+   "section": "ok",
+   "vehicle": "ok",
+   "date": "ok",
+   "location": "ok",
+   "receipt_number": "ok",
+   "notes": "ok"
+  },
+  "seconds": 14.930474996566772,
+  "cost": 0.0017672,
+  "error": null
+ },
+ {
+  "file": "C145_clean_bn.jpg",
+  "case_id": "C145",
+  "kind": "clean",
+  "lang": "bn",
+  "expect": {
+   "reason": "অনুমোদন ছাড়া ড্রাইভিং স্কুল পরিচালনা",
+   "amount": 55000,
+   "section": "96",
+   "vehicle": "Rickshaw van",
+   "location": "Mirpur, Dhaka",
+   "date": "2026-09-18",
+   "receipt_number": "DMP-1308",
+   "notes": null
+  },
+  "got": {
+   "reason": "অনুমোদন ছাড়া ড্রাইভিং স্কুল পরিচালনা",
+   "amount": 55000,
+   "section": "16",
+   "vehicle": "Rickshaw van",
+   "date": "2026-09-06",
+   "location": "Mirpur, Dhaka",
+   "receipt_number": "DMP-1308",
+   "notes": null
+  },
+  "date_first": "2026-09-06",
+  "judged": {
+   "reason": "ok",
+   "amount": "ok",
+   "section": "wrong",
+   "vehicle": "ok",
+   "date": "wrong",
+   "location": "ok",
+   "receipt_number": "ok",
+   "notes": "ok"
+  },
+  "seconds": 15.577744722366333,
+  "cost": 0.0019364,
+  "error": null
+ },
+ {
+  "file": "C113_photo_bn.jpg",
+  "case_id": "C113",
+  "kind": "photo",
+  "lang": "bn",
+  "expect": {
+   "reason": "নিষিদ্ধ হর্ন ব্যবহার",
+   "amount": 20000,
+   "section": "88",
+   "vehicle": "Pickup",
+   "location": "Mirpur, Dhaka",
+   "date": "2026-03-19",
+   "receipt_number": "DMP-6953",
+   "notes": null
+  },
+  "got": {
+   "reason": "নিষিদ্ধ হর্ণ ব্যবহার",
+   "amount": 20000,
+   "section": "88",
+   "vehicle": "Pickup",
+   "date": "2026-03-11",
+   "location": "Mirpur, Dhaka",
+   "receipt_number": "DMP-6953",
+   "notes": null
+  },
+  "date_first": "2026-03-11",
+  "judged": {
+   "reason": "ok",
+   "amount": "ok",
+   "section": "ok",
+   "vehicle": "ok",
+   "date": "wrong",
+   "location": "ok",
+   "receipt_number": "ok",
+   "notes": "ok"
+  },
+  "seconds": 15.692306995391846,
+  "cost": 0.0026287999999999997,
+  "error": null
+ },
+ {
+  "file": "C059_blurry_bn.jpg",
+  "case_id": "C059",
+  "kind": "blurry",
+  "lang": "bn",
+  "expect": {
+   "reason": "রুট পারমিট ছাড়া গাড়ি চালানো",
+   "amount": 6000,
+   "section": null,
+   "vehicle": "Motorcycle",
+   "location": "Motijheel, Dhaka",
+   "date": "2026-07-05",
+   "receipt_number": "DMP-4999",
+   "notes": null
+  },
+  "got": {
+   "reason": null,
+   "amount": null,
+   "section": null,
+   "vehicle": null,
+   "date": null,
+   "location": null,
+   "receipt_number": null,
+   "notes": null
+  },
+  "date_first": null,
+  "judged": {
+   "reason": "missed",
+   "amount": "missed",
+   "section": "ok",
+   "vehicle": "missed",
+   "date": "missed",
+   "location": "missed",
+   "receipt_number": "missed",
+   "notes": "ok"
+  },
+  "seconds": 10.913776874542236,
+  "cost": 0.0005396,
+  "error": null
+ },
+ {
+  "file": "C013_dim_bn.jpg",
+  "case_id": "C013",
+  "kind": "dim",
+  "lang": "bn",
+  "expect": {
+   "reason": "অবৈধভাবে ড্রাইভিং লাইসেন্স হস্তান্তর",
+   "amount": 3500,
+   "section": "67",
+   "vehicle": "Rickshaw van",
+   "location": "Dhanmondi, Dhaka",
+   "date": "2026-07-02",
+   "receipt_number": "DMP-9871",
+   "notes": null
+  },
+  "got": {
+   "reason": "অবৈধভাবে ড্রাইভিং লাইসেন্স হস্তান্তর",
+   "amount": 3500,
+   "section": "67",
+   "vehicle": "Rickshaw van",
+   "date": "2026-09-03",
+   "location": "Dhanmondi, Dhaka",
+   "receipt_number": "DMP-9871",
+   "notes": null
+  },
+  "date_first": "2026-09-03",
+  "judged": {
+   "reason": "ok",
+   "amount": "ok",
+   "section": "ok",
+   "vehicle": "ok",
+   "date": "wrong",
+   "location": "ok",
+   "receipt_number": "ok",
+   "notes": "ok"
+  },
+  "seconds": 13.250754117965698,
+  "cost": 0.002456,
+  "error": null
+ },
+ {
+  "file": "C172_clean_en.jpg",
+  "case_id": "C172",
+  "kind": "clean",
+  "lang": "en",
+  "expect": {
+   "reason": "Reckless driving causing death",
+   "amount": 500000,
+   "section": null,
+   "vehicle": "Motorcycle",
+   "location": "Uttara, Dhaka",
+   "date": "2026-07-08",
+   "receipt_number": "DMP-2731",
+   "notes": null
+  },
+  "got": {
+   "reason": "Reckless driving causing death",
+   "amount": 500000,
+   "section": null,
+   "vehicle": "Motorcycle",
+   "date": "2026-07-08",
+   "location": "Uttara, Dhaka",
+   "receipt_number": "DMP-2731",
+   "notes": null
+  },
+  "date_first": "2026-07-08",
+  "judged": {
+   "reason": "ok",
+   "amount": "ok",
+   "section": "ok",
+   "vehicle": "ok",
+   "date": "ok",
+   "location": "ok",
+   "receipt_number": "ok",
+   "notes": "ok"
+  },
+  "seconds": 6.134488821029663,
+  "cost": 0.000956,
+  "error": null
+ },
+ {
+  "file": "C089_photo_en.jpg",
+  "case_id": "C089",
+  "kind": "photo",
+  "lang": "en",
+  "expect": {
+   "reason": "Violating traffic signals",
+   "amount": 10000,
+   "section": "85",
+   "vehicle": "Pickup",
+   "location": "Rajshahi",
+   "date": "2026-09-16",
+   "receipt_number": "DMP-2914",
+   "notes": null
+  },
+  "got": {
+   "reason": "Violating traffic signals",
+   "amount": 10000,
+   "section": "85",
+   "vehicle": "Pickup",
+   "date": "2026-09-16",
+   "location": "Rajshahi",
+   "receipt_number": "DMP-2914",
+   "notes": null
+  },
+  "date_first": "2026-09-16",
+  "judged": {
+   "reason": "ok",
+   "amount": "ok",
+   "section": "ok",
+   "vehicle": "ok",
+   "date": "ok",
+   "location": "ok",
+   "receipt_number": "ok",
+   "notes": "ok"
+  },
+  "seconds": 4.8675291538238525,
+  "cost": 0.0010676000000000001,
+  "error": null
+ },
+ {
+  "file": "C016_blurry_en.jpg",
+  "case_id": "C016",
+  "kind": "blurry",
+  "lang": "en",
+  "expect": {
+   "reason": "Driving despite licence suspension",
+   "amount": 25000,
+   "section": null,
+   "vehicle": "Rickshaw van",
+   "location": "Dhanmondi, Dhaka",
+   "date": "2026-09-22",
+   "receipt_number": "DMP-8832",
+   "notes": null
+  },
+  "got": {
+   "reason": null,
+   "amount": null,
+   "section": null,
+   "vehicle": null,
+   "date": null,
+   "location": null,
+   "receipt_number": null,
+   "notes": null
+  },
+  "date_first": null,
+  "judged": {
+   "reason": "missed",
+   "amount": "missed",
+   "section": "ok",
+   "vehicle": "missed",
+   "date": "missed",
+   "location": "missed",
+   "receipt_number": "missed",
+   "notes": "ok"
+  },
+  "seconds": 8.540262937545776,
+  "cost": 0.0006487999999999999,
+  "error": null
+ },
+ {
+  "file": "C049_dim_en.jpg",
+  "case_id": "C049",
+  "kind": "dim",
+  "lang": "en",
+  "expect": {
+   "reason": "Driving without a valid tax token",
+   "amount": 10000,
+   "section": null,
+   "vehicle": "Microbus",
+   "location": "Mirpur, Dhaka",
+   "date": "2026-08-05",
+   "receipt_number": "DMP-3071",
+   "notes": null
+  },
+  "got": {
+   "reason": "Driving without a valid tax token",
+   "amount": 10000,
+   "section": null,
+   "vehicle": "Microbus",
+   "date": "2026-08-05",
+   "location": "Mirpur, Dhaka",
+   "receipt_number": "DMP-3071",
+   "notes": null
+  },
+  "date_first": "2026-08-05",
+  "judged": {
+   "reason": "ok",
+   "amount": "ok",
+   "section": "ok",
+   "vehicle": "ok",
+   "date": "ok",
+   "location": "ok",
+   "receipt_number": "ok",
+   "notes": "ok"
+  },
+  "seconds": 5.702093124389648,
+  "cost": 0.0010424,
+  "error": null
+ },
+ {
+  "file": "C211_clean_en.jpg",
+  "case_id": "C211",
+  "kind": "clean",
+  "lang": "en",
+  "expect": {
+   "reason": "Operating without a route permit",
+   "amount": 15000,
+   "section": null,
+   "vehicle": "Ambulance",
+   "location": "Mirpur, Dhaka",
+   "date": "2026-02-27",
+   "receipt_number": "DMP-8877",
+   "notes": "Ambulance on emergency duty, carrying a patient"
+  },
+  "got": {
+   "reason": "Operating without a route permit",
+   "amount": 15000,
+   "section": null,
+   "vehicle": "Ambulance",
+   "date": "2026-02-27",
+   "location": "Mirpur, Dhaka",
+   "receipt_number": "DMP-8877",
+   "notes": "Ambulance on emergency duty, carrying a patient"
+  },
+  "date_first": "2026-02-27",
+  "judged": {
+   "reason": "ok",
+   "amount": "ok",
+   "section": "ok",
+   "vehicle": "ok",
+   "date": "ok",
+   "location": "ok",
+   "receipt_number": "ok",
+   "notes": "ok"
+  },
+  "seconds": 4.852565050125122,
+  "cost": 0.0009644,
+  "error": null
+ },
+ {
+  "file": "C216_photo_en.jpg",
+  "case_id": "C216",
+  "kind": "photo",
+  "lang": "en",
+  "expect": {
+   "reason": "Operating without a route permit",
+   "amount": 15000,
+   "section": null,
+   "vehicle": "Van",
+   "location": "Dhanmondi, Dhaka",
+   "date": "2026-04-17",
+   "receipt_number": "DMP-4896",
+   "notes": "Mobile library van"
+  },
+  "got": {
+   "reason": "Operating without a route permit",
+   "amount": 15000,
+   "section": null,
+   "vehicle": "Van",
+   "date": "2026-04-17",
+   "location": "Dhanmondi, Dhaka",
+   "receipt_number": "DMP-4896",
+   "notes": null
+  },
+  "date_first": "2026-04-17",
+  "judged": {
+   "reason": "ok",
+   "amount": "ok",
+   "section": "ok",
+   "vehicle": "ok",
+   "date": "ok",
+   "location": "ok",
+   "receipt_number": "ok",
+   "notes": "missed"
+  },
+  "seconds": 6.54939079284668,
+  "cost": 0.0011684,
+  "error": null
+ },
+ {
+  "file": "C213_blurry_en.jpg",
+  "case_id": "C213",
+  "kind": "blurry",
+  "lang": "en",
+  "expect": {
+   "reason": "Operating without a route permit",
+   "amount": 15000,
+   "section": null,
+   "vehicle": "Truck",
+   "location": "Farmgate, Dhaka",
+   "date": "2026-03-06",
+   "receipt_number": "DMP-3316",
+   "notes": "Government-owned vehicle carrying relief goods"
+  },
+  "got": {
+   "reason": null,
+   "amount": null,
+   "section": null,
+   "vehicle": null,
+   "date": null,
+   "location": null,
+   "receipt_number": null,
+   "notes": null
+  },
+  "date_first": null,
+  "judged": {
+   "reason": "missed",
+   "amount": "missed",
+   "section": "ok",
+   "vehicle": "missed",
+   "date": "missed",
+   "location": "missed",
+   "receipt_number": "missed",
+   "notes": "missed"
+  },
+  "seconds": 8.080453157424927,
+  "cost": 0.0005624,
+  "error": null
+ },
+ {
+  "file": "C215_dim_en.jpg",
+  "case_id": "C215",
+  "kind": "dim",
+  "lang": "en",
+  "expect": {
+   "reason": "Operating without a route permit",
+   "amount": 15000,
+   "section": null,
+   "vehicle": "Microbus",
+   "location": "Farmgate, Dhaka",
+   "date": "2026-01-12",
+   "receipt_number": "DMP-4077",
+   "notes": "Vehicle belongs to a recognised driving training centre"
+  },
+  "got": {
+   "reason": "Operating without a route permit",
+   "amount": 15000,
+   "section": null,
+   "vehicle": "Microbus",
+   "date": "2026-01-12",
+   "location": "Farmgate, Dhaka",
+   "receipt_number": "DMP-4077",
+   "notes": "Vehicle belongs to a recognised driving training centre"
+  },
+  "date_first": "2026-01-12",
+  "judged": {
+   "reason": "ok",
+   "amount": "ok",
+   "section": "ok",
+   "vehicle": "ok",
+   "date": "ok",
+   "location": "ok",
+   "receipt_number": "ok",
+   "notes": "ok"
+  },
+  "seconds": 7.577818870544434,
+  "cost": 0.001124,
+  "error": null
+ },
+ {
+  "file": "C212_clean_en.jpg",
+  "case_id": "C212",
+  "kind": "clean",
+  "lang": "en",
+  "expect": {
+   "reason": "Operating without a route permit",
+   "amount": 15000,
+   "section": null,
+   "vehicle": "Fire service truck",
+   "location": "Gazipur",
+   "date": "2026-05-18",
+   "receipt_number": "DMP-2690",
+   "notes": "Fire service truck responding to a fire"
+  },
+  "got": {
+   "reason": "Operating without a route permit",
+   "amount": 15000,
+   "section": null,
+   "vehicle": "Fire service truck",
+   "date": "2026-05-18",
+   "location": "Gazipur",
+   "receipt_number": "DMP-2690",
+   "notes": "Fire service truck responding to a fire"
+  },
+  "date_first": "2026-05-18",
+  "judged": {
+   "reason": "ok",
+   "amount": "ok",
+   "section": "ok",
+   "vehicle": "ok",
+   "date": "ok",
+   "location": "ok",
+   "receipt_number": "ok",
+   "notes": "ok"
+  },
+  "seconds": 3.794640302658081,
+  "cost": 0.0007819999999999999,
+  "error": null
+ },
+ {
+  "file": "C214_photo_en.jpg",
+  "case_id": "C214",
+  "kind": "photo",
+  "lang": "en",
+  "expect": {
+   "reason": "Operating without a route permit",
+   "amount": 15000,
+   "section": null,
+   "vehicle": "Bus",
+   "location": "Dhanmondi, Dhaka",
+   "date": "2026-06-15",
+   "receipt_number": "DMP-3416",
+   "notes": "Bus took a different route because the road was flooded"
+  },
+  "got": {
+   "reason": "Operating without a route permit",
+   "amount": 15000,
+   "section": null,
+   "vehicle": "Bus",
+   "date": "2026-06-15",
+   "location": "Dhanmondi, Dhaka",
+   "receipt_number": "DMP-3416",
+   "notes": "Bus took a different route because the road was flooded"
+  },
+  "date_first": "2026-06-15",
+  "judged": {
+   "reason": "ok",
+   "amount": "ok",
+   "section": "ok",
+   "vehicle": "ok",
+   "date": "ok",
+   "location": "ok",
+   "receipt_number": "ok",
+   "notes": "ok"
+  },
+  "seconds": 7.073752164840698,
+  "cost": 0.0011504000000000002,
+  "error": null
+ },
+ {
+  "file": "C221_blurry_en.jpg",
+  "case_id": "C221",
+  "kind": "blurry",
+  "lang": "en",
+  "expect": {
+   "reason": "Illegal parking",
+   "amount": 4000,
+   "section": null,
+   "vehicle": "Rickshaw van",
+   "location": "Gulshan, Dhaka",
+   "date": "2026-01-07",
+   "receipt_number": "DMP-6173",
+   "notes": "Stopped for an emergency"
+  },
+  "got": {
+   "reason": null,
+   "amount": null,
+   "section": null,
+   "vehicle": null,
+   "date": null,
+   "location": null,
+   "receipt_number": null,
+   "notes": null
+  },
+  "date_first": null,
+  "judged": {
+   "reason": "missed",
+   "amount": "missed",
+   "section": "ok",
+   "vehicle": "missed",
+   "date": "missed",
+   "location": "missed",
+   "receipt_number": "missed",
+   "notes": "missed"
+  },
+  "seconds": 9.22987413406372,
+  "cost": 0.0007388,
+  "error": null
+ },
+ {
+  "file": "C217_dim_en.jpg",
+  "case_id": "C217",
+  "kind": "dim",
+  "lang": "en",
+  "expect": {
+   "reason": "Exceeding the speed limit",
+   "amount": 4000,
+   "section": null,
+   "vehicle": "Bus",
+   "location": "Gulshan, Dhaka",
+   "date": "2026-01-23",
+   "receipt_number": "DMP-2633",
+   "notes": "Ambulance rushing a patient, driver claims emergency"
+  },
+  "got": {
+   "reason": "Exceeding the speed limit",
+   "amount": 4000,
+   "section": null,
+   "vehicle": "Bus",
+   "date": "2026-01-23",
+   "location": "Gulshan, Dhaka",
+   "receipt_number": "DMP-2633",
+   "notes": "Ambulance rushing a patient, driver claims emergency"
+  },
+  "date_first": "2026-01-23",
+  "judged": {
+   "reason": "ok",
+   "amount": "ok",
+   "section": "ok",
+   "vehicle": "ok",
+   "date": "ok",
+   "location": "ok",
+   "receipt_number": "ok",
+   "notes": "ok"
+  },
+  "seconds": 5.408429145812988,
+  "cost": 0.0010604,
+  "error": null
+ },
+ {
+  "file": "C220_clean_en.jpg",
+  "case_id": "C220",
+  "kind": "clean",
+  "lang": "en",
+  "expect": {
+   "reason": "Violating traffic signals",
+   "amount": 6000,
+   "section": null,
+   "vehicle": "Car",
+   "location": "Sylhet",
+   "date": "2026-03-12",
+   "receipt_number": "DMP-4959",
+   "notes": "Police escort, driver claims exemption"
+  },
+  "got": {
+   "reason": "Violating traffic signals",
+   "amount": 6000,
+   "section": null,
+   "vehicle": "Car",
+   "date": "2026-03-12",
+   "location": "Sylhet",
+   "receipt_number": "DMP-4959",
+   "notes": "Police escort, driver claims exemption"
+  },
+  "date_first": "2026-03-12",
+  "judged": {
+   "reason": "ok",
+   "amount": "ok",
+   "section": "ok",
+   "vehicle": "ok",
+   "date": "ok",
+   "location": "ok",
+   "receipt_number": "ok",
+   "notes": "ok"
+  },
+  "seconds": 6.14096212387085,
+  "cost": 0.0010076,
+  "error": null
+ },
+ {
+  "file": "C207_photo_en.jpg",
+  "case_id": "C207",
+  "kind": "photo",
+  "lang": "en",
+  "expect": {
+   "reason": "Illegal use of horn",
+   "amount": 8500,
+   "section": "85",
+   "vehicle": "Pickup",
+   "location": "Mirpur, Dhaka",
+   "date": "2026-07-16",
+   "receipt_number": "DMP-7998",
+   "notes": null
+  },
+  "got": {
+   "reason": "Illegal use of horn",
+   "amount": 8500,
+   "section": "85",
+   "vehicle": "Pickup",
+   "date": "2026-07-16",
+   "location": "Mirpur, Dhaka",
+   "receipt_number": "DMP-7998",
+   "notes": null
+  },
+  "date_first": "2026-07-16",
+  "judged": {
+   "reason": "ok",
+   "amount": "ok",
+   "section": "ok",
+   "vehicle": "ok",
+   "date": "ok",
+   "location": "ok",
+   "receipt_number": "ok",
+   "notes": "ok"
+  },
+  "seconds": 5.808179140090942,
+  "cost": 0.0010124,
+  "error": null
+ },
+ {
+  "file": "C201_blurry_en.jpg",
+  "case_id": "C201",
+  "kind": "blurry",
+  "lang": "en",
+  "expect": {
+   "reason": "Exceeding the speed limit",
+   "amount": 6000,
+   "section": "90",
+   "vehicle": "Truck",
+   "location": "Motijheel, Dhaka",
+   "date": "2026-09-30",
+   "receipt_number": "DMP-2358",
+   "notes": null
+  },
+  "got": {
+   "reason": null,
+   "amount": null,
+   "section": null,
+   "vehicle": null,
+   "date": null,
+   "location": null,
+   "receipt_number": null,
+   "notes": null
+  },
+  "date_first": null,
+  "judged": {
+   "reason": "missed",
+   "amount": "missed",
+   "section": "missed",
+   "vehicle": "missed",
+   "date": "missed",
+   "location": "missed",
+   "receipt_number": "missed",
+   "notes": "ok"
+  },
+  "seconds": 9.6631338596344,
+  "cost": 0.0008252,
+  "error": null
+ },
+ {
+  "file": "C210_dim_en.jpg",
+  "case_id": "C210",
+  "kind": "dim",
+  "lang": "en",
+  "expect": {
+   "reason": "Driving without a driving licence",
+   "amount": 15000,
+   "section": "70",
+   "vehicle": "Car",
+   "location": "Dhanmondi, Dhaka",
+   "date": "2026-01-26",
+   "receipt_number": "DMP-8396",
+   "notes": null
+  },
+  "got": {
+   "reason": "Driving without a driving licence",
+   "amount": 15000,
+   "section": "70",
+   "vehicle": "Car",
+   "date": "2026-01-26",
+   "location": "Dhanmondi, Dhaka",
+   "receipt_number": "DMP-8396",
+   "notes": null
+  },
+  "date_first": "2026-01-26",
+  "judged": {
+   "reason": "ok",
+   "amount": "ok",
+   "section": "ok",
+   "vehicle": "ok",
+   "date": "ok",
+   "location": "ok",
+   "receipt_number": "ok",
+   "notes": "ok"
+  },
+  "seconds": 7.670634031295776,
+  "cost": 0.001094,
+  "error": null
+ },
+ {
+  "file": "C205_clean_en.jpg",
+  "case_id": "C205",
+  "kind": "clean",
+  "lang": "en",
+  "expect": {
+   "reason": "Driving without a valid fitness certificate",
+   "amount": 9000,
+   "section": "76",
+   "vehicle": "Motorcycle",
+   "location": "Narayanganj",
+   "date": "2026-05-09",
+   "receipt_number": "DMP-9186",
+   "notes": null
+  },
+  "got": {
+   "reason": "Driving without a valid fitness certificate",
+   "amount": 9000,
+   "section": "76",
+   "vehicle": "Motorcycle",
+   "date": "2026-05-09",
+   "location": "Narayanganj",
+   "receipt_number": "DMP-9186",
+   "notes": null
+  },
+  "date_first": "2026-09-05",
+  "judged": {
+   "reason": "ok",
+   "amount": "ok",
+   "section": "ok",
+   "vehicle": "ok",
+   "date": "ok",
+   "location": "ok",
+   "receipt_number": "ok",
+   "notes": "ok"
+  },
+  "seconds": 9.275235176086426,
+  "cost": 0.000974,
+  "error": null
+ },
+ {
+  "file": "C179_photo_en.jpg",
+  "case_id": "C179",
+  "kind": "photo",
+  "lang": "en",
+  "expect": {
+   "reason": "Smoking inside a bus",
+   "amount": 3000,
+   "section": null,
+   "vehicle": "Truck",
+   "location": "Narayanganj",
+   "date": "2026-06-21",
+   "receipt_number": "DMP-5079",
+   "notes": null
+  },
+  "got": {
+   "reason": "Smoking inside a bus",
+   "amount": 3000,
+   "section": null,
+   "vehicle": "Truck",
+   "date": "2026-06-21",
+   "location": "Narayanganj",
+   "receipt_number": "DMP-5079",
+   "notes": null
+  },
+  "date_first": "2026-06-21",
+  "judged": {
+   "reason": "ok",
+   "amount": "ok",
+   "section": "ok",
+   "vehicle": "ok",
+   "date": "ok",
+   "location": "ok",
+   "receipt_number": "ok",
+   "notes": "ok"
+  },
+  "seconds": 6.189072847366333,
+  "cost": 0.001022,
+  "error": null
+ },
+ {
+  "file": "C180_blurry_en.jpg",
+  "case_id": "C180",
+  "kind": "blurry",
+  "lang": "en",
+  "expect": {
+   "reason": "Playing loud music at home",
+   "amount": 500,
+   "section": null,
+   "vehicle": "Microbus",
+   "location": "Gazipur",
+   "date": "2026-01-18",
+   "receipt_number": "DMP-9546",
+   "notes": null
+  },
+  "got": {
+   "reason": null,
+   "amount": null,
+   "section": null,
+   "vehicle": null,
+   "date": null,
+   "location": null,
+   "receipt_number": null,
+   "notes": null
+  },
+  "date_first": null,
+  "judged": {
+   "reason": "missed",
+   "amount": "missed",
+   "section": "ok",
+   "vehicle": "missed",
+   "date": "missed",
+   "location": "missed",
+   "receipt_number": "missed",
+   "notes": "ok"
+  },
+  "seconds": 9.882822275161743,
+  "cost": 0.0007088,
+  "error": null
+ },
+ {
+  "file": "C181_dim_en.jpg",
+  "case_id": "C181",
+  "kind": "dim",
+  "lang": "en",
+  "expect": {
+   "reason": "Selling fruit on the footpath",
+   "amount": 1000,
+   "section": null,
+   "vehicle": "Pickup",
+   "location": "Khulna",
+   "date": "2026-05-12",
+   "receipt_number": "DMP-2517",
+   "notes": null
+  },
+  "got": {
+   "reason": "Selling fruit on the footpath",
+   "amount": 1000,
+   "section": null,
+   "vehicle": "Pickup",
+   "date": "2026-05-12",
+   "location": "Khulna",
+   "receipt_number": "DMP-2517",
+   "notes": null
+  },
+  "date_first": "2026-05-12",
+  "judged": {
+   "reason": "ok",
+   "amount": "ok",
+   "section": "ok",
+   "vehicle": "ok",
+   "date": "ok",
+   "location": "ok",
+   "receipt_number": "ok",
+   "notes": "ok"
+  },
+  "seconds": 5.425469160079956,
+  "cost": 0.0009488000000000001,
+  "error": null
+ }
+]

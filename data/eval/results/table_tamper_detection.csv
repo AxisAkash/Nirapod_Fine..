@@ -1,0 +1,33 @@
+change,layer,kind,detected,verify_status
+fine amount on the case,case,tampered,True,mismatch
+offence reason on the case,case,tampered,True,mismatch
+section cited on the case,case,tampered,True,mismatch
+vehicle type on the case,case,tampered,True,mismatch
+location on the case,case,tampered,True,mismatch
+claim notes on the case,case,tampered,True,mismatch
+verdict: VALID to TOO HIGH,result,tampered,True,mismatch
+verdict: set to NEEDS MANUAL REVIEW,result,tampered,True,mismatch
+verdict summary text,result,tampered,True,mismatch
+explanation text,result,tampered,True,mismatch
+confidence score,result,tampered,True,mismatch
+fine limit of the matched section,dataset,tampered,True,mismatch
+minimum fine of the matched section,dataset,tampered,True,mismatch
+fine text of the matched section,dataset,tampered,True,mismatch
+title of the matched section,dataset,tampered,True,mismatch
+imprisonment text of the matched section,dataset,tampered,True,mismatch
+switch the matched section off,dataset,tampered,True,mismatch
+limit of an unrelated section (90),dataset,tampered,True,mismatch
+an exception rule's scope limit,dataset,tampered,True,mismatch
+an exception rule's required evidence,dataset,tampered,True,mismatch
+a new keyword for the matched section,dataset,tampered,True,mismatch
+an alias removed from the matched section,dataset,tampered,True,mismatch
+a whole section deleted,dataset,tampered,True,mismatch
+a new section added,dataset,tampered,True,mismatch
+no change (control 1),control,control,False,verified
+no change (control 2),control,control,False,verified
+no change (control 3),control,control,False,verified
+no change (control 4),control,control,False,verified
+no change (control 5),control,control,False,verified
+no change (control 6),control,control,False,verified
+no change (control 7),control,control,False,verified
+no change (control 8),control,control,False,verified

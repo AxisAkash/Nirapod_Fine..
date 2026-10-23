@@ -1,0 +1,225 @@
+id,group,lang,reason,amount,section_cited,vehicle,notes,true_section,true_verdict,location,date,receipt_number
+C001,standard,en,Driving without a driving licence,11000,,Microbus,,66,VALID,"Motijheel, Dhaka",2026-07-07,DMP-1375
+C002,standard,en,Driving without a driving licence,39000,,Truck,,66,INVALID_FINE_TOO_HIGH,"Uttara, Dhaka",2026-06-27,DMP-5850
+C003,boundary,en,Driving without a driving licence,25000,,CNG auto-rickshaw,,66,VALID,Khulna,2026-07-01,DMP-1708
+C004,paraphrase,en,No valid licence while driving,16000,66,Rickshaw van,,66,VALID,Khulna,2026-07-12,DMP-3422
+C005,paraphrase,en,No valid licence while driving,36000,,CNG auto-rickshaw,,66,INVALID_FINE_TOO_HIGH,"Motijheel, Dhaka",2026-07-28,DMP-5268
+C006,bangla,bn,ড্রাইভিং লাইসেন্স ছাড়া গাড়ি চালানো,20000,66,Microbus,,66,VALID,"Farmgate, Dhaka",2026-01-16,DMP-5465
+C007,bangla,bn,ড্রাইভিং লাইসেন্স ছাড়া গাড়ি চালানো,48000,,Bus,,66,INVALID_FINE_TOO_HIGH,Narayanganj,2026-09-23,DMP-9243
+C008,standard,en,Unlawful transfer of a driving licence,3000,,Truck,,67,VALID,"Dhanmondi, Dhaka",2026-09-29,DMP-5438
+C009,standard,en,Unlawful transfer of a driving licence,8000,,Motorcycle,,67,INVALID_FINE_TOO_HIGH,"Uttara, Dhaka",2026-03-18,DMP-5418
+C010,boundary,en,Unlawful transfer of a driving licence,5000,,Truck,,67,VALID,"Motijheel, Dhaka",2026-02-19,DMP-1600
+C011,paraphrase,en,Lent his driving licence to another person,3500,67,Bus,,67,VALID,Gazipur,2026-01-21,DMP-3985
+C012,paraphrase,en,Lent his driving licence to another person,7000,67,Car,,67,INVALID_FINE_TOO_HIGH,Gazipur,2026-03-11,DMP-6362
+C013,bangla,bn,অবৈধভাবে ড্রাইভিং লাইসেন্স হস্তান্তর,2000,,CNG auto-rickshaw,,67,VALID,"Farmgate, Dhaka",2026-08-18,DMP-7637
+C014,bangla,bn,অবৈধভাবে ড্রাইভিং লাইসেন্স হস্তান্তর,9000,67,Bus,,67,INVALID_FINE_TOO_HIGH,Gazipur,2026-06-11,DMP-3370
+C015,standard,en,Driving despite licence suspension,10000,70,Rickshaw van,,70,VALID,"Farmgate, Dhaka",2026-04-08,DMP-2963
+C016,standard,en,Driving despite licence suspension,42000,,Truck,,70,INVALID_FINE_TOO_HIGH,"Uttara, Dhaka",2026-01-12,DMP-5019
+C017,boundary,en,Driving despite licence suspension,25000,,Bus,,70,VALID,Gazipur,2026-06-12,DMP-8456
+C018,paraphrase,en,Driving while the licence was cancelled,21000,70,Rickshaw van,,70,VALID,"Mirpur, Dhaka",2026-04-23,DMP-6982
+C019,paraphrase,en,Driving while the licence was cancelled,34000,70,Motorcycle,,70,INVALID_FINE_TOO_HIGH,Gazipur,2026-01-18,DMP-7888
+C020,bangla,bn,লাইসেন্স বাতিল থাকা অবস্থায় গাড়ি চালানো,14500,70,Motorcycle,,70,VALID,"Uttara, Dhaka",2026-07-31,DMP-6390
+C021,standard,en,Working as a conductor without a licence,1500,71,Truck,,71,VALID,Khulna,2026-02-19,DMP-8306
+C022,standard,en,Working as a conductor without a licence,8000,71,CNG auto-rickshaw,,71,INVALID_FINE_TOO_HIGH,"Dhanmondi, Dhaka",2026-03-04,DMP-2237
+C023,boundary,en,Working as a conductor without a licence,5000,,Bus,,71,VALID,"Gulshan, Dhaka",2026-05-23,DMP-6721
+C024,paraphrase,en,Bus conductor with no conductor licence,2000,,Car,,71,VALID,"Gulshan, Dhaka",2026-02-04,DMP-4518
+C025,paraphrase,en,Bus conductor with no conductor licence,9000,71,Bus,,71,INVALID_FINE_TOO_HIGH,"Mirpur, Dhaka",2026-07-19,DMP-6992
+C026,bangla,bn,লাইসেন্স ছাড়া কন্ডাক্টরের কাজ,3500,71,Motorcycle,,71,VALID,Khulna,2026-03-26,DMP-9694
+C027,standard,en,Driving an unregistered vehicle,37000,,Motorcycle,,72,VALID,"Dhanmondi, Dhaka",2026-10-05,DMP-4835
+C028,standard,en,Driving an unregistered vehicle,61000,,CNG auto-rickshaw,,72,INVALID_FINE_TOO_HIGH,Rajshahi,2026-05-26,DMP-1860
+C029,boundary,en,Driving an unregistered vehicle,50000,,CNG auto-rickshaw,,72,VALID,Gazipur,2026-07-28,DMP-4771
+C030,paraphrase,en,Vehicle has no registration,17000,72,Pickup,,72,VALID,Sylhet,2026-08-25,DMP-6535
+C031,paraphrase,en,Vehicle has no registration,96000,,Motorcycle,,72,INVALID_FINE_TOO_HIGH,"Motijheel, Dhaka",2026-07-08,DMP-4326
+C032,bangla,bn,নিবন্ধন ছাড়া গাড়ি চালানো,24000,,Bus,,72,VALID,"Dhanmondi, Dhaka",2026-09-25,DMP-6896
+C033,standard,en,Failure to register after ownership transfer,3500,,Rickshaw van,,74,VALID,"Gulshan, Dhaka",2026-03-02,DMP-6957
+C034,standard,en,Failure to register after ownership transfer,9000,74,Rickshaw van,,74,INVALID_FINE_TOO_HIGH,Sylhet,2026-05-13,DMP-1899
+C035,boundary,en,Failure to register after ownership transfer,5000,74,Rickshaw van,,74,VALID,Rajshahi,2026-07-15,DMP-3161
+C036,paraphrase,en,Ownership changed but registration not updated,3500,74,Microbus,,74,VALID,Chattogram,2026-06-05,DMP-8737
+C037,paraphrase,en,Ownership changed but registration not updated,7000,,Pickup,,74,INVALID_FINE_TOO_HIGH,Chattogram,2026-07-20,DMP-2972
+C038,bangla,bn,মালিকানা পরিবর্তনের পর নিবন্ধন না করা,4000,,Microbus,,74,VALID,"Mirpur, Dhaka",2026-01-03,DMP-1765
+C039,standard,en,Driving without a valid fitness certificate,13000,75,Rickshaw van,,75,VALID,"Motijheel, Dhaka",2026-09-27,DMP-2999
+C040,standard,en,Driving without a valid fitness certificate,37000,75,Car,,75,INVALID_FINE_TOO_HIGH,"Uttara, Dhaka",2026-01-13,DMP-2687
+C041,boundary,en,Driving without a valid fitness certificate,25000,75,Rickshaw van,,75,VALID,"Uttara, Dhaka",2026-09-30,DMP-7193
+C042,paraphrase,en,Fitness Date Expire,9000,75,Microbus,,75,VALID,"Dhanmondi, Dhaka",2026-02-23,DMP-2696
+C043,paraphrase,en,Fitness Date Expire,38000,75,Bus,,75,INVALID_FINE_TOO_HIGH,"Motijheel, Dhaka",2026-01-24,DMP-3336
+C044,bangla,bn,ফিটনেস সনদ ছাড়া গাড়ি চালানো,13000,,Pickup,,75,VALID,"Mirpur, Dhaka",2026-09-02,DMP-9949
+C045,standard,en,Driving without a valid tax token,6500,,CNG auto-rickshaw,,76,VALID,"Uttara, Dhaka",2026-04-21,DMP-7313
+C046,standard,en,Driving without a valid tax token,15000,,Rickshaw van,,76,INVALID_FINE_TOO_HIGH,"Motijheel, Dhaka",2026-04-29,DMP-4682
+C047,boundary,en,Driving without a valid tax token,10000,76,Bus,,76,VALID,Gazipur,2026-01-05,DMP-9879
+C048,paraphrase,en,Tax token expired,4500,76,Bus,,76,VALID,"Motijheel, Dhaka",2026-04-04,DMP-8840
+C049,paraphrase,en,Tax token expired,20000,,Pickup,,76,INVALID_FINE_TOO_HIGH,"Dhanmondi, Dhaka",2026-05-10,DMP-5114
+C050,bangla,bn,ট্যাক্স টোকেন ছাড়া গাড়ি চালানো,7500,,Rickshaw van,,76,VALID,Chattogram,2026-04-20,DMP-5845
+C051,bangla,bn,ট্যাক্স টোকেন ছাড়া গাড়ি চালানো,15000,,Motorcycle,,76,INVALID_FINE_TOO_HIGH,"Mirpur, Dhaka",2026-09-26,DMP-8123
+C052,standard,en,Operating without a route permit,13500,77,Microbus,,77,VALID,"Farmgate, Dhaka",2026-01-30,DMP-4106
+C053,standard,en,Operating without a route permit,31000,77,CNG auto-rickshaw,,77,INVALID_FINE_TOO_HIGH,Khulna,2026-01-07,DMP-5372
+C054,boundary,en,Operating without a route permit,20000,77,Bus,,77,VALID,"Farmgate, Dhaka",2026-09-21,DMP-2224
+C055,paraphrase,en,No route permit for this transport vehicle,14000,,Rickshaw van,,77,VALID,"Mirpur, Dhaka",2026-04-10,DMP-3423
+C056,paraphrase,en,No route permit for this transport vehicle,28000,77,Truck,,77,INVALID_FINE_TOO_HIGH,"Gulshan, Dhaka",2026-09-22,DMP-9596
+C057,bangla,bn,রুট পারমিট ছাড়া গাড়ি চালানো,6500,,Microbus,,77,VALID,Khulna,2026-03-25,DMP-3320
+C058,bangla,bn,রুট পারমিট ছাড়া গাড়ি চালানো,26000,77,Rickshaw van,,77,INVALID_FINE_TOO_HIGH,"Uttara, Dhaka",2026-09-08,DMP-1783
+C059,standard,en,Violating restrictions on commercial use of a vehicle,17500,79,CNG auto-rickshaw,,79,VALID,"Gulshan, Dhaka",2026-05-04,DMP-1771
+C060,standard,en,Violating restrictions on commercial use of a vehicle,42000,79,Rickshaw van,,79,INVALID_FINE_TOO_HIGH,"Dhanmondi, Dhaka",2026-05-03,DMP-3656
+C061,boundary,en,Violating restrictions on commercial use of a vehicle,25000,,Car,,79,VALID,"Motijheel, Dhaka",2026-01-14,DMP-1024
+C062,paraphrase,en,Private car used for commercial purpose,19000,79,Pickup,,79,VALID,Sylhet,2026-09-17,DMP-5909
+C063,paraphrase,en,Private car used for commercial purpose,45000,79,Bus,,79,INVALID_FINE_TOO_HIGH,"Farmgate, Dhaka",2026-04-24,DMP-1670
+C064,bangla,bn,ব্যক্তিগত গাড়ি বাণিজ্যিক কাজে ব্যবহার,20500,79,Bus,,79,VALID,"Gulshan, Dhaka",2026-06-21,DMP-3196
+C065,bangla,bn,ব্যক্তিগত গাড়ি বাণিজ্যিক কাজে ব্যবহার,37000,79,Car,,79,INVALID_FINE_TOO_HIGH,Khulna,2026-08-19,DMP-3164
+C066,standard,en,Failing to display the fare chart,5500,80,Bus,,80,VALID,"Dhanmondi, Dhaka",2026-08-02,DMP-6238
+C067,standard,en,Failing to display the fare chart,19000,,Rickshaw van,,80,INVALID_FINE_TOO_HIGH,"Mirpur, Dhaka",2026-09-27,DMP-2560
+C068,boundary,en,Failing to display the fare chart,10000,80,Microbus,,80,VALID,Khulna,2026-08-23,DMP-6187
+C069,paraphrase,en,Charging more than the fixed fare,6500,,Car,,80,VALID,"Gulshan, Dhaka",2026-08-29,DMP-7173
+C070,paraphrase,en,Charging more than the fixed fare,13000,80,Pickup,,80,INVALID_FINE_TOO_HIGH,"Mirpur, Dhaka",2026-02-13,DMP-6935
+C071,bangla,bn,ভাড়ার তালিকা প্রদর্শন না করা,5500,80,Car,,80,VALID,Narayanganj,2026-08-06,DMP-1517
+C072,standard,en,Tampering with a taxi meter or overcharging passengers,28000,,Motorcycle,,81,VALID,"Gulshan, Dhaka",2026-02-01,DMP-7264
+C073,standard,en,Tampering with a taxi meter or overcharging passengers,73000,,CNG auto-rickshaw,,81,INVALID_FINE_TOO_HIGH,Khulna,2026-05-22,DMP-3108
+C074,boundary,en,Tampering with a taxi meter or overcharging passengers,50000,81,Pickup,,81,VALID,Narayanganj,2026-01-09,DMP-2582
+C075,paraphrase,en,Overcharged passengers with a tampered meter,24000,81,Microbus,,81,VALID,Chattogram,2026-09-28,DMP-1429
+C076,paraphrase,en,Overcharged passengers with a tampered meter,88000,81,Rickshaw van,,81,INVALID_FINE_TOO_HIGH,"Dhanmondi, Dhaka",2026-05-21,DMP-4681
+C077,bangla,bn,মিটারে কারসাজি করে অতিরিক্ত ভাড়া আদায়,35000,81,Pickup,,81,VALID,Narayanganj,2026-09-29,DMP-3243
+C078,bangla,bn,মিটারে কারসাজি করে অতিরিক্ত ভাড়া আদায়,100000,,Pickup,,81,INVALID_FINE_TOO_HIGH,"Dhanmondi, Dhaka",2026-04-13,DMP-9096
+C079,standard,en,Violating technical specifications of a motor vehicle,135500,,Microbus,,84,VALID,Narayanganj,2026-07-20,DMP-6362
+C080,standard,en,Violating technical specifications of a motor vehicle,554000,84,Pickup,,84,INVALID_FINE_TOO_HIGH,Narayanganj,2026-07-10,DMP-6888
+C081,boundary,en,Violating technical specifications of a motor vehicle,300000,84,CNG auto-rickshaw,,84,VALID,"Uttara, Dhaka",2026-08-05,DMP-2307
+C082,paraphrase,en,Vehicle modified against its technical specification,171500,84,Car,,84,VALID,"Farmgate, Dhaka",2026-06-22,DMP-9403
+C083,paraphrase,en,Vehicle modified against its technical specification,446000,84,Bus,,84,INVALID_FINE_TOO_HIGH,Chattogram,2026-06-22,DMP-6614
+C084,bangla,bn,যানবাহনের কারিগরি বৈশিষ্ট্য লঙ্ঘন,266500,84,Rickshaw van,,84,VALID,Narayanganj,2026-07-19,DMP-3749
+C085,standard,en,Violating traffic signals,5500,,Car,,85,VALID,Sylhet,2026-02-10,DMP-6871
+C086,standard,en,Violating traffic signals,16000,85,Motorcycle,,85,INVALID_FINE_TOO_HIGH,"Motijheel, Dhaka",2026-10-01,DMP-3715
+C087,boundary,en,Violating traffic signals,10000,,CNG auto-rickshaw,,85,VALID,"Uttara, Dhaka",2026-06-28,DMP-5480
+C088,paraphrase,en,Jumped the red light,8500,85,Truck,,85,VALID,"Motijheel, Dhaka",2026-05-13,DMP-7818
+C089,paraphrase,en,Jumped the red light,19000,,Car,,85,INVALID_FINE_TOO_HIGH,Narayanganj,2026-03-28,DMP-8838
+C090,bangla,bn,ট্রাফিক সংকেত অমান্য,7000,,Truck,,85,VALID,"Dhanmondi, Dhaka",2026-06-11,DMP-4767
+C091,bangla,bn,ট্রাফিক সংকেত অমান্য,19000,85,Bus,,85,INVALID_FINE_TOO_HIGH,"Motijheel, Dhaka",2026-04-29,DMP-7287
+C092,standard,en,Overloading a vehicle,67000,,Motorcycle,,86,VALID,"Gulshan, Dhaka",2026-03-08,DMP-1692
+C093,standard,en,Overloading a vehicle,186000,,Truck,,86,INVALID_FINE_TOO_HIGH,"Uttara, Dhaka",2026-08-13,DMP-5241
+C094,boundary,en,Overloading a vehicle,100000,86,Truck,,86,VALID,Chattogram,2026-07-18,DMP-2960
+C095,paraphrase,en,Carrying more weight than permitted,43000,,Car,,86,VALID,Rajshahi,2026-03-29,DMP-4636
+C096,paraphrase,en,Carrying more weight than permitted,171000,86,Car,,86,INVALID_FINE_TOO_HIGH,Gazipur,2026-05-21,DMP-3007
+C097,bangla,bn,অতিরিক্ত মালামাল বহন,36000,86,Rickshaw van,,86,VALID,"Dhanmondi, Dhaka",2026-02-01,DMP-7642
+C098,standard,en,Exceeding the speed limit,7000,,Bus,,87,VALID,Rajshahi,2026-02-07,DMP-6706
+C099,standard,en,Exceeding the speed limit,19000,87,Motorcycle,,87,INVALID_FINE_TOO_HIGH,Gazipur,2026-03-05,DMP-9706
+C100,boundary,en,Exceeding the speed limit,10000,87,CNG auto-rickshaw,,87,VALID,"Uttara, Dhaka",2026-03-21,DMP-1923
+C101,paraphrase,en,Driving too fast,6500,87,Truck,,87,VALID,"Farmgate, Dhaka",2026-01-08,DMP-1946
+C102,paraphrase,en,Driving too fast,16000,87,Motorcycle,,87,INVALID_FINE_TOO_HIGH,"Dhanmondi, Dhaka",2026-08-01,DMP-7747
+C103,bangla,bn,অতিরিক্ত গতিতে গাড়ি চালানো,7000,,Pickup,,87,VALID,"Gulshan, Dhaka",2026-09-09,DMP-2650
+C104,bangla,bn,অতিরিক্ত গতিতে গাড়ি চালানো,19000,,Motorcycle,,87,INVALID_FINE_TOO_HIGH,"Gulshan, Dhaka",2026-06-04,DMP-1699
+C105,standard,en,Illegal use of horn,6500,,Motorcycle,,88,VALID,"Gulshan, Dhaka",2026-09-20,DMP-3110
+C106,standard,en,Illegal use of horn,19000,,Pickup,,88,INVALID_FINE_TOO_HIGH,"Mirpur, Dhaka",2026-10-03,DMP-5442
+C107,boundary,en,Illegal use of horn,10000,88,CNG auto-rickshaw,,88,VALID,"Mirpur, Dhaka",2026-10-07,DMP-5400
+C108,paraphrase,en,Blowing a loud horn in a silent zone,6000,88,Truck,,88,VALID,"Dhanmondi, Dhaka",2026-08-11,DMP-3156
+C109,paraphrase,en,Blowing a loud horn in a silent zone,18000,88,Bus,,88,INVALID_FINE_TOO_HIGH,Rajshahi,2026-07-18,DMP-6085
+C110,bangla,bn,নিষিদ্ধ হর্ন ব্যবহার,6500,,CNG auto-rickshaw,,88,VALID,"Uttara, Dhaka",2026-03-27,DMP-9296
+C111,standard,en,Illegal parking,1500,90,CNG auto-rickshaw,,90,VALID,Gazipur,2026-01-06,DMP-3833
+C112,standard,en,Illegal parking,9000,90,Truck,,90,INVALID_FINE_TOO_HIGH,Narayanganj,2026-04-19,DMP-9217
+C113,boundary,en,Illegal parking,5000,90,Microbus,,90,VALID,"Uttara, Dhaka",2026-08-27,DMP-5609
+C114,paraphrase,en,Parked in a no parking zone,1500,90,CNG auto-rickshaw,,90,VALID,Gazipur,2026-02-14,DMP-3232
+C115,paraphrase,en,Parked in a no parking zone,9000,90,CNG auto-rickshaw,,90,INVALID_FINE_TOO_HIGH,Sylhet,2026-05-04,DMP-3770
+C116,bangla,bn,নিষিদ্ধ স্থানে গাড়ি পার্কিং,2500,,Motorcycle,,90,VALID,Khulna,2026-03-03,DMP-8528
+C117,bangla,bn,নিষিদ্ধ স্থানে গাড়ি পার্কিং,8000,,Pickup,,90,INVALID_FINE_TOO_HIGH,"Motijheel, Dhaka",2026-09-21,DMP-1651
+C118,standard,en,Violating highway rules for fast-moving vehicles,2500,,Car,,91,VALID,"Mirpur, Dhaka",2026-06-04,DMP-1719
+C119,standard,en,Violating highway rules for fast-moving vehicles,8000,91,CNG auto-rickshaw,,91,INVALID_FINE_TOO_HIGH,Chattogram,2026-08-04,DMP-7026
+C120,boundary,en,Violating highway rules for fast-moving vehicles,5000,91,Motorcycle,,91,VALID,"Gulshan, Dhaka",2026-08-07,DMP-6552
+C121,paraphrase,en,Slow vehicle in the fast lane of the highway,1500,91,Pickup,,91,VALID,"Uttara, Dhaka",2026-03-12,DMP-8036
+C122,paraphrase,en,Slow vehicle in the fast lane of the highway,9000,91,Car,,91,INVALID_FINE_TOO_HIGH,"Mirpur, Dhaka",2026-08-20,DMP-7122
+C123,bangla,bn,মহাসড়কে দ্রুতগামী যানের নিয়ম লঙ্ঘন,1500,91,Car,,91,VALID,"Farmgate, Dhaka",2026-06-07,DMP-2161
+C124,bangla,bn,মহাসড়কে দ্রুতগামী যানের নিয়ম লঙ্ঘন,8000,,Rickshaw van,,91,INVALID_FINE_TOO_HIGH,Chattogram,2026-06-21,DMP-4039
+C125,standard,en,Transporting flammable substances improperly,21000,93,Truck,,93,VALID,"Farmgate, Dhaka",2026-02-05,DMP-6692
+C126,standard,en,Transporting flammable substances improperly,44000,,Pickup,,93,INVALID_FINE_TOO_HIGH,Chattogram,2026-05-06,DMP-7117
+C127,boundary,en,Transporting flammable substances improperly,25000,93,Microbus,,93,VALID,Khulna,2026-02-15,DMP-5081
+C128,paraphrase,en,Carrying explosives inside a passenger bus,17000,,Bus,,93,VALID,Chattogram,2026-02-26,DMP-6714
+C129,paraphrase,en,Carrying explosives inside a passenger bus,50000,93,Bus,,93,INVALID_FINE_TOO_HIGH,"Motijheel, Dhaka",2026-09-11,DMP-5007
+C130,bangla,bn,দাহ্য পদার্থ অনিরাপদে পরিবহন,14500,,Motorcycle,,93,VALID,"Mirpur, Dhaka",2026-04-09,DMP-6823
+C131,standard,en,Failure to give treatment to an accident victim,17500,,Motorcycle,,95,VALID,Gazipur,2026-07-17,DMP-5435
+C132,standard,en,Failure to give treatment to an accident victim,32000,,CNG auto-rickshaw,,95,INVALID_FINE_TOO_HIGH,Gazipur,2026-08-09,DMP-5504
+C133,boundary,en,Failure to give treatment to an accident victim,20000,,Pickup,,95,VALID,Sylhet,2026-01-13,DMP-6068
+C134,paraphrase,en,Did not take the injured person to hospital,16500,,CNG auto-rickshaw,,95,VALID,"Motijheel, Dhaka",2026-07-09,DMP-1090
+C135,paraphrase,en,Did not take the injured person to hospital,27000,95,CNG auto-rickshaw,,95,INVALID_FINE_TOO_HIGH,"Mirpur, Dhaka",2026-05-22,DMP-9684
+C136,bangla,bn,দুর্ঘটনায় আহতকে চিকিৎসা না দেওয়া,14500,95,Motorcycle,,95,VALID,"Mirpur, Dhaka",2026-06-05,DMP-7319
+C137,standard,en,Running a driving training school unlawfully,47500,96,Car,,96,VALID,"Farmgate, Dhaka",2026-02-05,DMP-4760
+C138,standard,en,Running a driving training school unlawfully,165000,96,Rickshaw van,,96,INVALID_FINE_TOO_HIGH,Gazipur,2026-09-13,DMP-7362
+C139,boundary,en,Running a driving training school unlawfully,100000,96,Bus,,96,VALID,Khulna,2026-03-10,DMP-1336
+C140,paraphrase,en,Unlicensed driving school,66500,,Rickshaw van,,96,VALID,Narayanganj,2026-08-26,DMP-6164
+C141,paraphrase,en,Unlicensed driving school,199000,96,Truck,,96,INVALID_FINE_TOO_HIGH,Narayanganj,2026-06-19,DMP-4370
+C142,bangla,bn,অনুমোদন ছাড়া ড্রাইভিং স্কুল পরিচালনা,45000,96,Microbus,,96,VALID,"Mirpur, Dhaka",2026-01-27,DMP-4124
+C143,bangla,bn,অনুমোদন ছাড়া ড্রাইভিং স্কুল পরিচালনা,131000,,Microbus,,96,INVALID_FINE_TOO_HIGH,Chattogram,2026-02-24,DMP-7451
+C144,standard,en,Obstructing an inspection,7500,101,Microbus,,101,VALID,Narayanganj,2026-09-18,DMP-5245
+C145,standard,en,Obstructing an inspection,13000,101,Rickshaw van,,101,INVALID_FINE_TOO_HIGH,Narayanganj,2026-03-25,DMP-6820
+C146,boundary,en,Obstructing an inspection,10000,101,Motorcycle,,101,VALID,Chattogram,2026-08-25,DMP-2698
+C147,paraphrase,en,Refused to let the officer inspect the vehicle,6000,,Car,,101,VALID,"Mirpur, Dhaka",2026-06-15,DMP-9509
+C148,paraphrase,en,Refused to let the officer inspect the vehicle,14000,101,Motorcycle,,101,INVALID_FINE_TOO_HIGH,Rajshahi,2026-03-11,DMP-7112
+C149,bangla,bn,পরিদর্শনে বাধা প্রদান,5000,,CNG auto-rickshaw,,101,VALID,Chattogram,2026-04-26,DMP-9012
+C150,bangla,bn,পরিদর্শনে বাধা প্রদান,16000,101,CNG auto-rickshaw,,101,INVALID_FINE_TOO_HIGH,"Mirpur, Dhaka",2026-09-16,DMP-7394
+C151,standard,en,Failure to obey an order or give required information,4500,,Motorcycle,,102,VALID,Rajshahi,2026-03-14,DMP-9244
+C152,standard,en,Failure to obey an order or give required information,18000,102,Microbus,,102,INVALID_FINE_TOO_HIGH,"Farmgate, Dhaka",2026-01-15,DMP-8547
+C153,boundary,en,Failure to obey an order or give required information,10000,,Bus,,102,VALID,Rajshahi,2026-07-29,DMP-6911
+C154,paraphrase,en,Did not give the information the officer asked for,7500,,Truck,,102,VALID,"Mirpur, Dhaka",2026-07-15,DMP-8631
+C155,paraphrase,en,Did not give the information the officer asked for,15000,102,CNG auto-rickshaw,,102,INVALID_FINE_TOO_HIGH,"Mirpur, Dhaka",2026-06-17,DMP-3884
+C156,bangla,bn,আদেশ অমান্য বা তথ্য না দেওয়া,8500,,Rickshaw van,,102,VALID,Khulna,2026-08-04,DMP-3609
+C157,bangla,bn,আদেশ অমান্য বা তথ্য না দেওয়া,19000,102,Car,,102,INVALID_FINE_TOO_HIGH,Gazipur,2026-04-30,DMP-8133
+C158,standard,en,Aggressive behaviour against public order,7000,,Truck,,103,VALID,"Gulshan, Dhaka",2026-09-06,DMP-8014
+C159,standard,en,Aggressive behaviour against public order,19000,103,Car,,103,INVALID_FINE_TOO_HIGH,Rajshahi,2026-02-10,DMP-9505
+C160,boundary,en,Aggressive behaviour against public order,10000,103,Truck,,103,VALID,"Uttara, Dhaka",2026-02-12,DMP-6298
+C161,paraphrase,en,Rude and aggressive conduct on the road,4500,103,Motorcycle,,103,VALID,Sylhet,2026-04-10,DMP-6223
+C162,paraphrase,en,Rude and aggressive conduct on the road,16000,,Pickup,,103,INVALID_FINE_TOO_HIGH,Sylhet,2026-05-04,DMP-5832
+C163,bangla,bn,জনশৃঙ্খলা বিরোধী আক্রমণাত্মক আচরণ,3000,103,Motorcycle,,103,VALID,Chattogram,2026-06-29,DMP-8762
+C164,bangla,bn,জনশৃঙ্খলা বিরোধী আক্রমণাত্মক আচরণ,20000,,Pickup,,103,INVALID_FINE_TOO_HIGH,Gazipur,2026-09-15,DMP-2968
+C165,standard,en,Violating government orders on transport,11000,104,Microbus,,104,VALID,Sylhet,2026-04-20,DMP-6512
+C166,standard,en,Violating government orders on transport,39000,,Rickshaw van,,104,INVALID_FINE_TOO_HIGH,"Mirpur, Dhaka",2026-09-09,DMP-5587
+C167,boundary,en,Violating government orders on transport,20000,,CNG auto-rickshaw,,104,VALID,Chattogram,2026-08-14,DMP-5720
+C168,paraphrase,en,Ignored a government directive on vehicles,13500,104,Bus,,104,VALID,Gazipur,2026-03-23,DMP-7137
+C169,paraphrase,en,Ignored a government directive on vehicles,37000,104,Rickshaw van,,104,INVALID_FINE_TOO_HIGH,Chattogram,2026-07-01,DMP-5656
+C170,bangla,bn,সরকারি আদেশ লঙ্ঘন,6500,104,Truck,,104,VALID,"Mirpur, Dhaka",2026-02-11,DMP-9954
+C171,bangla,bn,সরকারি আদেশ লঙ্ঘন,33000,,Rickshaw van,,104,INVALID_FINE_TOO_HIGH,"Gulshan, Dhaka",2026-06-20,DMP-2213
+C172,standard,en,Reckless driving causing death,318500,,Car,,105,VALID,Khulna,2026-08-10,DMP-7655
+C173,standard,en,Reckless driving causing death,767000,,Truck,,105,INVALID_FINE_TOO_HIGH,"Mirpur, Dhaka",2026-06-23,DMP-7908
+C174,boundary,en,Reckless driving causing death,500000,,Motorcycle,,105,VALID,"Mirpur, Dhaka",2026-03-06,DMP-7072
+C175,paraphrase,en,"Negligent driving, a pedestrian died",204500,,Truck,,105,VALID,"Farmgate, Dhaka",2026-07-03,DMP-1373
+C176,paraphrase,en,"Negligent driving, a pedestrian died",884000,105,Rickshaw van,,105,INVALID_FINE_TOO_HIGH,Narayanganj,2026-03-17,DMP-1796
+C177,bangla,bn,বেপরোয়া গাড়ি চালিয়ে মৃত্যু ঘটানো,376500,,Bus,,105,VALID,Sylhet,2026-02-11,DMP-6793
+C178,unknown,en,Throwing litter from a vehicle window,1000,,Microbus,,none,NEEDS_MANUAL_REVIEW,"Uttara, Dhaka",2026-06-02,DMP-1815
+C179,unknown,en,Jaywalking by a pedestrian,500,,CNG auto-rickshaw,,none,NEEDS_MANUAL_REVIEW,Khulna,2026-10-02,DMP-2479
+C180,unknown,en,Not wearing a helmet,500,,Car,,none,NEEDS_MANUAL_REVIEW,"Gulshan, Dhaka",2026-06-23,DMP-1335
+C181,unknown,en,Smoking inside a bus,3000,,Bus,,none,NEEDS_MANUAL_REVIEW,"Motijheel, Dhaka",2026-09-07,DMP-3834
+C182,unknown,en,Playing loud music at home,500,,Truck,,none,NEEDS_MANUAL_REVIEW,Sylhet,2026-04-07,DMP-5270
+C183,unknown,en,Selling fruit on the footpath,500,,Bus,,none,NEEDS_MANUAL_REVIEW,Sylhet,2026-09-23,DMP-3033
+C184,unknown,en,Late return of a library book,1000,,Rickshaw van,,none,NEEDS_MANUAL_REVIEW,"Motijheel, Dhaka",2026-10-04,DMP-6038
+C185,unknown,en,Expired passport,1000,,Bus,,none,NEEDS_MANUAL_REVIEW,Gazipur,2026-09-28,DMP-8430
+C186,unknown,en,Cutting a roadside tree,5000,,Truck,,none,NEEDS_MANUAL_REVIEW,Sylhet,2026-07-18,DMP-3501
+C187,unknown,en,Using a mobile phone while walking,5000,,Truck,,none,NEEDS_MANUAL_REVIEW,"Dhanmondi, Dhaka",2026-06-03,DMP-1069
+C188,unknown,bn,গাড়ির জানালা দিয়ে ময়লা ফেলা,1000,,CNG auto-rickshaw,,none,NEEDS_MANUAL_REVIEW,"Uttara, Dhaka",2026-03-18,DMP-8612
+C189,unknown,bn,রাস্তায় থুথু ফেলা,1000,,Bus,,none,NEEDS_MANUAL_REVIEW,Sylhet,2026-04-14,DMP-4208
+C190,no_amount,en,Exceeding the speed limit,,,Bus,,87,NEEDS_MANUAL_REVIEW,Rajshahi,2026-02-13,DMP-3846
+C191,no_amount,en,Illegal parking,,,Car,,90,NEEDS_MANUAL_REVIEW,"Motijheel, Dhaka",2026-07-05,DMP-3945
+C192,no_amount,en,Violating traffic signals,,,Motorcycle,,85,NEEDS_MANUAL_REVIEW,Narayanganj,2026-09-02,DMP-4782
+C193,no_amount,en,Driving without a valid tax token,,,Motorcycle,,76,NEEDS_MANUAL_REVIEW,"Uttara, Dhaka",2026-01-28,DMP-9851
+C194,no_ceiling,en,Prohibited extortion related to transport,20000,,Motorcycle,,83,NEEDS_MANUAL_REVIEW,"Farmgate, Dhaka",2026-04-14,DMP-2893
+C195,no_ceiling,en,Prohibited extortion related to transport,50000,83,Bus,,83,NEEDS_MANUAL_REVIEW,"Mirpur, Dhaka",2026-07-29,DMP-5185
+C196,no_ceiling,en,Prohibited extortion related to transport,120000,,CNG auto-rickshaw,,83,NEEDS_MANUAL_REVIEW,Rajshahi,2026-06-28,DMP-8808
+C197,no_ceiling,en,Prohibited extortion related to transport,5000,,Pickup,,83,NEEDS_MANUAL_REVIEW,"Gulshan, Dhaka",2026-05-14,DMP-8293
+C198,below_minimum,en,Operating a vehicle repair workshop unlawfully,5000,,CNG auto-rickshaw,,97,NEEDS_MANUAL_REVIEW,Narayanganj,2026-07-20,DMP-1982
+C199,below_minimum,en,Operating a vehicle repair workshop unlawfully,10000,,CNG auto-rickshaw,,97,NEEDS_MANUAL_REVIEW,"Motijheel, Dhaka",2026-04-10,DMP-7310
+C200,below_minimum,en,Operating a vehicle repair workshop unlawfully,20000,,Bus,,97,NEEDS_MANUAL_REVIEW,"Gulshan, Dhaka",2026-07-05,DMP-1599
+C201,boundary,en,Operating a vehicle repair workshop unlawfully,30000,,Bus,,97,VALID,Sylhet,2026-09-05,DMP-5259
+C202,boundary,en,Operating a vehicle repair workshop unlawfully,120000,,Car,,97,INVALID_FINE_TOO_HIGH,"Gulshan, Dhaka",2026-05-02,DMP-2726
+C203,mismatch,en,Exceeding the speed limit,8500,90,CNG auto-rickshaw,,87,INVALID_REASON_MISMATCH,"Uttara, Dhaka",2026-09-26,DMP-1894
+C204,mismatch,en,Illegal parking,1500,85,Car,,90,INVALID_REASON_MISMATCH,Chattogram,2026-05-07,DMP-8948
+C205,mismatch,en,Violating traffic signals,8500,87,Motorcycle,,85,INVALID_REASON_MISMATCH,Narayanganj,2026-08-26,DMP-8138
+C206,mismatch,en,Driving without a valid tax token,8500,75,CNG auto-rickshaw,,76,INVALID_REASON_MISMATCH,Sylhet,2026-03-06,DMP-5591
+C207,mismatch,en,Driving without a valid fitness certificate,19000,76,Bus,,75,INVALID_REASON_MISMATCH,"Uttara, Dhaka",2026-02-07,DMP-3915
+C208,mismatch,en,Overloading a vehicle,38000,87,Rickshaw van,,86,INVALID_REASON_MISMATCH,Khulna,2026-08-20,DMP-2274
+C209,mismatch,en,Illegal use of horn,7000,85,CNG auto-rickshaw,,88,INVALID_REASON_MISMATCH,"Farmgate, Dhaka",2026-05-14,DMP-8211
+C210,mismatch,en,Obstructing an inspection,7500,102,Car,,101,INVALID_REASON_MISMATCH,Rajshahi,2026-03-16,DMP-7842
+C211,mismatch,en,Failing to display the fare chart,6500,81,Car,,80,INVALID_REASON_MISMATCH,Rajshahi,2026-04-02,DMP-1425
+C212,mismatch,en,Driving without a driving licence,22000,70,Microbus,,66,INVALID_REASON_MISMATCH,Narayanganj,2026-03-16,DMP-2477
+C213,exception,en,Operating without a route permit,15000,,Ambulance,"Ambulance on emergency duty, carrying a patient",77,VALID_BUT_EXCEPTION_POSSIBLE,"Farmgate, Dhaka",2026-08-31,DMP-9180
+C214,exception,en,Operating without a route permit,15000,,Fire service truck,Fire service truck responding to a fire,77,VALID_BUT_EXCEPTION_POSSIBLE,Narayanganj,2026-08-28,DMP-9298
+C215,exception,en,Operating without a route permit,15000,,Truck,Government-owned vehicle carrying relief goods,77,VALID_BUT_EXCEPTION_POSSIBLE,Khulna,2026-01-19,DMP-8442
+C216,exception,en,Operating without a route permit,15000,,Bus,Bus took a different route because the road was flooded,77,VALID_BUT_EXCEPTION_POSSIBLE,"Uttara, Dhaka",2026-01-12,DMP-5308
+C217,exception,en,Operating without a route permit,15000,,Microbus,Vehicle belongs to a recognised driving training centre,77,VALID_BUT_EXCEPTION_POSSIBLE,"Uttara, Dhaka",2026-01-09,DMP-1212
+C218,exception,en,Operating without a route permit,15000,,Van,Mobile library van,77,VALID_BUT_EXCEPTION_POSSIBLE,"Dhanmondi, Dhaka",2026-04-22,DMP-9613
+C219,exception_rejected,en,Exceeding the speed limit,3000,,Bus,"Ambulance rushing a patient, driver claims emergency",87,INVALID_EXCEPTION_NOT_APPLICABLE,"Dhanmondi, Dhaka",2026-09-21,DMP-9129
+C220,exception_rejected,en,Exceeding the speed limit,5500,,Bus,Driver says it was an emergency,87,INVALID_EXCEPTION_NOT_APPLICABLE,"Mirpur, Dhaka",2026-07-03,DMP-4900
+C221,exception_rejected,en,Violating traffic signals,8500,,Rickshaw van,Part of a VIP convoy,85,INVALID_EXCEPTION_NOT_APPLICABLE,Chattogram,2026-07-11,DMP-5243
+C222,exception_rejected,en,Violating traffic signals,8000,,Car,"Police escort, driver claims exemption",85,INVALID_EXCEPTION_NOT_APPLICABLE,"Gulshan, Dhaka",2026-05-02,DMP-7117
+C223,exception_rejected,en,Illegal parking,1500,,Car,Stopped for an emergency,90,INVALID_EXCEPTION_NOT_APPLICABLE,"Uttara, Dhaka",2026-01-08,DMP-7303
+C224,exception_rejected,en,Illegal parking,3500,,Pickup,"Doctor on call, claims exemption",90,INVALID_EXCEPTION_NOT_APPLICABLE,"Gulshan, Dhaka",2026-03-21,DMP-6730
